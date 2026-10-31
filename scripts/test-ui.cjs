@@ -32,7 +32,7 @@ const os=require('node:os');
    quoteCalls++;quoteActive++;quotePeak=Math.max(quotePeak,quoteActive);lastPayload=JSON.parse(route.request().postData());quotePayloads.push(lastPayload);assert.match(route.request().headers()['idempotency-key'],/^[0-9a-f-]{36}$/i);
    if(quoteDelay)await new Promise(r=>setTimeout(r,quoteDelay));
    if(mode==='service-error'||mode==='auth-error'){status=mode==='auth-error'?401:503;data={error:mode==='auth-error'?'Your session has expired. Please sign in again.':'Quote service unavailable. Please retry.'};}
-   else{data={results:results(lastPayload),quotation:mode==='save-failed'?null:{id:'a066b598-0064-4bbb-800f-43d862c884b2',quotationNumber:'ARQ-TEST',revision:(lastPayload.expectedRevision||0)+1},meta:{persistence:mode==='save-failed'?'failed':'saved',auditStatus:'recorded',maxAdvisorDiscountPercent:30}};}
+   else{data={results:results(lastPayload),quotation:mode==='save-failed'?null:{id:'a066b598-0064-4bbb-800f-43d862c884b2',quotationNumber:'TESTQ-TEST',revision:(lastPayload.expectedRevision||0)+1},meta:{persistence:mode==='save-failed'?'failed':'saved',auditStatus:'recorded',maxAdvisorDiscountPercent:30}};}
   }else data={};
   await route.fulfill({status,contentType:'application/json',body:JSON.stringify(data)});
   if(url.endsWith('/api/quote'))quoteActive--;
@@ -78,10 +78,10 @@ const os=require('node:os');
  await page.locator('#manualIdvInput').fill('500000');assert((await page.locator('#manualIdvRange').innerText()).includes('4,25,000'));await page.locator('.manual-idv-dialog button[type=submit]').click();await page.waitForSelector('#screen-policy-details.is-active');
  await page.evaluate(()=>{pdPolicyType.value='comprehensive';pdClaim.value='no';pdNcb.value='20';pdPrevCoverInputs.find(i=>i.value==='none').checked=true;pdAccuracyCheckbox.checked=true;});await page.locator('#pdSaveBtn').click();await page.waitForFunction(()=>currentIDV===500000&&!currentComparisonMeta.loading&&currentResults.length>0);
  assert.deepEqual(await page.evaluate(()=>bounds),{min:425000,max:575000});assert.equal(lastPayload.vehicle.manualIDV,500000);
- stored=await page.evaluate(()=>({id:'a066b598-0064-4bbb-800f-43d862c884b2',quotation_number:'ARQ-SAVED',registration_number:currentRegNumber,owner_name:'Demo Customer',vehicle_details:{...vehicle,policyDetails:currentPolicyDetails},idv_auto_calculated:autoIDV,idv_value:currentIDV,comparison_result:{results:currentResults,meta:{persistence:'saved'}}}));
+ stored=await page.evaluate(()=>({id:'a066b598-0064-4bbb-800f-43d862c884b2',quotation_number:'TESTQ-SAVED',registration_number:currentRegNumber,owner_name:'Demo Customer',vehicle_details:{...vehicle,policyDetails:currentPolicyDetails},idv_auto_calculated:autoIDV,idv_value:currentIDV,comparison_result:{results:currentResults,meta:{persistence:'saved'}}}));
  await page.evaluate(()=>goToReports());await page.locator('.view-saved-quote-btn').click();await page.waitForSelector('#screen-comparison.is-active');assert((await page.locator('#comparisonStatus').innerText()).includes('saved comparison'));assert((await page.locator('#idvAutoNote').innerText()).includes('Manual base IDV'));
  await page.locator('#editVehicleBtn').click();await page.locator('#cancelVehicleEdit').click();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
- const output=process.env.UI_ARTIFACT_DIR||path.join(os.tmpdir(),'ar-advisors-ui');fs.mkdirSync(output,{recursive:true});
+ const output=process.env.UI_ARTIFACT_DIR||path.join(os.tmpdir(),'insurance-testing-ui');fs.mkdirSync(output,{recursive:true});
  await page.screenshot({path:path.join(output,'desktop.png'),fullPage:true});await page.emulateMedia({media:'print'});await page.pdf({path:path.join(output,'comparison.pdf'),preferCSSPageSize:true,printBackground:true});await page.emulateMedia({media:'screen'});
  await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(output,'mobile.png'),fullPage:true});
  assert.deepEqual(errors,[]);console.log('UI passed: source grouping, null prices, ranking, search/sort, mismatches, exports, save/service/auth failures, retry, discount, addons, IDV bounds, manual flow, saved history, desktop/mobile/print.');

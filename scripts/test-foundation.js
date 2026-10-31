@@ -67,7 +67,7 @@ before(async()=>{
   const name='load'+i,id=crypto.randomUUID(),token=crypto.randomUUID(),csrf=crypto.randomUUID();
   tables.advisors.push({id,username:name,name,role:'advisor',approval_status:'approved',is_active:true});
   tables.app_sessions.push({advisor_id:id,token_hash:crypto.createHash('sha256').update(token).digest('hex'),csrf_token:crypto.createHash('sha256').update(csrf).digest('hex'),expires_at:new Date(Date.now()+86400000).toISOString(),revoked_at:null});
-  cookieJars[name]=`ar_session=${token}; ar_csrf=${csrf}`;
+  cookieJars[name]=`test_session=${token}; test_csrf=${csrf}`;
  }
  await listen(remote);remoteBase=`http://127.0.0.1:${remote.address().port}`;
  app=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,NODE_ENV:'development',TRUST_PROXY_HOPS:'0',PORT:'0',HOST:'127.0.0.1',SUPABASE_URL:remoteBase,SUPABASE_SERVICE_ROLE_KEY:'local-test-only',UPSTASH_REDIS_REST_URL:'',UPSTASH_REDIS_REST_TOKEN:'',REDIS_REST_URL:'',REDIS_REST_TOKEN:'',QUOTE_CACHE_TTL_SECONDS:'0',PROVIDER_ALLOWED_HOSTS:'127.0.0.1',ALLOW_INSECURE_PROVIDER_HTTP:'true'},stdio:['ignore','pipe','pipe']});
@@ -80,7 +80,7 @@ before(async()=>{
 });
 after(async()=>{if(process.env.CAPACITY_REPORT){fs.writeFileSync(process.env.CAPACITY_REPORT,JSON.stringify({generatedAt:new Date().toISOString(),node:process.version,environment:'Local HTTP database and insurer stand-ins; one application process, no shared Redis. Not a production capacity guarantee.',measurements},null,2)+'\n');}app?.kill();remote?.closeAllConnections();await new Promise(r=>remote?remote.close(r):r());});
 async function api(url,{user='alice',body,method=body?'POST':'GET',headers={}}={}){
- const cookie=cookieJars[user]||'';const csrf=cookie.match(/ar_csrf=([^;]+)/)?.[1]||'';
+ const cookie=cookieJars[user]||'';const csrf=cookie.match(/test_csrf=([^;]+)/)?.[1]||'';
  const r=await fetch(base+url,{method,headers:{cookie,'content-type':'application/json','x-csrf-token':csrf,...headers},body:body===undefined?undefined:JSON.stringify(body)});
  return {status:r.status,data:await r.json()};
 }
@@ -102,7 +102,7 @@ test('only public files can be served, including encoded and symlink probes',asy
 test('session binding and role permissions reject forged CSRF and advisor administration',async()=>{
  assert.equal((await api('/api/auth/me',{user:'missing'})).status,401);
  assert.equal((await api('/api/admin/users')).status,403);
- const fake='same-cookie-and-header-but-not-session';const cookie=cookieJars.alice.replace(/ar_csrf=[^;]+/,'ar_csrf='+fake);
+ const fake='same-cookie-and-header-but-not-session';const cookie=cookieJars.alice.replace(/test_csrf=[^;]+/,'test_csrf='+fake);
  assert.equal((await api('/api/quote',{body:payload(),headers:{cookie,'x-csrf-token':fake}})).status,403);
  assert.equal((await api('/api/quote',{body:payload(),headers:{origin:'https://different.example'}})).status,403);
 });

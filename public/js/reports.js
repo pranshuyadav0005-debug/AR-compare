@@ -19,7 +19,7 @@
     all: 'Leave blank to see all your quotes...',
     registration: 'Enter registration number...',
     owner: 'Enter vehicle owner name...',
-    quotation: 'Enter quotation number (e.g. ARQ-20260918-ABC123)...'
+    quotation: 'Enter quotation number (e.g. TESTQ-20260918-ABC123)...'
   };
 
   function escape(value) {

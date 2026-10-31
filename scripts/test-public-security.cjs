@@ -14,7 +14,7 @@ async function api(route, body, extra={}) {
 }
 function credentials(response){
  const cookies=response.headers.getSetCookie();
- return {cookie:cookies.map(c=>c.split(';')[0]).join('; '),'x-csrf-token':cookies.find(c=>c.startsWith('ar_csrf=')).split(';')[0].split('=')[1]};
+ return {cookie:cookies.map(c=>c.split(';')[0]).join('; '),'x-csrf-token':cookies.find(c=>c.startsWith('test_csrf=')).split(';')[0].split('=')[1]};
 }
 test('invitation is required and invalid signup performs no database writes',async()=>{
  const count=stack.writes.length;
@@ -27,7 +27,7 @@ test('invited signup ignores injected administrator role and is immediately usab
  const advisor=stack.tables.advisors.find(x=>x.username==='invited');assert.equal(advisor.role,'advisor');assert.equal(advisor.approval_status,'approved');assert.equal(advisor.is_active,true);
  const hash=stack.tables.app_passwords.find(x=>x.advisor_id===advisor.id).password_hash;assert.match(hash,/^scrypt\$/);assert.notEqual(hash,stack.password);
  const login=await api('/api/auth/login',{username:'invited',password:stack.password});assert.equal(login.status,200);assert.equal(login.data.session.role,'advisor');
- const cookies=login.response.headers.getSetCookie();assert(cookies.find(c=>c.startsWith('ar_session=')).includes('HttpOnly'));assert(cookies.every(c=>c.includes('SameSite=Lax')));
+ const cookies=login.response.headers.getSetCookie();assert(cookies.find(c=>c.startsWith('test_session=')).includes('HttpOnly'));assert(cookies.every(c=>c.includes('SameSite=Lax')));
  const headers=credentials(login.response);
  assert.equal((await api('/api/admin/users',undefined,{headers})).status,403);
  assert.equal((await api('/api/auth/logout',{}, {method:'POST',headers:{...headers,'content-type':'application/json','x-csrf-token':'forged'},body:'{}'})).status,403);

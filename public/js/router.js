@@ -64,7 +64,7 @@ function updateAdminFlowShell() {
   });
   const dashboardBrand = document.querySelector('#screen-dashboard .brand-name');
   const dashboardChip = document.querySelector('#screen-dashboard .chip');
-  if (dashboardBrand) dashboardBrand.textContent = adminFlow ? 'AR Advisors — Admin' : 'AR Advisors';
+  if (dashboardBrand) dashboardBrand.textContent = adminFlow ? 'Test Portal — Admin' : 'Test Portal';
   if (dashboardChip) dashboardChip.textContent = adminFlow ? 'Admin' : 'Advisor';
   document.querySelectorAll('#screen-vehicle-details .chip, #screen-policy-details .chip, #screen-comparison .chip').forEach((el) => {
     el.textContent = adminFlow ? 'Admin' : 'Advisor';
