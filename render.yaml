@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: ar-advisors-private-app
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: APP_ORIGIN
+        sync: false
+      - key: REGISTRATION_INVITE_CODE
+        sync: false
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      - key: PROVIDER_ALLOWED_HOSTS
+        sync: false
+      - key: NODE_ENV
+        value: production

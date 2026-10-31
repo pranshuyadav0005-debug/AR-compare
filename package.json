@@ -1,0 +1,30 @@
+{
+  "name": "ar-advisors-insurance-comparison",
+  "private": true,
+  "version": "3.9.0",
+  "description": "Private AR Advisors insurance comparison application with server-side Node.js API.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test:api": "node scripts/test-backend.js",
+    "test:stage4": "node scripts/test-stage4.js",
+    "test:backend": "node scripts/test-backend.js",
+    "test:pricing": "node scripts/test-pricing.js",
+    "test:foundation": "node --test scripts/test-foundation.js",
+    "test": "npm run test:backend && npm run test:pricing && npm run test:stage4 && npm run test:foundation && node --test scripts/test-capacity.js scripts/test-redis.js",
+    "test:ui": "node scripts/test-ui.cjs && node scripts/test-admin-ui.cjs",
+    "test:capacity": "node --test scripts/test-foundation.js scripts/test-capacity.js scripts/test-redis.js",
+    "test:ui:admin": "node scripts/test-admin-ui.cjs",
+    "test:security": "node --test scripts/test-public-security.cjs scripts/test-production-transport.cjs scripts/test-v39-security.cjs",
+    "security:live": "node scripts/check-live-security.js",
+    "bootstrap:admin": "node scripts/bootstrap-admin-offline.js",
+    "test:database": "node --test scripts/test-database-security.cjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.13",
+    "playwright": "1.62.1"
+  }
+}

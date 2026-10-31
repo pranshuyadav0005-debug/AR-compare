@@ -1,0 +1,232 @@
+/* Premium comparison presentation. Existing IDs, handlers and pricing are preserved. */
+#screen-comparison {
+  --text-muted:#66758a; --text-mid:#475569; --text-strong:#14213d;
+  --premium-border:#e1e7ef; --blue-accent:#1e5fbf;
+  background:#f5f7fa; color:#14213d;
+}
+#screen-comparison .content-wrap.wide { max-width:1600px; padding:22px 28px 48px; }
+#screen-comparison .topbar { background:#fff; box-shadow:0 1px 4px #14213d06; }
+#screen-comparison .flow-steps { padding:10px 18px; margin-bottom:16px; box-shadow:none; }
+#screen-comparison .flow-step-label { font-size:12px; }
+#screen-comparison #resultsState { gap:16px; }
+#screen-comparison .glass-panel { border:1px solid var(--premium-border); border-radius:14px; background:#fff; box-shadow:0 3px 14px #14213d04; }
+#screen-comparison #resultsState > .glass-panel:first-child,
+#screen-comparison #resultsState > .glass-panel:nth-of-type(2) { padding:18px 22px !important; background:#fff; border:1px solid var(--premium-border); box-shadow:0 3px 14px #14213d04; }
+#screen-comparison #resultsState > .glass-panel:first-child::before { display:none; }
+#screen-comparison .eyebrow { font-size:11px; letter-spacing:.09em; font-weight:600; color:#66758a; }
+#screen-comparison #vehicleTitle { font-size:23px !important; line-height:1.3; }
+#screen-comparison #vehicleSub { color:#66758a; font-size:12px !important; }
+#screen-comparison #regChip { border-radius:8px; box-shadow:none; font-size:14px; letter-spacing:.045em; font-variant-numeric:tabular-nums; }
+#screen-comparison .comparison-v15-vehicle-grid { grid-template-columns:repeat(8,minmax(0,1fr)); gap:12px; margin-top:14px; padding-top:12px; border-top:1px solid #edf0f5; }
+#screen-comparison .comparison-v15-vehicle-grid > div { padding:0; background:none; border:0; border-radius:0; }
+#screen-comparison .comparison-v15-vehicle-grid span { font-size:11px; text-transform:none; letter-spacing:0; margin-bottom:5px; }
+#screen-comparison .comparison-v15-vehicle-grid strong { font-size:12px; font-weight:600; white-space:normal; overflow-wrap:anywhere; }
+#screen-comparison .comparison-v15-section-head { gap:20px; }
+#screen-comparison #idvValue { font-size:32px; letter-spacing:-.035em; font-variant-numeric:tabular-nums; }
+#screen-comparison .comparison-v15-idv-actions { align-items:flex-end; gap:10px; }
+#screen-comparison .idv-own-wrap { min-width:240px; }
+#screen-comparison .idv-own-wrap label,
+#screen-comparison .discount-own-wrap label { font-size:12px; color:#475569; margin-bottom:7px; }
+#screen-comparison .idv-choice-btn { min-height:40px; padding:10px 15px; font-size:12px; }
+#screen-comparison .inline-input-action { gap:8px; }
+#screen-comparison .inline-input-action input { width:100%; min-height:40px; padding:9px 11px; border:1px solid #cdd7e4; border-radius:8px; font:inherit; font-size:13px; color:#14213d; background:white; }
+#screen-comparison .inline-input-action .btn { min-height:40px; font-size:12px; padding:9px 13px; }
+#screen-comparison .comparison-v15-idv-slider-row { margin-top:12px; }
+#screen-comparison .comparison-v15-idv-slider-row > label,
+#screen-comparison .comparison-v15-idv-slider-row > div { font-size:12px; color:#66758a; }
+#screen-comparison .idv-accessories-block { padding:14px 16px; margin-top:14px; border:1px solid #e8edf4; border-radius:10px; background:#f8fafc; }
+#screen-comparison .idv-accessories-question { font-size:12px; font-weight:600; }
+#screen-comparison .idv-accessories-head { margin-bottom:10px; }
+#screen-comparison .idv-accessories-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+#screen-comparison .idv-accessory-row { font-size:12px; line-height:1.5; gap:8px; }
+#screen-comparison .idv-accessory-input-wrap { margin-left:0; }
+#screen-comparison .comparison-v15-main-grid { grid-template-columns:250px minmax(0,1fr); gap:18px; align-items:start; }
+#screen-comparison .comparison-v15-controls { gap:14px; }
+#screen-comparison .comparison-v15-control-card { padding:17px !important; }
+#screen-comparison .comparison-v15-control-title { padding-bottom:12px; margin-bottom:12px; border-bottom:1px solid #edf0f5; gap:10px; }
+#screen-comparison .comparison-v15-control-title h3 { font-size:14px; }
+#screen-comparison .comparison-v15-control-title p { font-size:12px; line-height:1.5; margin-top:4px; }
+#screen-comparison .control-icon { width:28px; height:28px; flex-basis:28px; border-radius:8px; color:#1e5fbf; background:#edf3fc; }
+#screen-comparison .addon-filter-options { gap:5px; }
+#screen-comparison .addon-filter-option { font-size:12px; line-height:1.5; padding:9px 8px; border:1px solid transparent; border-radius:8px; gap:8px; }
+#screen-comparison .addon-filter-option:hover { background:#f5f8fc; transform:none; }
+#screen-comparison .addon-filter-option:has(input:checked),
+#screen-comparison .toggle-row.is-selected,
+#screen-comparison .discount-choice-btn.is-selected { color:#164fa2; background:#edf4ff; border-color:#c6d9f5; box-shadow:none; }
+#screen-comparison .addon-filter-option:has(input:checked)::after { display:none; }
+#screen-comparison .addon-filter-option input { width:16px; height:16px; accent-color:#1e5fbf; }
+#screen-comparison .toggle-row { font-size:12px; padding:10px; }
+#screen-comparison .addon-filter-clear,
+#screen-comparison .discount-choice-btn { min-height:36px; font-size:12px; padding:8px 10px; }
+#screen-comparison .discount-status { padding:10px; font-size:12px; line-height:1.5; color:#52627a; }
+#screen-comparison .comparison-v15-insurer-card { padding:22px !important; }
+#screen-comparison .comparison-v15-insurer-head { flex-direction:column; align-items:stretch; gap:16px; margin-bottom:16px; }
+#screen-comparison .comparison-v15-insurer-head h2 { font-size:21px; margin-top:4px; }
+#screen-comparison .comparison-v15-table-actions { display:flex; justify-content:flex-start; flex-wrap:wrap; gap:10px; }
+#screen-comparison .comparison-v15-table-actions .insurer-search-input { width:240px; flex:1 1 200px; }
+#screen-comparison .comparison-v15-table-actions select { flex:0 1 225px; min-width:0; }
+#screen-comparison .comparison-v15-table-actions :is(input,select,.btn) { height:40px; border:1px solid #cdd7e4; border-radius:8px; background:#fff; padding:9px 12px; font:inherit; font-size:12px !important; color:#334155; }
+#screen-comparison .comparison-v15-table-actions #exportBtn { margin-left:auto; color:#1e5fbf; border-color:#c6d9f5; background:#f3f7ff; }
+#screen-comparison .selected-addons-summary { font-size:12px; color:#52627a; border:0; background:#f8fafc; border-radius:8px; padding:10px 12px; }
+#screen-comparison .selected-addons-title { font-size:12px; }
+#screen-comparison .addon-chip { padding:5px 9px; font-size:11px; }
+#screen-comparison .comparison-v15-insurer-card .table-scroll { overflow-x:auto; padding:0; }
+#screen-comparison .comparison-v15-insurer-card table.compare-table { min-width:890px !important; table-layout:fixed; border-collapse:separate; border-spacing:0; width:100%; }
+#screen-comparison .compare-table th:nth-child(1), #screen-comparison .compare-table td:nth-child(1) { width:23%; }
+#screen-comparison .compare-table th:nth-child(2), #screen-comparison .compare-table td:nth-child(2) { width:12%; }
+#screen-comparison .compare-table th:nth-child(3), #screen-comparison .compare-table td:nth-child(3) { width:10%; }
+#screen-comparison .compare-table th:nth-child(4), #screen-comparison .compare-table td:nth-child(4) { width:21%; }
+#screen-comparison .compare-table th:nth-child(5), #screen-comparison .compare-table td:nth-child(5) { width:7%; }
+#screen-comparison .compare-table th:nth-child(6), #screen-comparison .compare-table td:nth-child(6) { width:10%; }
+#screen-comparison .compare-table th:nth-child(7), #screen-comparison .compare-table td:nth-child(7) { width:17%; }
+#screen-comparison .compare-table thead th { padding:12px 10px; font-size:11px; line-height:1.5; font-weight:600; letter-spacing:0; text-transform:none; background:#f8fafc; color:#52627a; border-bottom:1px solid #e1e7ef; }
+#screen-comparison .compare-table td { padding:20px 10px; font-size:13px; line-height:1.5; vertical-align:top; background:#fff; border:0; border-bottom:1px solid #e8edf4; border-radius:0; overflow-wrap:normal; transition:background .15s; }
+#screen-comparison .compare-table :is(th,td):is(:nth-child(2),:nth-child(3),:nth-child(5),:nth-child(6),:nth-child(7)) { text-align:right; font-variant-numeric:tabular-nums; }
+#screen-comparison .compare-table tbody tr { box-shadow:none; transform:none; }
+#screen-comparison .compare-table tbody tr:hover { transform:none; box-shadow:none; }
+#screen-comparison .compare-table tbody tr:hover td { background:#f8faff; }
+#screen-comparison .compare-table tbody tr.is-best td { background:#f0faf5; border-bottom-color:#d6eadf; }
+#screen-comparison .compare-table tbody tr.is-best:hover td { background:#eaf7ef; }
+#screen-comparison .compare-table tbody tr.is-best td:first-child { box-shadow:inset 3px 0 #26845b; }
+#screen-comparison .compare-table tbody tr.is-best td:first-child::before { display:none; }
+#screen-comparison .insurer-name { font-size:14px; font-weight:700; line-height:1.4; }
+#screen-comparison .insurer-meta { font-size:11px; line-height:1.6; margin-top:5px; color:#66758a; }
+#screen-comparison .best-badge { display:inline-flex; margin-top:8px; border:1px solid #cbe6d6; padding:3px 7px; border-radius:5px; background:#e6f4ec; color:#216544; font-size:11px; font-weight:600; }
+#screen-comparison .total-premium { font-size:22px; font-weight:750; letter-spacing:-.035em; line-height:1.25; white-space:nowrap; color:#14213d; font-variant-numeric:tabular-nums; }
+#screen-comparison .is-best .total-premium { color:#216544; }
+#screen-comparison .source-tag { display:inline-flex; font-size:11px; margin-top:8px; border-radius:5px; padding:3px 6px; line-height:1.3; letter-spacing:0; text-transform:none; }
+#screen-comparison .source-tag.api { color:#216544; background:#e6f4ec; }
+#screen-comparison .source-tag.fallback { color:#785617; background:#faf3e4; }
+#screen-comparison .od-rate-note,
+#screen-comparison .od-discount-note { font-size:11px; line-height:1.5; white-space:normal; margin-top:5px; }
+#screen-comparison .addon-status { font-size:12px; line-height:1.6; padding:2px 0; overflow-wrap:anywhere; }
+#screen-comparison .addon-none { font-size:12px; color:#66758a; }
+#screen-comparison .insurer-actions { gap:6px; margin-top:12px; }
+#screen-comparison .insurer-actions :is(.plan-details-btn,.insurer-export-btn,.garage-link-btn) { font-size:11px; min-height:30px; padding:5px 8px; border-radius:6px; box-shadow:none; transform:none; }
+#screen-comparison .insurer-actions .plan-details-btn { background:#edf3fc; border:1px solid #d8e5f8; color:#1e5fbf; font-weight:600; }
+#screen-comparison .insurer-actions :is(.insurer-export-btn,.garage-link-btn) { background:transparent; border:1px solid transparent; color:#52627a; font-weight:500; }
+#screen-comparison .insurer-actions :is(.insurer-export-btn,.garage-link-btn):hover { color:#1e5fbf; background:#edf3fc; }
+#screen-comparison .comparison-v15-source-note { font-size:12px; line-height:1.6; color:#66758a; margin-top:14px; }
+#screen-comparison .btn { transition:background .15s,border-color .15s,box-shadow .15s; }
+#screen-comparison .btn:hover { transform:none; }
+#screen-comparison :is(button,a,input,select):focus-visible { outline:2px solid #1e5fbf; outline-offset:3px; }
+#screen-comparison .toggle-row:has(input:focus-visible) { outline:2px solid #1e5fbf; outline-offset:3px; }
+#screen-comparison .plan-modal-dialog { width:min(860px,100%); border-radius:14px; background:#fff; }
+#screen-comparison .plan-modal-head { padding:24px; border-bottom:1px solid #e1e7ef; background:#fff; }
+#screen-comparison .plan-modal-head h2 { font-size:24px; }
+#screen-comparison .plan-modal-head p { font-size:13px; line-height:1.6; }
+#screen-comparison .plan-modal-body { padding:24px; }
+#screen-comparison .plan-detail-grid { gap:12px; }
+#screen-comparison .plan-detail-card { border:1px solid #e1e7ef; background:#f8fafc; border-radius:10px; padding:14px; }
+#screen-comparison .plan-detail-card h3 { font-size:12px; color:#66758a; }
+#screen-comparison .plan-detail-card strong { font-size:17px; font-variant-numeric:tabular-nums; }
+#screen-comparison .plan-detail-card:first-child strong { font-size:24px; color:#0f2a5c; }
+#screen-comparison .plan-detail-section h3 { font-size:14px; }
+#screen-comparison .plan-detail-list { font-size:13px; line-height:1.8; }
+#screen-comparison .plan-breakdown td { font-size:13px; padding:12px 10px; border-bottom:1px solid #e8edf4; }
+#screen-comparison .plan-breakdown td:last-child { text-align:right; font-variant-numeric:tabular-nums; }
+#screen-comparison .plan-breakdown .plan-total-row td { background:#edf4ff; color:#0f2a5c; font-size:20px; font-weight:700; border-bottom:0; }
+#screen-comparison .plan-modal-footer { padding:16px 24px; border-top:1px solid #e1e7ef; background:white; }
+@media (max-width:1200px) {
+  #screen-comparison .comparison-v15-vehicle-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  #screen-comparison .comparison-v15-main-grid { grid-template-columns:225px minmax(0,1fr); }
+  #screen-comparison .idv-accessories-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:900px) {
+  #screen-comparison .comparison-v15-main-grid { grid-template-columns:1fr; }
+  #screen-comparison .comparison-v15-section-head { flex-direction:column; align-items:stretch; }
+  #screen-comparison .comparison-v15-idv-actions { flex-wrap:wrap; width:100%; }
+  #screen-comparison .comparison-v15-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; }
+  #screen-comparison .comparison-v15-controls > :nth-child(2) { grid-column:2; grid-row:1 / span 2; }
+}
+@media (max-width:600px) {
+  #screen-comparison .content-wrap.wide { padding:16px 12px 32px; }
+  #screen-comparison #resultsState > .glass-panel:first-child,
+  #screen-comparison #resultsState > .glass-panel:nth-of-type(2),
+  #screen-comparison .comparison-v15-insurer-card { padding:16px !important; }
+  #screen-comparison .comparison-v15-vehicle-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #screen-comparison .comparison-v15-controls { display:flex; }
+  #screen-comparison .comparison-v15-card-head { align-items:stretch; }
+  #screen-comparison .comparison-v15-head-actions { justify-content:space-between; }
+  #screen-comparison .comparison-v15-idv-actions { display:flex; }
+  #screen-comparison .idv-own-wrap { flex:1 1 100%; min-width:0; }
+  #screen-comparison .idv-accessories-grid { grid-template-columns:1fr; }
+  #screen-comparison .comparison-v15-table-actions :is(.insurer-search-input,select) { width:100%; flex:1 1 100%; }
+  #screen-comparison .comparison-v15-table-actions #exportBtn { margin-left:0; }
+  #screen-comparison .plan-modal-head, #screen-comparison .plan-modal-body { padding:18px; }
+}
+@media print {
+  @page { size:A4 landscape; margin:12mm; }
+  body { background:white !important; display:block; }
+  body > .portal-background, #authGateLoading,
+  .screen:not(#screen-comparison), #screen-comparison .topbar,
+  #screen-comparison #backLink, #screen-comparison .flow-steps,
+  #screen-comparison .comparison-v15-controls,
+  #screen-comparison .comparison-v15-table-actions,
+  #screen-comparison .insurer-actions,
+  #screen-comparison .comparison-v15-idv-actions,
+  #screen-comparison .comparison-v15-idv-slider-row,
+  #screen-comparison .comparison-edit-btn,
+  #screen-comparison .plan-modal, #screen-comparison .vehicle-edit-modal { display:none !important; }
+  #screen-comparison { display:block !important; background:white; min-height:0; }
+  #screen-comparison .content-wrap.wide { padding:0; max-width:none; }
+  #screen-comparison .comparison-v15-main-grid { display:block; }
+  #screen-comparison .glass-panel { box-shadow:none !important; }
+  #screen-comparison .comparison-v15-insurer-card { padding:14px 0 !important; border:0; }
+  #screen-comparison .comparison-v15-insurer-card .table-scroll { overflow:visible; }
+  #screen-comparison .comparison-v15-insurer-card table.compare-table { min-width:0 !important; }
+  #screen-comparison .compare-table tr { break-inside:avoid; }
+  #screen-comparison .compare-table td { padding:12px 8px; }
+  #screen-comparison .compare-table thead { display:table-header-group; }
+  #screen-comparison .total-premium { font-size:20px; }
+  #screen-comparison :is(.best-badge,.is-best td,.source-tag,.plan-total-row td) { print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+}
+@media (prefers-reduced-motion:reduce) { #screen-comparison *, #screen-comparison *::before, #screen-comparison *::after { transition:none !important; animation:none !important; } }
+/* renderComparison sets an inline block display; retain the workspace spacing. */
+#screen-comparison #resultsState[style*="block"] { display:flex !important; }
+#screen-comparison .compare-table tbody tr.is-best { background:none; box-shadow:none; }
+#screen-comparison .best-badge { box-shadow:none; }
+#screen-comparison .best-badge { text-transform:none; letter-spacing:0; }
+#screen-comparison .idv-accessory-input-wrap input { min-height:40px; padding:9px 11px; border:1px solid #cdd7e4; border-radius:8px; color:#14213d; background:#fff; font:inherit; font-size:13px; }
+#screen-comparison .plan-detail-card:nth-child(2) { background:#edf4ff; border-color:#c6d9f5; }
+#screen-comparison .plan-detail-card:nth-child(2) strong { font-size:26px; color:#0f2a5c; }
+@media print {
+  #screen-comparison .comparison-v15-insurer-card { break-before:page; }
+  #screen-comparison .comparison-v15-insurer-head { break-after:avoid; }
+  #screen-comparison .selected-addons-summary { break-inside:avoid; break-after:avoid; }
+  #screen-comparison .eyebrow { letter-spacing:.025em; }
+}
+/* Manual-IDV gate is shared by Vehicle Details and comparison editing. */
+.manual-idv-dialog { width:min(480px,calc(100% - 32px)); max-height:90vh; overflow:auto; padding:28px; border:1px solid #dce4ef; border-radius:16px; background:#fff; color:#14213d; box-shadow:0 24px 80px #14213d33; font-family:Inter,Arial,sans-serif; }
+.manual-idv-dialog::backdrop { background:#10213b80; backdrop-filter:blur(3px); }
+.manual-idv-dialog h2 { font-size:23px; margin:6px 0 12px; }
+.manual-idv-dialog p { font-size:13px; line-height:1.7; color:#52627a; }
+.manual-idv-dialog label { display:block; font-size:13px; font-weight:600; margin:20px 0 8px; }
+.manual-idv-dialog input { width:100%; min-height:46px; border:1px solid #cdd7e4; border-radius:8px; padding:11px 12px; font:inherit; font-size:18px; color:#14213d; }
+.manual-idv-dialog input:focus { outline:2px solid #1e5fbf; outline-offset:2px; }
+.manual-idv-dialog #manualIdvRange { background:#edf4ff; padding:10px 12px; border-radius:8px; color:#164fa2; }
+.manual-idv-dialog #manualIdvError { color:#b42318; }
+.manual-idv-actions { display:flex; gap:12px; justify-content:flex-end; margin-top:20px; }
+.manual-idv-actions .btn { width:auto; font-size:13px; }
+#screen-comparison .comparison-status { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 18px; border:1px solid #d8e5f8; border-radius:10px; background:#edf4ff; color:#164579; font-size:13px; line-height:1.6; }
+#screen-comparison .comparison-status.has-warning { border-color:#ead7af; background:#fff8e9; color:#785617; }
+#screen-comparison .comparison-status .btn { width:auto; min-width:140px; padding:9px 12px; font-size:12px; }
+#screen-comparison .compare-table .quote-group th { text-align:left; background:#f5f7fa; color:#52627a; padding:12px 10px; font-size:12px; font-weight:600; }
+#screen-comparison .compare-table tbody tr.is-estimate td { background:#fffcf4; }
+#screen-comparison .compare-table tbody tr.is-estimate.is-best td:first-child { box-shadow:inset 3px 0 #b78327; }
+#screen-comparison .is-estimate .best-badge { background:#fff1d6; border-color:#ead7af; color:#785617; }
+#screen-comparison .source-tag.estimate { background:#faf3e4; color:#785617; }
+#screen-comparison .source-tag.unavailable { background:#f1f3f6; color:#66758a; }
+#screen-comparison .quote-context { margin-top:7px; color:#66758a; font-size:11px; line-height:1.5; }
+#screen-comparison .quote-issues { margin-top:7px; color:#9a5415; font-size:11px; line-height:1.5; text-align:left; overflow-wrap:anywhere; }
+#screen-comparison #resultsState > .comparison-status { flex-shrink:0; }
+#screen-comparison .btn:disabled { opacity:.55; cursor:not-allowed; }
+@media(max-width:600px) { #screen-comparison .comparison-status { align-items:stretch; flex-direction:column; gap:10px; } }
+@media print { #screen-comparison .comparison-status .btn { display:none; } #screen-comparison .quote-group { break-after:avoid; } }
+
+#screen-comparison .is-estimate.is-best .total-premium { color:#785617; }
+@media print {
+  #screen-comparison .compare-table td { padding:8px 6px; font-size:11px; }
+  #screen-comparison .compare-table .quote-group th { padding:8px 6px; font-size:11px; }
+  #screen-comparison .quote-context, #screen-comparison .quote-issues { font-size:10px; line-height:1.4; margin-top:5px; }
+}

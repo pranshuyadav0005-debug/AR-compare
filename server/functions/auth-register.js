@@ -1,0 +1,43 @@
+const crypto = require('crypto');
+const {atomicAccounts,rpc}=require('./lib/accounts');
+const { json } = require('./lib/http');
+const { select, insert, remove } = require('./lib/supabase');
+const { hashPasswordAsync, createSession, authCookies, sameOrigin } = require('./lib/app-auth');
+const { rateLimit, clientKey } = require('./lib/rate-limit');
+
+exports.handler = async event => {
+  if (event.httpMethod === 'OPTIONS') return json(204, {});
+  if (event.httpMethod !== 'POST') return json(405, { error: 'Method not allowed' });
+  if (!sameOrigin(event)) return json(403, { error: 'Cross-origin request blocked.' });
+  const rl = await rateLimit(`signup:${clientKey(event)}`, require('./lib/config').signupIpRateLimit, 900);
+  if (!rl.allowed) return json(429, { error: 'Too many signup attempts. Please try again later.' });
+  if (!process.env.REGISTRATION_INVITE_CODE) return json(403, { error: 'Registration is closed. Contact your administrator.' });
+  let b; try { b = JSON.parse(event.body || '{}'); } catch { return json(400, { error: 'Invalid JSON.' }); }
+  if (!b || typeof b !== 'object' || Array.isArray(b)) return json(400, { error: 'Invalid request.' });
+  if (typeof b.inviteCode !== 'string' || b.inviteCode.length>256) return json(403,{error:'A valid advisor invitation code is required.'});
+  const supplied = crypto.createHash('sha256').update(String(b.inviteCode || '')).digest();
+  const expected = crypto.createHash('sha256').update(process.env.REGISTRATION_INVITE_CODE).digest();
+  if (!crypto.timingSafeEqual(supplied, expected)) return json(403, { error: 'A valid advisor invitation code is required.' });
+  if (typeof b.name !== 'string' || typeof b.username !== 'string' || typeof b.password !== 'string') return json(400,{error:'Account fields must be strings.'});
+  const name = String(b.name || '').trim();
+  const username = String(b.username || '').trim().toLowerCase();
+  const password = String(b.password || '');
+  if (name.length < 2 || name.length > 100) return json(400, { error: 'Enter a valid full name.' });
+  if (!/^[a-z0-9._-]{3,40}$/.test(username)) return json(400, { error: 'Username must be 3–40 characters and use letters, numbers, dot, underscore or hyphen.' });
+  if (password.length < 15 || password.length > 128) return json(400, { error: 'Password must be 15–128 characters.' });
+  const taken = await select('advisors', `username=eq.${encodeURIComponent(username)}&select=id&limit=1`);
+  if (taken?.length) return json(409, { error: 'That username is already taken.' });
+  const id = crypto.randomUUID();
+  if (atomicAccounts()) {
+    await rpc('app_provision_advisor',{p_id:id,p_name:name,p_username:username,p_password_hash:await hashPasswordAsync(password),p_actor:null});
+    return json(201,{ok:true,message:'Account created. You can sign in now.'});
+  }
+  await insert('advisors', { id, name, username, role: 'advisor', approval_status: 'approved', is_active: true }, 'return=minimal');
+  try {
+    await insert('app_passwords', { advisor_id: id, password_hash: await hashPasswordAsync(password), updated_at: new Date().toISOString() }, 'return=minimal');
+  } catch (err) {
+    await remove('advisors', `id=eq.${encodeURIComponent(id)}`).catch(() => {});
+    throw err;
+  }
+  return json(201, { ok: true, message: 'Account created. You can sign in now.' });
+};

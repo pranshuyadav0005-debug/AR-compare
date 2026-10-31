@@ -1,0 +1,62 @@
+-- DEVELOPMENT TEST RATE MATRIX: 5 insurers × vehicle category × fuel type, plus differentiated add-ons.
+-- All OD/add-on figures below are synthetic development rates, not official insurer tariffs.
+-- ===========================================================
+-- Real, IRDAI-licensed insurers + fallback rate cards — mirrors
+-- js/insurer-data.js so the DB-backed path (get-comparison Edge
+-- Function) and the client-side fallback produce comparable
+-- numbers. Run this AFTER schema.sql. Safe to re-run (uses
+-- ON CONFLICT).
+--
+-- rate_rules.tp_base here is a flat approximation (this schema
+-- doesn't have a per-vehicle-segment TP table like the real
+-- IRDAI ICE/EV tariff bands in js/insurer-data.js — see
+-- get-comparison/index.ts for where that would be extended).
+-- od_rate_per_idv / ncb_percent / claim_ratio are the same
+-- admin-maintained estimates as js/insurer-data.js's odRate /
+-- ncbPercent / claimRatio (garages is public, rest is not
+-- publicly rate-carded — see the disclaimer in that file).
+--
+-- All five start as 'fallback_only' — they'll show up in the
+-- comparison immediately, tagged "Fallback", using the rate_rules
+-- below. Flip an insurer's api_status to 'live' and set
+-- api_config.endpoint once you have a real API integration for it
+-- (see get-comparison/index.ts).
+-- ===========================================================
+
+insert into insurers (id, name, rating, garage_count, api_status, garage_url)
+values
+  ('a1111111-1111-1111-1111-111111111111', 'ICICI Lombard General Insurance', 4.4, 7500, 'fallback_only', 'https://www.icicilombard.com/cashless-garages'),
+  ('a2222222-2222-2222-2222-222222222222', 'HDFC ERGO General Insurance', 4.3, 6800, 'fallback_only', 'https://www.hdfcergo.com/locators/cashless-garages-networks'),
+  ('a3333333-3333-3333-3333-333333333333', 'Bajaj Allianz General Insurance', 4.1, 4000, 'fallback_only', 'https://www.bajajallianz.com/branch-locator.html'),
+  ('a4444444-4444-4444-4444-444444444444', 'Tata AIG General Insurance', 4.5, 7500, 'fallback_only', 'https://www.tataaig.com/locator/cashless-car-network-garages'),
+  ('a5555555-5555-5555-5555-555555555555', 'Reliance General Insurance', 3.9, 5600, 'fallback_only', 'https://www.reliancegeneral.co.in/Insurance/Self-Help/Cashless-Garages-and-Hospitals.aspx?network=Garages')
+on conflict (id) do update set
+  name = excluded.name,
+  garage_url = excluded.garage_url,
+  rating = excluded.rating,
+  garage_count = excluded.garage_count;
+
+insert into rate_cards (insurer_id, vehicle_category, rate_rules)
+values
+  ('a1111111-1111-1111-1111-111111111111', 'default', '{
+    "vehicle_fuel_od_rates": {"Hatchback":{"Petrol":3.04,"Diesel":3.192,"CNG":3.283,"LPG":3.344,"EV":3.344,"Hybrid":2.949,"Plug-in Hybrid":2.949,"Mild Hybrid":3.101,"CNG Hybrid":3.162},"Sedan":{"Petrol":3.2,"Diesel":3.36,"CNG":3.456,"LPG":3.52,"EV":3.52,"Hybrid":3.104,"Plug-in Hybrid":3.104,"Mild Hybrid":3.264,"CNG Hybrid":3.328},"SUV":{"Petrol":3.68,"Diesel":3.864,"CNG":3.974,"LPG":4.048,"EV":4.048,"Hybrid":3.57,"Plug-in Hybrid":3.57,"Mild Hybrid":3.754,"CNG Hybrid":3.827},"MUV":{"Petrol":3.68,"Diesel":3.864,"CNG":3.974,"LPG":4.048,"EV":4.048,"Hybrid":3.57,"Plug-in Hybrid":3.57,"Mild Hybrid":3.754,"CNG Hybrid":3.827},"Pickup":{"Petrol":3.2,"Diesel":3.36,"CNG":3.456,"LPG":3.52,"EV":3.52,"Hybrid":3.104,"Plug-in Hybrid":3.104,"Mild Hybrid":3.264,"CNG Hybrid":3.328},"Coupe":{"Petrol":3.2,"Diesel":3.36,"CNG":3.456,"LPG":3.52,"EV":3.52,"Hybrid":3.104,"Plug-in Hybrid":3.104,"Mild Hybrid":3.264,"CNG Hybrid":3.328},"Convertible":{"Petrol":3.2,"Diesel":3.36,"CNG":3.456,"LPG":3.52,"EV":3.52,"Hybrid":3.104,"Plug-in Hybrid":3.104,"Mild Hybrid":3.264,"CNG Hybrid":3.328},"Luxury":{"Petrol":4.32,"Diesel":4.536,"CNG":4.666,"LPG":4.752,"EV":4.752,"Hybrid":4.19,"Plug-in Hybrid":4.19,"Mild Hybrid":4.406,"CNG Hybrid":4.493},"Other":{"Petrol":3.2,"Diesel":3.36,"CNG":3.456,"LPG":3.52,"EV":3.52,"Hybrid":3.104,"Plug-in Hybrid":3.104,"Mild Hybrid":3.264,"CNG Hybrid":3.328}}, "od_rate_per_idv": 0.032, "tp_base": 2094, "ncb_percent": 35, "claim_ratio": 87, "fuel_type_loadings": {"Petrol":0,"Diesel":5,"CNG":8,"LPG":10,"Electric":10,"Petrol Hybrid":-3,"Petrol Mild-Hybrid":2},
+    "addons": [{"name": "Zero Depreciation", "rate_per_idv": 0.008}, {"name": "Roadside Assistance", "flat": 300}, {"name": "Engine Protect", "rate_per_idv": 0.0035}, {"name": "Return to Invoice", "rate_per_idv": 0.0025}, {"name": "Consumables Cover", "rate_per_idv": 0.0015}, {"name": "Key Protect", "flat": 180}]
+  }'::jsonb),
+  ('a2222222-2222-2222-2222-222222222222', 'default', '{
+    "vehicle_fuel_od_rates": {"Hatchback":{"Petrol":2.85,"Diesel":2.993,"CNG":3.078,"LPG":3.135,"EV":3.135,"Hybrid":2.764,"Plug-in Hybrid":2.764,"Mild Hybrid":2.907,"CNG Hybrid":2.964},"Sedan":{"Petrol":3.0,"Diesel":3.15,"CNG":3.24,"LPG":3.3,"EV":3.3,"Hybrid":2.91,"Plug-in Hybrid":2.91,"Mild Hybrid":3.06,"CNG Hybrid":3.12},"SUV":{"Petrol":3.45,"Diesel":3.623,"CNG":3.726,"LPG":3.795,"EV":3.795,"Hybrid":3.346,"Plug-in Hybrid":3.346,"Mild Hybrid":3.519,"CNG Hybrid":3.588},"MUV":{"Petrol":3.45,"Diesel":3.623,"CNG":3.726,"LPG":3.795,"EV":3.795,"Hybrid":3.346,"Plug-in Hybrid":3.346,"Mild Hybrid":3.519,"CNG Hybrid":3.588},"Pickup":{"Petrol":3.0,"Diesel":3.15,"CNG":3.24,"LPG":3.3,"EV":3.3,"Hybrid":2.91,"Plug-in Hybrid":2.91,"Mild Hybrid":3.06,"CNG Hybrid":3.12},"Coupe":{"Petrol":3.0,"Diesel":3.15,"CNG":3.24,"LPG":3.3,"EV":3.3,"Hybrid":2.91,"Plug-in Hybrid":2.91,"Mild Hybrid":3.06,"CNG Hybrid":3.12},"Convertible":{"Petrol":3.0,"Diesel":3.15,"CNG":3.24,"LPG":3.3,"EV":3.3,"Hybrid":2.91,"Plug-in Hybrid":2.91,"Mild Hybrid":3.06,"CNG Hybrid":3.12},"Luxury":{"Petrol":4.05,"Diesel":4.253,"CNG":4.374,"LPG":4.455,"EV":4.455,"Hybrid":3.929,"Plug-in Hybrid":3.929,"Mild Hybrid":4.131,"CNG Hybrid":4.212},"Other":{"Petrol":3.0,"Diesel":3.15,"CNG":3.24,"LPG":3.3,"EV":3.3,"Hybrid":2.91,"Plug-in Hybrid":2.91,"Mild Hybrid":3.06,"CNG Hybrid":3.12}}, "od_rate_per_idv": 0.030, "tp_base": 2094, "ncb_percent": 25, "claim_ratio": 91, "fuel_type_loadings": {"Petrol":0,"Diesel":5,"CNG":8,"LPG":10,"Electric":10,"Petrol Hybrid":-3,"Petrol Mild-Hybrid":2},
+    "addons": [{"name": "Zero Depreciation", "rate_per_idv": 0.0075}, {"name": "Roadside Assistance", "flat": 275}, {"name": "Engine Protect", "rate_per_idv": 0.0032}, {"name": "Return to Invoice", "rate_per_idv": 0.0023}, {"name": "Consumables Cover", "rate_per_idv": 0.0014}, {"name": "Key Protect", "flat": 165}]
+  }'::jsonb),
+  ('a3333333-3333-3333-3333-333333333333', 'default', '{
+    "vehicle_fuel_od_rates": {"Hatchback":{"Petrol":2.755,"Diesel":2.893,"CNG":2.975,"LPG":3.031,"EV":3.031,"Hybrid":2.672,"Plug-in Hybrid":2.672,"Mild Hybrid":2.81,"CNG Hybrid":2.865},"Sedan":{"Petrol":2.9,"Diesel":3.045,"CNG":3.132,"LPG":3.19,"EV":3.19,"Hybrid":2.813,"Plug-in Hybrid":2.813,"Mild Hybrid":2.958,"CNG Hybrid":3.016},"SUV":{"Petrol":3.335,"Diesel":3.502,"CNG":3.602,"LPG":3.669,"EV":3.669,"Hybrid":3.235,"Plug-in Hybrid":3.235,"Mild Hybrid":3.402,"CNG Hybrid":3.468},"MUV":{"Petrol":3.335,"Diesel":3.502,"CNG":3.602,"LPG":3.669,"EV":3.669,"Hybrid":3.235,"Plug-in Hybrid":3.235,"Mild Hybrid":3.402,"CNG Hybrid":3.468},"Pickup":{"Petrol":2.9,"Diesel":3.045,"CNG":3.132,"LPG":3.19,"EV":3.19,"Hybrid":2.813,"Plug-in Hybrid":2.813,"Mild Hybrid":2.958,"CNG Hybrid":3.016},"Coupe":{"Petrol":2.9,"Diesel":3.045,"CNG":3.132,"LPG":3.19,"EV":3.19,"Hybrid":2.813,"Plug-in Hybrid":2.813,"Mild Hybrid":2.958,"CNG Hybrid":3.016},"Convertible":{"Petrol":2.9,"Diesel":3.045,"CNG":3.132,"LPG":3.19,"EV":3.19,"Hybrid":2.813,"Plug-in Hybrid":2.813,"Mild Hybrid":2.958,"CNG Hybrid":3.016},"Luxury":{"Petrol":3.915,"Diesel":4.111,"CNG":4.228,"LPG":4.307,"EV":4.307,"Hybrid":3.798,"Plug-in Hybrid":3.798,"Mild Hybrid":3.993,"CNG Hybrid":4.072},"Other":{"Petrol":2.9,"Diesel":3.045,"CNG":3.132,"LPG":3.19,"EV":3.19,"Hybrid":2.813,"Plug-in Hybrid":2.813,"Mild Hybrid":2.958,"CNG Hybrid":3.016}}, "od_rate_per_idv": 0.029, "tp_base": 2094, "ncb_percent": 20, "claim_ratio": 94, "fuel_type_loadings": {"Petrol":0,"Diesel":5,"CNG":8,"LPG":10,"Electric":10,"Petrol Hybrid":-3,"Petrol Mild-Hybrid":2},
+    "addons": [{"name": "Zero Depreciation", "rate_per_idv": 0.007}, {"name": "Roadside Assistance", "flat": 250}, {"name": "Engine Protect", "rate_per_idv": 0.003}, {"name": "Return to Invoice", "rate_per_idv": 0.0021}, {"name": "Consumables Cover", "rate_per_idv": 0.0013}, {"name": "Key Protect", "flat": 150}]
+  }'::jsonb),
+  ('a4444444-4444-4444-4444-444444444444', 'default', '{
+    "vehicle_fuel_od_rates": {"Hatchback":{"Petrol":3.23,"Diesel":3.392,"CNG":3.488,"LPG":3.553,"EV":3.553,"Hybrid":3.133,"Plug-in Hybrid":3.133,"Mild Hybrid":3.295,"CNG Hybrid":3.359},"Sedan":{"Petrol":3.4,"Diesel":3.57,"CNG":3.672,"LPG":3.74,"EV":3.74,"Hybrid":3.298,"Plug-in Hybrid":3.298,"Mild Hybrid":3.468,"CNG Hybrid":3.536},"SUV":{"Petrol":3.91,"Diesel":4.106,"CNG":4.223,"LPG":4.301,"EV":4.301,"Hybrid":3.793,"Plug-in Hybrid":3.793,"Mild Hybrid":3.988,"CNG Hybrid":4.066},"MUV":{"Petrol":3.91,"Diesel":4.106,"CNG":4.223,"LPG":4.301,"EV":4.301,"Hybrid":3.793,"Plug-in Hybrid":3.793,"Mild Hybrid":3.988,"CNG Hybrid":4.066},"Pickup":{"Petrol":3.4,"Diesel":3.57,"CNG":3.672,"LPG":3.74,"EV":3.74,"Hybrid":3.298,"Plug-in Hybrid":3.298,"Mild Hybrid":3.468,"CNG Hybrid":3.536},"Coupe":{"Petrol":3.4,"Diesel":3.57,"CNG":3.672,"LPG":3.74,"EV":3.74,"Hybrid":3.298,"Plug-in Hybrid":3.298,"Mild Hybrid":3.468,"CNG Hybrid":3.536},"Convertible":{"Petrol":3.4,"Diesel":3.57,"CNG":3.672,"LPG":3.74,"EV":3.74,"Hybrid":3.298,"Plug-in Hybrid":3.298,"Mild Hybrid":3.468,"CNG Hybrid":3.536},"Luxury":{"Petrol":4.59,"Diesel":4.82,"CNG":4.957,"LPG":5.049,"EV":5.049,"Hybrid":4.452,"Plug-in Hybrid":4.452,"Mild Hybrid":4.682,"CNG Hybrid":4.774},"Other":{"Petrol":3.4,"Diesel":3.57,"CNG":3.672,"LPG":3.74,"EV":3.74,"Hybrid":3.298,"Plug-in Hybrid":3.298,"Mild Hybrid":3.468,"CNG Hybrid":3.536}}, "od_rate_per_idv": 0.034, "tp_base": 2094, "ncb_percent": 45, "claim_ratio": 89, "fuel_type_loadings": {"Petrol":0,"Diesel":5,"CNG":8,"LPG":10,"Electric":10,"Petrol Hybrid":-3,"Petrol Mild-Hybrid":2},
+    "addons": [{"name": "Zero Depreciation", "rate_per_idv": 0.009}, {"name": "Roadside Assistance", "flat": 350}, {"name": "Engine Protect", "rate_per_idv": 0.0038}, {"name": "Return to Invoice", "rate_per_idv": 0.0027}, {"name": "Consumables Cover", "rate_per_idv": 0.0017}, {"name": "Key Protect", "flat": 195}]
+  }'::jsonb),
+  ('a5555555-5555-5555-5555-555555555555', 'default', '{
+    "vehicle_fuel_od_rates": {"Hatchback":{"Petrol":2.945,"Diesel":3.092,"CNG":3.181,"LPG":3.24,"EV":3.24,"Hybrid":2.857,"Plug-in Hybrid":2.857,"Mild Hybrid":3.004,"CNG Hybrid":3.063},"Sedan":{"Petrol":3.1,"Diesel":3.255,"CNG":3.348,"LPG":3.41,"EV":3.41,"Hybrid":3.007,"Plug-in Hybrid":3.007,"Mild Hybrid":3.162,"CNG Hybrid":3.224},"SUV":{"Petrol":3.565,"Diesel":3.743,"CNG":3.85,"LPG":3.921,"EV":3.921,"Hybrid":3.458,"Plug-in Hybrid":3.458,"Mild Hybrid":3.636,"CNG Hybrid":3.708},"MUV":{"Petrol":3.565,"Diesel":3.743,"CNG":3.85,"LPG":3.921,"EV":3.921,"Hybrid":3.458,"Plug-in Hybrid":3.458,"Mild Hybrid":3.636,"CNG Hybrid":3.708},"Pickup":{"Petrol":3.1,"Diesel":3.255,"CNG":3.348,"LPG":3.41,"EV":3.41,"Hybrid":3.007,"Plug-in Hybrid":3.007,"Mild Hybrid":3.162,"CNG Hybrid":3.224},"Coupe":{"Petrol":3.1,"Diesel":3.255,"CNG":3.348,"LPG":3.41,"EV":3.41,"Hybrid":3.007,"Plug-in Hybrid":3.007,"Mild Hybrid":3.162,"CNG Hybrid":3.224},"Convertible":{"Petrol":3.1,"Diesel":3.255,"CNG":3.348,"LPG":3.41,"EV":3.41,"Hybrid":3.007,"Plug-in Hybrid":3.007,"Mild Hybrid":3.162,"CNG Hybrid":3.224},"Luxury":{"Petrol":4.185,"Diesel":4.394,"CNG":4.52,"LPG":4.604,"EV":4.604,"Hybrid":4.059,"Plug-in Hybrid":4.059,"Mild Hybrid":4.269,"CNG Hybrid":4.352},"Other":{"Petrol":3.1,"Diesel":3.255,"CNG":3.348,"LPG":3.41,"EV":3.41,"Hybrid":3.007,"Plug-in Hybrid":3.007,"Mild Hybrid":3.162,"CNG Hybrid":3.224}}, "od_rate_per_idv": 0.031, "tp_base": 2094, "ncb_percent": 0, "claim_ratio": 83, "fuel_type_loadings": {"Petrol":0,"Diesel":5,"CNG":8,"LPG":10,"Electric":10,"Petrol Hybrid":-3,"Petrol Mild-Hybrid":2},
+    "addons": [{"name": "Zero Depreciation", "rate_per_idv": 0.008}, {"name": "Roadside Assistance", "flat": 300}, {"name": "Engine Protect", "rate_per_idv": 0.0034}, {"name": "Return to Invoice", "rate_per_idv": 0.0024}, {"name": "Consumables Cover", "rate_per_idv": 0.0015}, {"name": "Key Protect", "flat": 175}]
+  }'::jsonb)
+on conflict (insurer_id, vehicle_category) do update set
+  rate_rules = excluded.rate_rules;

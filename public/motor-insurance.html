@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AR Advisors — Motor Insurance</title>
+<link rel="icon" type="image/png" href="assets/ar-advisors-shield.png" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/comparison-premium.css" />
+<link rel="stylesheet" href="css/workspace.css" />
+</head>
+<body>
+
+
+<div class="portal-background" aria-hidden="true"></div>
+<div id="authGateLoading" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#f5f8fd;">
+  <div style="width:34px;height:34px;border-radius:50%;border:3px solid #dce5f2;border-top-color:#1e5fbf;animation:authGateSpin .7s linear infinite;"></div>
+</div>
+<style>@keyframes authGateSpin{to{transform:rotate(360deg)}}</style>
+
+<!-- ===================== LOGIN SCREEN ===================== -->
+<div class="screen" id="screen-login">
+  <div class="auth-split">
+    <div class="auth-illustration">
+      <div class="auth-logo-block">
+        <img class="auth-brand-logo" src="assets/ar-advisors-logo-transparent.png" alt="AR Advisors" />
+        <div class="auth-logo-divider"></div>
+        <div class="auth-tagline">AR ADVISORS<br /><span>INSURANCE DESK</span></div>
+      </div>
+      <h1 class="auth-headline">One desk.<br /><span>More confidence.</span></h1>
+      <p class="auth-intro">Bring every car insurance comparison into focus. A dedicated workspace for your advisory team.</p><div class="auth-journey"><span>01 · Vehicle</span><span>02 · IDV</span><span>03 · Compare</span></div>
+      <div class="auth-illustration-art">
+        <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="90" cy="46" rx="34" ry="14" fill="#FFFFFF" opacity="0.7" />
+          <ellipse cx="430" cy="30" rx="26" ry="10" fill="#FFFFFF" opacity="0.6" />
+          <rect x="20" y="110" width="46" height="90" rx="4" fill="#C9D9F5" />
+          <rect x="72" y="80" width="54" height="120" rx="4" fill="#B7CBF0" />
+          <rect x="132" y="130" width="40" height="70" rx="4" fill="#D3E0F7" />
+          <rect x="380" y="100" width="48" height="100" rx="4" fill="#C9D9F5" />
+          <rect x="434" y="70" width="56" height="130" rx="4" fill="#B7CBF0" />
+          <g fill="#8FB3EC">
+            <rect x="30" y="122" width="8" height="8" rx="1.5" /><rect x="46" y="122" width="8" height="8" rx="1.5" />
+            <rect x="30" y="140" width="8" height="8" rx="1.5" /><rect x="46" y="140" width="8" height="8" rx="1.5" />
+            <rect x="84" y="94" width="8" height="8" rx="1.5" /><rect x="102" y="94" width="8" height="8" rx="1.5" />
+            <rect x="84" y="112" width="8" height="8" rx="1.5" /><rect x="102" y="112" width="8" height="8" rx="1.5" />
+            <rect x="84" y="130" width="8" height="8" rx="1.5" /><rect x="102" y="130" width="8" height="8" rx="1.5" />
+            <rect x="392" y="114" width="8" height="8" rx="1.5" /><rect x="408" y="114" width="8" height="8" rx="1.5" />
+            <rect x="446" y="84" width="8" height="8" rx="1.5" /><rect x="464" y="84" width="8" height="8" rx="1.5" />
+            <rect x="446" y="102" width="8" height="8" rx="1.5" /><rect x="464" y="102" width="8" height="8" rx="1.5" />
+          </g>
+          <circle cx="245" cy="150" r="16" fill="#9BCFA9" />
+          <rect x="242" y="163" width="6" height="16" fill="#B98554" />
+          <rect x="0" y="200" width="520" height="40" fill="#D7DEEA" />
+          <rect x="10" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <rect x="56" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <rect x="102" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <rect x="148" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <g>
+            <rect x="290" y="182" width="86" height="26" rx="8" fill="#1E5FBF" />
+            <rect x="300" y="170" width="52" height="20" rx="6" fill="#17AEC4" />
+            <rect x="306" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
+            <rect x="326" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
+            <circle cx="308" cy="210" r="9" fill="#14213D" />
+            <circle cx="358" cy="210" r="9" fill="#14213D" />
+            <circle cx="308" cy="210" r="3.5" fill="#C9D9F5" />
+            <circle cx="358" cy="210" r="3.5" fill="#C9D9F5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="auth-form-panel">
+      <div class="auth-form-inner">
+        <div class="auth-eyebrow">THE ADVISOR WORKSPACE</div><h2 class="auth-heading">Welcome back</h2>
+        <p class="auth-description">Sign in to your insurance desk.</p><div id="loginInfoBanner" class="banner banner-info" role="status"><span id="loginInfoText"></span></div>
+
+        <div id="errorBanner" class="banner banner-error" role="alert">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          <span id="errorBannerText">Something went wrong.</span>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field" id="usernameField">
+            <label for="loginUsername">Username <span class="req">*</span></label>
+            <input type="text" id="loginUsername" name="username" maxlength="40" autocapitalize="none" spellcheck="false" placeholder="Enter your username" autocomplete="username" />
+            <div class="field-error">Enter your username.</div>
+          </div>
+          <div class="field" id="passwordField">
+            <label for="loginPassword">Password <span class="req">*</span></label>
+            <div class="password-field-wrapper">
+              <input type="password" id="loginPassword" name="password" maxlength="128" placeholder="••••••••" autocomplete="current-password" />
+              <button type="button" class="password-toggle-btn" data-target="loginPassword" aria-label="Show password">
+                <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a18.6 18.6 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              </button>
+            </div>
+            <div class="field-error">Enter your password.</div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="loginBtn" style="margin-top: 6px;">
+            <span class="spinner"></span>
+            <span class="btn-label" id="loginBtnLabel">Sign in</span>
+          </button>
+        </form>
+
+        <p style="text-align: center; font-size: 13px; margin-top: 20px; color: var(--text-secondary);">
+          New here? <button type="button" class="text-link" id="goToSignupLink">Create an account</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SIGN UP SCREEN ===================== -->
+<div class="screen" id="screen-signup">
+  <div class="auth-split">
+    <div class="auth-illustration">
+      <div class="auth-logo-block">
+        <img class="auth-brand-logo" src="assets/ar-advisors-logo-transparent.png" alt="AR Advisors" />
+        <div class="auth-logo-divider"></div>
+        <div class="auth-tagline">AR ADVISORS<br /><span>INSURANCE DESK</span></div>
+      </div>
+      <h1 class="auth-headline">Your next chapter.<br /><span>Starts here.</span></h1>
+      <p class="auth-intro">Bring every car insurance comparison into focus. A dedicated workspace for your advisory team.</p><div class="auth-journey"><span>01 · Vehicle</span><span>02 · IDV</span><span>03 · Compare</span></div>
+      <div class="auth-illustration-art">
+        <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="90" cy="46" rx="34" ry="14" fill="#FFFFFF" opacity="0.7" />
+          <ellipse cx="430" cy="30" rx="26" ry="10" fill="#FFFFFF" opacity="0.6" />
+          <rect x="20" y="110" width="46" height="90" rx="4" fill="#C9D9F5" />
+          <rect x="72" y="80" width="54" height="120" rx="4" fill="#B7CBF0" />
+          <rect x="132" y="130" width="40" height="70" rx="4" fill="#D3E0F7" />
+          <rect x="380" y="100" width="48" height="100" rx="4" fill="#C9D9F5" />
+          <rect x="434" y="70" width="56" height="130" rx="4" fill="#B7CBF0" />
+          <g fill="#8FB3EC">
+            <rect x="30" y="122" width="8" height="8" rx="1.5" /><rect x="46" y="122" width="8" height="8" rx="1.5" />
+            <rect x="30" y="140" width="8" height="8" rx="1.5" /><rect x="46" y="140" width="8" height="8" rx="1.5" />
+            <rect x="84" y="94" width="8" height="8" rx="1.5" /><rect x="102" y="94" width="8" height="8" rx="1.5" />
+            <rect x="84" y="112" width="8" height="8" rx="1.5" /><rect x="102" y="112" width="8" height="8" rx="1.5" />
+            <rect x="84" y="130" width="8" height="8" rx="1.5" /><rect x="102" y="130" width="8" height="8" rx="1.5" />
+            <rect x="392" y="114" width="8" height="8" rx="1.5" /><rect x="408" y="114" width="8" height="8" rx="1.5" />
+            <rect x="446" y="84" width="8" height="8" rx="1.5" /><rect x="464" y="84" width="8" height="8" rx="1.5" />
+            <rect x="446" y="102" width="8" height="8" rx="1.5" /><rect x="464" y="102" width="8" height="8" rx="1.5" />
+          </g>
+          <circle cx="245" cy="150" r="16" fill="#9BCFA9" />
+          <rect x="242" y="163" width="6" height="16" fill="#B98554" />
+          <rect x="0" y="200" width="520" height="40" fill="#D7DEEA" />
+          <rect x="10" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <rect x="56" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <rect x="102" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <rect x="148" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
+          <g>
+            <rect x="290" y="182" width="86" height="26" rx="8" fill="#1E5FBF" />
+            <rect x="300" y="170" width="52" height="20" rx="6" fill="#17AEC4" />
+            <rect x="306" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
+            <rect x="326" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
+            <circle cx="308" cy="210" r="9" fill="#14213D" />
+            <circle cx="358" cy="210" r="9" fill="#14213D" />
+            <circle cx="308" cy="210" r="3.5" fill="#C9D9F5" />
+            <circle cx="358" cy="210" r="3.5" fill="#C9D9F5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="auth-form-panel">
+      <div class="auth-form-inner">
+        <div class="auth-eyebrow">JOIN THE TEAM</div><h2 class="auth-heading">Request access</h2><p class="auth-description">Create your advisor account. An administrator will review your request.</p>
+
+        <div id="signupErrorBanner" class="banner banner-error" role="alert">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          <span id="signupErrorBannerText">Something went wrong.</span>
+        </div>
+
+        <div id="signupInfoBanner" class="banner banner-info">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span id="signupInfoBannerText">Account created. Your request has been sent to the Admin for approval. You can log in after approval.</span>
+        </div>
+
+        <form id="signupForm" novalidate>
+          <div class="field" id="signupNameField">
+            <label for="signupName">Full name <span class="req">*</span></label>
+            <input type="text" id="signupName" maxlength="100" placeholder="Riya Sharma" autocomplete="name" />
+            <div class="field-error">Enter your name.</div>
+          </div>
+          <div class="field" id="signupUsernameField">
+            <label for="signupUsername">Username <span class="req">*</span></label>
+            <input type="text" id="signupUsername" maxlength="40" autocapitalize="none" spellcheck="false" placeholder="riyasharma" autocomplete="username" />
+            <div class="field-error">Choose a username.</div>
+          </div>
+          <div class="field" id="signupPasswordField">
+            <label for="signupPassword">Password <span class="req">*</span></label>
+            <div class="password-field-wrapper">
+              <input type="password" id="signupPassword" maxlength="128" placeholder="••••••••" autocomplete="new-password" />
+              <button type="button" class="password-toggle-btn" data-target="signupPassword" aria-label="Show password">
+                <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a18.6 18.6 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              </button>
+            </div>
+            <div class="field-error">Use at least 10 characters.</div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="signupBtn" style="margin-top: 6px;">
+            <span class="spinner"></span>
+            <span class="btn-label">Create account</span>
+          </button>
+        </form>
+
+        <p style="text-align: center; font-size: 13px; margin-top: 20px; color: var(--text-secondary);">
+          Already have an account? <button type="button" class="text-link" id="goToLoginLink">Log in</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DASHBOARD SCREEN ===================== -->
+<div class="screen" id="screen-dashboard">
+  <div class="topbar advisor-topbar dashboard-topbar">
+    <div class="topbar-left">
+      <img class="header-brand-logo" src="assets/ar-advisors-shield.png" alt="AR Advisors" />
+      <div class="topbar-brand-text">
+        <span class="topbar-brand-name">AR ADVISORS</span>
+        <span class="topbar-brand-subtitle">INSURANCE COMPARISON PORTAL</span>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <nav class="topbar-nav" aria-label="Primary">
+        <button type="button" class="topbar-nav-link is-active" data-nav-dashboard>Dashboard</button>
+        <button type="button" class="topbar-nav-link">Quotes</button>
+        <button type="button" class="topbar-nav-link" data-nav-reports>Reports</button>
+      </nav>
+      <form class="topbar-search-form" role="search" aria-label="Search all quotes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="topbar-search-input" placeholder="Search all quotes..." aria-label="Search all quotes" autocomplete="off" />
+      </form>
+    </div>
+    <div class="topbar-right">
+      <button class="btn admin-flow-back advisor-flow-back-admin" id="adminRegistrationBack" type="button" style="display:none; width:auto; padding:8px 12px;">Back to Admin</button>
+      <button class="btn-icon-ghost notif-btn" type="button" title="Notifications" aria-label="Notifications">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-dot" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="advisor-menu">
+        <span class="advisor-avatar" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <span class="advisor-info">
+          <span class="advisor-hello">Welcome back</span>
+          <span class="advisor-name" data-advisor-name>Advisor</span>
+        </span>
+        <svg class="advisor-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="btn-icon-ghost" id="signOutBtn1" title="Sign out" aria-label="Sign out">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="dashboard-welcome">
+      <div class="page-heading dashboard-heading">
+        <div class="greeting-eyebrow">YOUR AR ADVISORS DASHBOARD</div>
+        <h1 id="greeting">GOOD MORNING</h1>
+        <p id="greetingMessage">Every great comparison starts with a great decision. Let's make today count.</p>
+      </div>
+      <div class="daily-quote-card" aria-live="polite">
+        <div class="daily-quote-label">Today's quote is,</div>
+        <blockquote id="dailyQuote">Small steps every day create remarkable results.</blockquote>
+        <div class="daily-quote-mark">“</div>
+      </div>
+    </div>
+
+    <div class="glass-panel lookup-card">
+      <div class="lookup-card-head">
+        <div class="lookup-card-head-text">
+          <div class="section-kicker">Vehicle Lookup</div>
+          <h2 class="lookup-card-title">Find Vehicle Details</h2>
+          <p class="lookup-card-subtitle">Enter the vehicle details to fetch information and compare insurance quotes.</p>
+        </div>
+        <div class="quick-lookup-note">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <div><strong>Quick Lookup</strong><span>Registration details auto-fill vehicle &amp; owner info</span></div>
+        </div>
+      </div>
+
+      <div class="lookup-steps" aria-hidden="true">
+        <div class="lookup-step is-active">
+          <span class="lookup-step-num">1</span>
+          <span class="lookup-step-label">Vehicle Details</span>
+        </div>
+        <div class="lookup-step-line"></div>
+        <div class="lookup-step">
+          <span class="lookup-step-num">2</span>
+          <span class="lookup-step-label">View Quotes</span>
+        </div>
+        <div class="lookup-step-line"></div>
+        <div class="lookup-step">
+          <span class="lookup-step-num">3</span>
+          <span class="lookup-step-label">Compare &amp; Proceed</span>
+        </div>
+      </div>
+
+      <div id="lookupError" class="banner banner-error" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span id="lookupErrorText">Couldn't find that registration number.</span>
+      </div>
+
+      <form id="regForm" novalidate>
+        <div class="field" id="regTypeField">
+          <label for="regType">Registration Type</label>
+          <input type="hidden" id="regType" value="">
+          <div class="choice-grid" id="regTypeChoices" role="radiogroup" aria-label="Registration type">
+            <button type="button" class="choice-card" data-value="normal" aria-pressed="false">
+              <span class="choice-card-top">
+                <span class="choice-icon" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 7l2 6"/><path d="M2 13h20v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></svg>
+                </span>
+                <span class="choice-radio" aria-hidden="true"></span>
+              </span>
+              <span class="choice-title">Normal Registration</span>
+              <span class="choice-desc">Regular state registration</span>
+            </button>
+            <button type="button" class="choice-card" data-value="bh" aria-pressed="false">
+              <span class="choice-card-top">
+                <span class="choice-icon" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 7l2 6"/><path d="M2 13h20v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></svg>
+                </span>
+                <span class="choice-radio" aria-hidden="true"></span>
+              </span>
+              <span class="choice-title">BH Registration</span>
+              <span class="choice-desc">Bharat Series registration</span>
+            </button>
+          </div>
+          <div class="field-error">Select the registration type.</div>
+        </div>
+        <div class="field" id="regField">
+          <label for="regNumber">Registration Number</label>
+          <div class="input-icon-wrap">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="14" x2="10" y2="14"/><line x1="13" y1="14" x2="18" y2="14"/></svg>
+            <input type="text" id="regNumber" class="plate-input" maxlength="13" autocomplete="off" placeholder="Enter vehicle registration number" />
+          </div>
+          <div class="field-hint">Enter without spaces</div>
+          <div class="field-error">Enter a valid registration number, e.g. MH12AB1234.</div>
+        </div>
+        <button type="submit" class="btn btn-primary lookup-cta" id="lookupBtn">
+          <span class="spinner"></span>
+          <svg class="btn-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span class="btn-label">Look up vehicle</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+    </div>
+
+    <div class="trust-bar">
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        <div><strong>Secure &amp; Encrypted</strong><span>Your data is safe with us</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </span>
+        <div><strong>Real-time Data</strong><span>Latest vehicle information</span></div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <div><strong>Trusted by Advisors</strong><span>Professional insurance comparison</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VEHICLE DETAILS SCREEN ===================== -->
+<div class="screen" id="screen-vehicle-details">
+  <div class="topbar advisor-topbar dashboard-topbar">
+    <div class="topbar-left">
+      <img class="header-brand-logo" src="assets/ar-advisors-shield.png" alt="AR Advisors" />
+      <div class="topbar-brand-text">
+        <span class="topbar-brand-name">AR ADVISORS</span>
+        <span class="topbar-brand-subtitle">INSURANCE COMPARISON PORTAL</span>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <nav class="topbar-nav" aria-label="Primary">
+        <button type="button" class="topbar-nav-link" data-nav-dashboard>Dashboard</button>
+        <button type="button" class="topbar-nav-link is-active">Quotes</button>
+        <button type="button" class="topbar-nav-link" data-nav-reports>Reports</button>
+      </nav>
+      <form class="topbar-search-form" role="search" aria-label="Search all quotes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="topbar-search-input" placeholder="Search all quotes..." aria-label="Search all quotes" autocomplete="off" />
+      </form>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-icon-ghost portal-home-btn" id="homeBtnVehicleDetails" type="button" title="Home" aria-label="Home">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5"/>
+          <path d="M5.5 9.5V21h13V9.5"/>
+          <path d="M9.5 21v-6h5v6"/>
+        </svg>
+      </button>
+      <button class="btn-icon-ghost notif-btn" type="button" title="Notifications" aria-label="Notifications">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-dot" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="advisor-menu">
+        <span class="advisor-avatar" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <span class="advisor-info">
+          <span class="advisor-hello">Welcome back</span>
+          <span class="advisor-name" data-advisor-name>Advisor</span>
+        </span>
+        <svg class="advisor-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="btn-icon-ghost" id="signOutBtn4" title="Sign out" aria-label="Sign out">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-wrap wide vehicle-details-layout">
+    <a class="text-link vehicle-back-link" id="vdBackLink">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Dashboard
+    </a>
+
+    <div class="page-heading vehicle-page-heading">
+      <h1>Vehicle Details</h1>
+      <p id="vdRegSub">Review the vehicle information below.</p>
+    </div>
+
+    <div class="flow-steps" aria-hidden="true">
+      <div class="flow-step is-done">
+        <span class="flow-step-num"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="flow-step-label">Vehicle Owner</span>
+      </div>
+      <div class="flow-step-line is-done"></div>
+      <div class="flow-step is-active">
+        <span class="flow-step-num">2</span>
+        <span class="flow-step-label">Vehicle Details</span>
+      </div>
+      <div class="flow-step-line"></div>
+      <div class="flow-step">
+        <span class="flow-step-num">3</span>
+        <span class="flow-step-label">Policy Details</span>
+      </div>
+      <div class="flow-step-line"></div>
+      <div class="flow-step">
+        <span class="flow-step-num">4</span>
+        <span class="flow-step-label">Compare &amp; Proceed</span>
+      </div>
+    </div>
+
+    <div class="vehicle-summary-card glass-panel">
+      <div class="section-kicker">Vehicle Summary</div>
+      <div class="vehicle-summary-grid">
+        <div class="summary-item"><span class="summary-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></span><div><span class="summary-label">First Name</span><strong id="vdSummaryName">—</strong></div></div>
+        <div class="summary-item"><span class="summary-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M9 16h6M9 8h1"/><rect x="5" y="4" width="14" height="17" rx="2"/></svg></span><div><span class="summary-label">Registration Type</span><strong id="vdSummaryRegType">—</strong></div></div>
+        <div class="summary-item"><span class="summary-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="14" x2="10" y2="14"/><line x1="13" y1="14" x2="18" y2="14"/></svg></span><div><span class="summary-label">Registration Number</span><strong id="vdSummaryRegNumber">—</strong></div></div>
+      </div>
+    </div>
+
+    <div id="vdError" class="banner banner-error vehicle-error">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span id="vdErrorText">Please fill in all fields.</span>
+    </div>
+
+    <form id="vehicleDetailsForm" class="vehicle-details-form" novalidate>
+      <section class="details-card glass-panel" aria-labelledby="vehicleInfoHeading">
+        <div class="details-card-heading">
+          <span class="details-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 7l2 6"/><path d="M2 13h20v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></svg></span>
+          <div><h2 id="vehicleInfoHeading">Vehicle Details</h2><p>Vehicle information used for the comparison.</p></div>
+        </div>
+        <div class="details-fields-grid">
+          <div class="field" id="vdNameField">
+            <label for="vdName">Vehicle Owner's First Name</label>
+            <div class="input-icon-wrap">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="vdName" autocomplete="given-name" placeholder="Enter first name" />
+            </div>
+            <div class="field-error">Enter the customer's first name.</div>
+          </div>
+          <div class="field" id="vdManufacturerField">
+            <label for="vdManufacturer">Manufacturer</label>
+            <div class="autocomplete-wrap"><input type="text" id="vdManufacturer" placeholder="Search manufacturer..." autocomplete="off" /><input type="hidden" id="vdManufacturerValue" /><div class="autocomplete-list" id="vdManufacturerList"></div></div>
+            <div class="field-error">Select a manufacturer.</div>
+          </div>
+          <div class="field" id="vdCarNameField">
+            <label for="vdCarName">Car name</label>
+            <div class="autocomplete-wrap"><input type="text" id="vdCarName" placeholder="Select a manufacturer first" autocomplete="off" disabled /><input type="hidden" id="vdCarNameValue" /><div class="autocomplete-list" id="vdCarNameList"></div></div>
+            <div class="field-error">Select a car.</div>
+          </div>
+          <div class="field" id="vdFuelTypeField">
+            <label for="vdFuelType">Fuel type</label>
+            <select id="vdFuelType" disabled><option value="">Select a car first</option></select>
+            <div class="field-error">Select a fuel type.</div>
+          </div>
+          <div class="field" id="vdVariantField">
+            <label for="vdVariant">Variant</label>
+            <div class="autocomplete-wrap"><input type="text" id="vdVariant" placeholder="Select a fuel type first" autocomplete="off" disabled /><input type="hidden" id="vdVariantValue" /><div class="autocomplete-list" id="vdVariantList"></div></div>
+            <div class="field-error">Select a variant.</div>
+          </div>
+          <div class="field" id="vdRegisteredDateField">
+            <label for="vdRegisteredDate">Vehicle registered date</label>
+            <input type="date" id="vdRegisteredDate" />
+            <div class="field-error">Enter the vehicle's registration date (must not be in the future).</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="details-card glass-panel policy-details-card" aria-labelledby="policyInfoHeading">
+        <div class="details-card-heading">
+          <span class="details-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span>
+          <div><h2 id="policyInfoHeading">Policy Details</h2><p>Existing policy information.</p></div>
+        </div>
+        <div class="details-fields-grid single-policy-field">
+          <div class="field" id="vdPolicyExpiryField">
+            <label for="vdPolicyExpiry">Policy expiry date</label>
+            <input type="date" id="vdPolicyExpiry" />
+            <div class="field-error">Enter the policy expiry date.</div>
+          </div>
+        </div>
+        <div class="policy-note">The policy expiry date will be used in the comparison flow.</div>
+      </section>
+
+      <div class="vehicle-details-actions">
+        <button type="submit" class="btn btn-primary flow-cta" id="vdSaveBtn">
+          <span class="spinner"></span><span class="btn-label">Continue to Quote</span><span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== POLICY DETAILS SCREEN ===================== -->
+<div class="screen" id="screen-policy-details">
+  <div class="topbar advisor-topbar dashboard-topbar">
+    <div class="topbar-left">
+      <img class="header-brand-logo" src="assets/ar-advisors-shield.png" alt="AR Advisors" />
+      <div class="topbar-brand-text">
+        <span class="topbar-brand-name">AR ADVISORS</span>
+        <span class="topbar-brand-subtitle">INSURANCE COMPARISON PORTAL</span>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <nav class="topbar-nav" aria-label="Primary">
+        <button type="button" class="topbar-nav-link" data-nav-dashboard>Dashboard</button>
+        <button type="button" class="topbar-nav-link is-active">Quotes</button>
+        <button type="button" class="topbar-nav-link" data-nav-reports>Reports</button>
+      </nav>
+      <form class="topbar-search-form" role="search" aria-label="Search all quotes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="topbar-search-input" placeholder="Search all quotes..." aria-label="Search all quotes" autocomplete="off" />
+      </form>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-icon-ghost portal-home-btn" id="homeBtnPolicyDetails" type="button" title="Home" aria-label="Home">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5"/>
+          <path d="M5.5 9.5V21h13V9.5"/>
+          <path d="M9.5 21v-6h5v6"/>
+        </svg>
+      </button>
+      <button class="btn-icon-ghost notif-btn" type="button" title="Notifications" aria-label="Notifications">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-dot" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="advisor-menu">
+        <span class="advisor-avatar" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <span class="advisor-info">
+          <span class="advisor-hello">Welcome back</span>
+          <span class="advisor-name" data-advisor-name>Advisor</span>
+        </span>
+        <svg class="advisor-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="btn-icon-ghost" id="signOutBtn5" title="Sign out" aria-label="Sign out">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <a class="text-link" id="pdBackLink" style="font-size: 13px; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 18px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back
+    </a>
+
+    <div class="page-heading">
+      <h1>Policy details</h1>
+      <p>Confirm the existing policy details to complete the comparison request.</p>
+    </div>
+
+    <div class="flow-steps" aria-hidden="true">
+      <div class="flow-step is-done">
+        <span class="flow-step-num"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="flow-step-label">Vehicle Owner</span>
+      </div>
+      <div class="flow-step-line is-done"></div>
+      <div class="flow-step is-done">
+        <span class="flow-step-num"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="flow-step-label">Vehicle Details</span>
+      </div>
+      <div class="flow-step-line is-done"></div>
+      <div class="flow-step is-active">
+        <span class="flow-step-num">3</span>
+        <span class="flow-step-label">Policy Details</span>
+      </div>
+      <div class="flow-step-line"></div>
+      <div class="flow-step">
+        <span class="flow-step-num">4</span>
+        <span class="flow-step-label">Compare &amp; Proceed</span>
+      </div>
+    </div>
+
+    <div class="glass-panel lookup-card">
+      <div class="lookup-card-head">
+        <div class="lookup-card-head-text">
+          <div class="section-kicker">Policy Information</div>
+          <h2 class="lookup-card-title">Existing Policy Details</h2>
+          <p class="lookup-card-subtitle">Tell us about the current policy so we can compare renewal options accurately.</p>
+        </div>
+      </div>
+
+      <div id="pdError" class="banner banner-error" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span id="pdErrorText">Please fill in all fields.</span>
+      </div>
+
+      <form id="policyDetailsForm" novalidate>
+        <div class="field" id="pdPolicyTypeField">
+          <label for="pdPolicyType">Insurance Type</label>
+          <input type="hidden" id="pdPolicyType" value="">
+          <div class="choice-grid" id="pdPolicyTypeChoices" role="radiogroup" aria-label="Insurance type">
+            <button type="button" class="choice-card" data-value="standalone" aria-pressed="false">
+              <span class="choice-card-top">
+                <span class="choice-icon" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 7l2 6"/><path d="M2 13h20v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></svg>
+                </span>
+                <span class="choice-radio" aria-hidden="true"></span>
+              </span>
+              <span class="choice-title">Standalone</span>
+              <span class="choice-desc">Own Damage (OD) only</span>
+            </button>
+            <button type="button" class="choice-card" data-value="comprehensive" aria-pressed="false">
+              <span class="choice-card-top">
+                <span class="choice-icon" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                <span class="choice-radio" aria-hidden="true"></span>
+              </span>
+              <span class="choice-title">Comprehensive</span>
+              <span class="choice-desc">Own Damage + Third Party</span>
+            </button>
+          </div>
+          <div class="field-error">Select the insurance type.</div>
+        </div>
+        <div class="field" id="pdClaimField">
+          <label for="pdClaim">Any claim made in the previous policy year?</label>
+          <select id="pdClaim">
+            <option value="">Select an option</option>
+            <option value="no">No claim</option>
+            <option value="yes">Yes, a claim was made</option>
+          </select>
+          <div class="field-error">Select whether a claim was made.</div>
+        </div>
+
+        <div class="field" id="pdPrevCoverField">
+          <label>Previous policy cover <span class="req">*</span></label>
+          <div class="prev-cover-options" id="pdPrevCoverOptions">
+            <label class="prev-cover-option"><input type="checkbox" value="zero_dep"><span>Zero Depreciation</span></label>
+            <label class="prev-cover-option"><input type="checkbox" value="rti"><span>Return To Invoice (RTI)</span></label>
+            <label class="prev-cover-option"><input type="checkbox" value="engine_protection"><span>Engine Protection</span></label>
+            <label class="prev-cover-option"><input type="checkbox" value="none" id="pdPrevCoverNone"><span>None of these</span></label>
+          </div>
+          <div class="field-error">Select the previous policy cover — choose "None of these" if not applicable.</div>
+        </div>
+
+        <div class="field" id="pdTpExpiryField" style="display:none;">
+          <label for="pdTpExpiry">Third-party policy expiry date</label>
+          <input type="date" id="pdTpExpiry" />
+          <div class="field-error">Enter the TP expiry date.</div>
+        </div>
+
+        <div class="field" id="pdNcbField">
+          <label for="pdNcb">No Claim Bonus (NCB)</label>
+          <select id="pdNcb">
+            <option value="0">0%</option>
+            <option value="20">20%</option>
+            <option value="25">25%</option>
+            <option value="35">35%</option>
+            <option value="45">45%</option>
+            <option value="50">50%</option>
+          </select>
+          <div class="field-error">Select the NCB percentage.</div>
+        </div>
+
+        <div class="field" id="pdAccuracyField">
+          <label class="prev-cover-option" style="align-items:flex-start;">
+            <input type="checkbox" id="pdAccuracyCheckbox" />
+            <span>I confirm the registration number and vehicle details entered are accurate to the best of my knowledge. <span class="req">*</span></span>
+          </label>
+          <div class="field-error">Please confirm the vehicle details are accurate before continuing.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary flow-cta" id="pdSaveBtn" style="margin-top: 6px;">
+          <span class="spinner"></span>
+          <span class="btn-label">Continue to comparison</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== COMPARISON SCREEN ===================== -->
+<div class="screen" id="screen-comparison">
+  <div class="topbar advisor-topbar dashboard-topbar">
+    <div class="topbar-left">
+      <img class="header-brand-logo" src="assets/ar-advisors-shield.png" alt="AR Advisors" />
+      <div class="topbar-brand-text">
+        <span class="topbar-brand-name">AR ADVISORS</span>
+        <span class="topbar-brand-subtitle">INSURANCE COMPARISON PORTAL</span>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <nav class="topbar-nav" aria-label="Primary">
+        <button type="button" class="topbar-nav-link" data-nav-dashboard>Dashboard</button>
+        <button type="button" class="topbar-nav-link is-active">Quotes</button>
+        <button type="button" class="topbar-nav-link" data-nav-reports>Reports</button>
+      </nav>
+      <form class="topbar-search-form" role="search" aria-label="Search all quotes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="topbar-search-input" placeholder="Search saved quotations..." aria-label="Search all quotes" autocomplete="off" />
+      </form>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-icon-ghost portal-home-btn" id="homeBtnComparison" type="button" title="Home" aria-label="Home">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5"/>
+          <path d="M5.5 9.5V21h13V9.5"/>
+          <path d="M9.5 21v-6h5v6"/>
+        </svg>
+      </button>
+      <button class="btn-icon-ghost notif-btn" type="button" title="Notifications" aria-label="Notifications">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-dot" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="advisor-menu">
+        <span class="advisor-avatar" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <span class="advisor-info">
+          <span class="advisor-hello">Welcome back</span>
+          <span class="advisor-name" data-advisor-name>Advisor</span>
+        </span>
+        <svg class="advisor-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <button class="btn-icon-ghost" id="signOutBtn2" title="Sign out" aria-label="Sign out">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-wrap wide comparison-v15-wrap">
+    <a class="text-link" id="backLink" style="font-size:13px;display:inline-flex;align-items:center;gap:5px;margin-bottom:14px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back
+    </a>
+
+    <div class="flow-steps" aria-hidden="true">
+      <div class="flow-step is-done">
+        <span class="flow-step-num"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="flow-step-label">Vehicle Owner</span>
+      </div>
+      <div class="flow-step-line is-done"></div>
+      <div class="flow-step is-done">
+        <span class="flow-step-num"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="flow-step-label">Vehicle Details</span>
+      </div>
+      <div class="flow-step-line is-done"></div>
+      <div class="flow-step is-done">
+        <span class="flow-step-num"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="flow-step-label">Policy Details</span>
+      </div>
+      <div class="flow-step-line is-done"></div>
+      <div class="flow-step is-active">
+        <span class="flow-step-num">4</span>
+        <span class="flow-step-label">Compare &amp; Proceed</span>
+      </div>
+    </div>
+
+    <div id="loadingState">
+      <div class="glass-panel comparison-loading-card"><div class="skeleton-line" style="width:42%;margin-bottom:14px;"></div><div class="skeleton-line" style="width:72%;"></div></div>
+      <div class="glass-panel comparison-loading-card"><div class="skeleton-line" style="width:28%;margin-bottom:16px;"></div><div class="skeleton-line" style="width:100%;margin-bottom:10px;"></div><div class="skeleton-line" style="width:100%;"></div></div>
+    </div>
+
+    <div id="resultsState" style="display:none;">
+      <!-- 1. VEHICLE DETAILS -->
+      <section class="glass-panel comparison-v15-vehicle-card">
+        <div class="comparison-v15-card-head">
+          <div>
+            <div class="eyebrow">Vehicle details</div>
+            <h2 id="vehicleTitle">Vehicle</h2>
+            <p id="vehicleSub"></p>
+          </div>
+          <div class="comparison-v15-head-actions">
+            <span class="chip" id="regChip"></span>
+            <button type="button" class="btn btn-glass comparison-edit-btn" id="editVehicleBtn">Edit</button>
+          </div>
+        </div>
+        <div class="comparison-v15-vehicle-grid">
+          <div><span>First name</span><strong id="cmpFirstName">—</strong></div>
+          <div><span>Registration</span><strong id="cmpRegistration">—</strong></div>
+          <div><span>Manufacturer</span><strong id="cmpManufacturer">—</strong></div>
+          <div><span>Car name</span><strong id="cmpCarName">—</strong></div>
+          <div><span>Fuel</span><strong id="cmpFuel">—</strong></div>
+          <div><span>Variant</span><strong id="cmpVariant">—</strong></div>
+          <div><span>Registered</span><strong id="cmpRegistered">—</strong></div>
+          <div><span>Policy expiry</span><strong id="cmpPolicyExpiry">—</strong></div>
+        </div>
+      </section>
+
+      <!-- 2. IDV BELOW VEHICLE DETAILS -->
+      <section class="glass-panel comparison-v15-idv-card">
+        <div class="comparison-v15-section-head">
+          <div>
+            <div class="eyebrow">Insured declared value</div>
+            <h2 id="idvValue">₹0</h2>
+            <p class="field-hint" id="idvAutoNote">Auto-calculated</p>
+          </div>
+          <div class="comparison-v15-idv-actions">
+            <button type="button" class="btn btn-glass idv-choice-btn" id="idvMinBtn">Min IDV</button>
+            <button type="button" class="btn btn-glass idv-choice-btn" id="idvMaxBtn">Max IDV</button>
+            <div class="idv-own-wrap">
+              <label for="ownIdvInput">My Own IDV</label>
+              <div class="inline-input-action"><input type="number" id="ownIdvInput" min="0" step="1000" placeholder="Enter IDV"><button type="button" class="btn btn-primary" id="applyOwnIdvBtn">Apply</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="comparison-v15-idv-slider-row">
+          <label for="idvSlider">Fine adjustment (±15%)</label>
+          <input type="range" id="idvSlider" min="0" max="100" value="50" />
+          <div><span id="idvMinLabel"></span><span id="idvMaxLabel"></span></div>
+        </div>
+
+        <div class="idv-accessories-block" id="idvAccessoriesBlock">
+          <div class="idv-accessories-head">
+            <span class="idv-accessories-question">Externally fitted accessories</span>
+            <span class="idv-accessories-total">Total IDV: <strong id="idvAccessoriesTotalLabel">₹0</strong></span>
+          </div>
+          <div class="idv-accessories-grid">
+            <label class="idv-accessory-option">
+              <span class="idv-accessory-row"><input type="checkbox" id="accTrailerCheck"><span>Trailer</span></span>
+              <div class="idv-accessory-input-wrap" id="accTrailerWrap" style="display:none;">
+                <label for="accTrailerValue">IDV Of Trailer <span class="req">*</span></label>
+                <input type="number" id="accTrailerValue" min="0" step="1000" placeholder="Enter IDV">
+                <div class="field-error">IDV of Trailer is required</div>
+              </div>
+            </label>
+            <label class="idv-accessory-option">
+              <span class="idv-accessory-row"><input type="checkbox" id="accNonElectricalCheck"><span>Non-Electrical Accessories</span></span>
+              <div class="idv-accessory-input-wrap" id="accNonElectricalWrap" style="display:none;">
+                <label for="accNonElectricalValue">IDV Of Non-Electrical Accessories <span class="req">*</span></label>
+                <input type="number" id="accNonElectricalValue" min="0" step="1000" placeholder="Enter IDV">
+                <div class="field-error">IDV of Non-Electrical Accessories is required</div>
+              </div>
+            </label>
+            <label class="idv-accessory-option">
+              <span class="idv-accessory-row"><input type="checkbox" id="accBiofuelCheck"><span>Biofuel Kit (CNG/LPG)</span></span>
+              <div class="idv-accessory-input-wrap" id="accBiofuelWrap" style="display:none;">
+                <label for="accBiofuelValue">IDV Of Biofuel Kit (CNG/LPG) <span class="req">*</span></label>
+                <input type="number" id="accBiofuelValue" min="0" step="1000" placeholder="Enter IDV">
+                <div class="field-error">IDV of Biofuel Kit is required</div>
+              </div>
+            </label>
+            <label class="idv-accessory-option">
+              <span class="idv-accessory-row"><input type="checkbox" id="accElectricalCheck"><span>Electrical Accessories</span></span>
+              <div class="idv-accessory-input-wrap" id="accElectricalWrap" style="display:none;">
+                <label for="accElectricalValue">IDV Of Electrical Accessories <span class="req">*</span></label>
+                <input type="number" id="accElectricalValue" min="0" step="1000" placeholder="Enter IDV">
+                <div class="field-error">IDV of Electrical Accessories is required</div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CONTROLS LEFT + INSURER COMPARISON RIGHT -->
+      <div class="comparison-v15-main-grid">
+        <aside class="comparison-v15-controls">
+          <section class="glass-panel comparison-v15-control-card">
+            <div class="comparison-v15-control-title"><span class="control-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2l-1.5-7.5A2 2 0 0 0 17.55 8H6.45a2 2 0 0 0-1.95 1.5L3 17h2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M5 13h14"/></svg></span><div><h3>Pay As You Drive</h3><p>Enable PAYD for this quote.</p></div></div>
+            <label class="toggle-row"><input type="checkbox" id="payAsYouDriveToggle"><span class="toggle-track"><span></span></span><strong>Pay As You Drive</strong></label>
+          </section>
+
+          <section class="glass-panel comparison-v15-control-card">
+            <div class="comparison-v15-control-title"><span class="control-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><div><h3>Add-ons</h3><p>Choose the add-ons requested by the customer.</p></div></div>
+            <div id="addonFilter" class="addon-filter-options">
+              <label class="addon-filter-option"><input type="checkbox" value="Zero Depreciation"><span>Zero Depreciation</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Roadside Assistance"><span>Roadside Assistance</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Engine Protect"><span>Engine Protect</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Battery / Motor Protect"><span>Battery / Motor Protect</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Return to Invoice"><span>Return to Invoice</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Consumables Cover"><span>Consumables Cover</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Key Protect"><span>Key Protect</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Tyre Protect"><span>Tyre Protect</span></label>
+              <label class="addon-filter-option"><input type="checkbox" value="Loss of Personal Belongings"><span>Loss of Personal Belongings</span></label>
+            </div>
+            <button type="button" class="btn btn-glass addon-filter-clear" id="clearAddonFilter">Clear add-ons</button>
+          </section>
+
+          <section class="glass-panel comparison-v15-control-card">
+            <div class="comparison-v15-control-title"><span class="control-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><div><h3>Discount</h3><p>Advisor discount adjustment.</p></div></div>
+            <div class="discount-choice-grid">
+              <button type="button" class="btn btn-glass discount-choice-btn" id="maxDiscountBtn">Max Discount</button>
+              <div class="discount-own-wrap"><label for="ownDiscountInput">My Own Discount</label><div class="inline-input-action"><input type="number" id="ownDiscountInput" min="0" max="100" step="0.5" placeholder="%"><button type="button" class="btn btn-primary" id="applyOwnDiscountBtn">Apply</button></div></div>
+            </div>
+            <div class="discount-status" id="discountStatus">No advisor discount selected.</div>
+          </section>
+        </aside>
+
+        <section class="glass-panel comparison-v15-insurer-card">
+          <div class="comparison-v15-insurer-head">
+            <div><div class="eyebrow">Insurance plans</div><h2>Comparison across insurers</h2></div>
+            <div class="comparison-v15-table-actions"><input type="search" id="insurerSearchInput" class="insurer-search-input" placeholder="Search insurers in this comparison…" aria-label="Search quotes by insurer name" autocomplete="off"><select id="sortSelect"><option value="price">Sort: lowest premium</option><option value="rating">Sort: insurer rating</option><option value="addons">Sort: most add-on coverage</option></select><button class="btn btn-glass" id="exportBtn" style="width:auto;padding:10px 16px;font-size:13px;">Export PDF</button></div>
+          </div>
+          <div id="selectedAddonsSummary" class="selected-addons-summary"></div>
+          <div class="table-scroll">
+            <table class="compare-table">
+              <thead><tr><th>Insurer</th><th>OD premium</th><th>TP premium</th><th>Add-ons</th><th>NCB</th><th>Claim ratio</th><th>Total premium</th></tr></thead>
+              <tbody id="compareBody"></tbody>
+            </table>
+          </div>
+          <p class="comparison-v15-source-note"><span class="source-tag api">Live quote</span> insurer response &nbsp; <span class="source-tag estimate">Estimate</span> configured pricing; requires insurer confirmation</p>
+        </section>
+      </div>
+    </div>
+
+    <!-- Vehicle edit modal -->
+    <div class="vehicle-edit-modal" id="vehicleEditModal" aria-hidden="true">
+      <div class="vehicle-edit-backdrop" id="vehicleEditBackdrop"></div>
+      <div class="vehicle-edit-dialog" role="dialog" aria-modal="true" aria-labelledby="vehicleEditTitle">
+        <div class="vehicle-edit-head"><div><div class="eyebrow">Edit vehicle</div><h2 id="vehicleEditTitle">Vehicle details</h2><p>Update any vehicle or registration entry, then recalculate the comparison.</p></div><button class="btn-icon-ghost" id="closeVehicleEdit" type="button" aria-label="Close">×</button></div>
+        <form id="vehicleEditForm" class="vehicle-edit-form">
+          <div class="edit-field"><label for="editFirstName">First name</label><input id="editFirstName" type="text" required></div>
+          <div class="edit-field"><label for="editRegistrationType">Registration type</label><select id="editRegistrationType"><option value="normal">Normal Registration</option><option value="bh">BH Registration</option></select></div>
+          <div class="edit-field"><label for="editRegistrationNumber">Registration number</label><input id="editRegistrationNumber" type="text" required></div>
+          <div class="edit-field"><label for="editManufacturer">Manufacturer</label><div class="autocomplete-wrap"><input type="text" id="editManufacturer" placeholder="Search manufacturer..." autocomplete="off" required /><input type="hidden" id="editManufacturerValue" /><div class="autocomplete-list" id="editManufacturerList"></div></div></div>
+          <div class="edit-field"><label for="editCarName">Car name / model</label><div class="autocomplete-wrap"><input type="text" id="editCarName" placeholder="Select a manufacturer first" autocomplete="off" disabled required /><input type="hidden" id="editCarNameValue" /><div class="autocomplete-list" id="editCarNameList"></div></div></div>
+          <div class="edit-field"><label for="editFuelType">Fuel type</label><select id="editFuelType" disabled required><option value="">Select a car first</option></select></div>
+          <div class="edit-field"><label for="editVariant">Variant</label><div class="autocomplete-wrap"><input type="text" id="editVariant" placeholder="Select a fuel type first" autocomplete="off" disabled required /><input type="hidden" id="editVariantValue" /><div class="autocomplete-list" id="editVariantList"></div></div></div>
+          <div class="edit-field"><label for="editRegisteredDate">Vehicle registered date</label><input id="editRegisteredDate" type="date" required></div>
+          <div class="edit-field"><label for="editPolicyExpiry">Policy expiry date</label><input id="editPolicyExpiry" type="date" required></div>
+          <div class="vehicle-edit-footer"><button type="button" class="btn btn-glass" id="cancelVehicleEdit">Cancel</button><button type="submit" class="btn btn-primary" id="saveVehicleEdit">Save & Recalculate</button></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Plan details modal -->
+    <div class="plan-modal" id="planDetailsModal" aria-hidden="true">
+      <div class="plan-modal-backdrop" id="planModalBackdrop"></div>
+      <div class="plan-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="planModalTitle">
+        <div class="plan-modal-head"><div><div class="eyebrow">Plan details</div><h2 id="planModalTitle">Insurance Plan</h2><p id="planModalSubtitle"></p></div><button class="btn-icon-ghost" id="closePlanModal" type="button" aria-label="Close plan details">×</button></div>
+        <div id="planModalBody" class="plan-modal-body"></div>
+        <div class="plan-modal-footer"><span id="planModalSource" class="source-tag fallback">Fallback</span><button class="btn btn-primary" id="selectPlanBtn" type="button" style="width:auto;padding:10px 18px;">Select this plan</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== REPORTS SCREEN ===================== -->
+<div class="screen" id="screen-reports">
+  <div class="topbar advisor-topbar dashboard-topbar">
+    <div class="topbar-left">
+      <img class="header-brand-logo" src="assets/ar-advisors-shield.png" alt="AR Advisors" />
+      <div class="topbar-brand-text">
+        <span class="topbar-brand-name">AR ADVISORS</span>
+        <span class="topbar-brand-subtitle">INSURANCE COMPARISON PORTAL</span>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <nav class="topbar-nav" aria-label="Primary">
+        <button type="button" class="topbar-nav-link" data-nav-dashboard>Dashboard</button>
+        <button type="button" class="topbar-nav-link">Quotes</button>
+        <button type="button" class="topbar-nav-link is-active" data-nav-reports>Reports</button>
+      </nav>
+      <form class="topbar-search-form" role="search" aria-label="Search all quotes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="topbar-search-input" placeholder="Search all quotes..." aria-label="Search all quotes" autocomplete="off" />
+      </form>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-icon-ghost portal-home-btn" id="homeBtnReports" type="button" title="Home" aria-label="Home">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5"/>
+          <path d="M5.5 9.5V21h13V9.5"/>
+          <path d="M9.5 21v-6h5v6"/>
+        </svg>
+      </button>
+      <span class="advisor-name" data-advisor-name>Advisor</span>
+      <button class="btn-icon-ghost" id="signOutBtn6" title="Sign out" aria-label="Sign out">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="page-heading dashboard-heading">
+      <div class="greeting-eyebrow">PRIVATE CAR INSURANCE</div>
+      <h1>Reports</h1>
+      <p>Every quotation you've generated, all in one place.</p>
+    </div>
+
+    <section class="glass-panel quote-search-panel" aria-labelledby="reportsSearchTitle">
+      <div class="quote-search-head">
+        <div>
+          <div class="eyebrow">Saved Quotations</div>
+          <h2 id="reportsSearchTitle">Previously Generated Quotes</h2>
+          <p>Search by registration number, vehicle owner name, or quotation number — or leave it blank to see everything.</p>
+        </div>
+      </div>
+      <form id="reportsSearchForm" class="quote-search-form" novalidate>
+        <div class="quote-search-field">
+          <label for="reportsSearchType">Search by</label>
+          <select id="reportsSearchType" aria-label="Select quote search type">
+            <option value="all">All quotes</option>
+            <option value="registration">Registration Number</option>
+            <option value="owner">Vehicle Owner Name</option>
+            <option value="quotation">Quotation Number</option>
+          </select>
+        </div>
+        <div class="quote-search-field quote-search-input-wrap">
+          <label for="reportsSearchInput">Search value</label>
+          <input id="reportsSearchInput" type="search" autocomplete="off" placeholder="Leave blank to see all your quotes..." maxlength="100" />
+        </div>
+        <button class="btn btn-primary quote-search-btn" id="reportsSearchBtn" type="submit">
+          <span class="spinner"></span><span class="btn-label">Search Quotes</span>
+        </button>
+      </form>
+      <div id="reportsSearchMessage" class="quote-search-message" role="status" aria-live="polite"></div>
+      <div id="reportsSearchResults" class="quote-search-results"></div>
+    </section>
+  </div>
+</div>
+
+<!-- ===================== ADMIN SCREEN ===================== -->
+<div class="screen" id="screen-admin">
+  <div class="topbar">
+    <div class="brand-row" style="margin-bottom: 0;">
+      <img class="header-brand-logo" src="assets/ar-advisors-shield.png" alt="AR Advisors" />
+      <div class="brand-name">AR Advisors — Admin</div>
+    </div>
+    <div class="topbar-right">
+      <span class="chip">Admin</span>
+      <button class="btn-icon-ghost" id="signOutBtn3" title="Sign out" aria-label="Sign out">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar" aria-label="Admin navigation">
+      <div class="admin-sidebar-title">ADMIN WORKSPACE</div>
+      <button class="admin-sidebar-link is-active" type="button" data-admin-target="approvals">
+        <span class="admin-nav-icon">✓</span>
+        <span><strong>Signup Approval</strong><small>Review new advisors</small></span>
+        <span class="admin-nav-badge" id="sidebarApprovalCount">0</span>
+      </button>
+      <button class="admin-sidebar-link" type="button" data-admin-target="users">
+        <span class="admin-nav-icon" aria-hidden="true">◉</span>
+        <span><strong>User Management</strong><small>Manage advisor access</small></span>
+        <span class="admin-nav-badge muted" id="sidebarUserCount">0</span>
+      </button>
+      <button class="admin-sidebar-link" type="button" id="adminRegistrationLink">
+        <span class="admin-nav-icon">▣</span>
+        <span><strong>Registration Number</strong><small>Start a new comparison</small></span>
+      </button>
+      <div class="admin-sidebar-note">
+        <strong>People first. Access controlled.</strong><span>Review requests, manage advisor access, and keep your team moving.</span>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-main-heading">
+        <div>
+          <div class="admin-eyebrow">TEAM &amp; ACCESS</div>
+          <h1 id="adminSectionTitle">Advisor signup approval</h1>
+          <p id="adminSectionSubtitle">Review new advisor accounts before they can access the dashboard.</p>
+        </div>
+      </div>
+
+<div class="admin-overview" aria-label="Team overview"><div><span>Pending requests</span><strong id="adminPendingStat">—</strong></div><div><span>Active advisors</span><strong id="adminActiveStat">—</strong></div><div><span>Total advisors</span><strong id="adminTotalStat">—</strong></div></div>
+      <div class="admin-refresh-bar"><span id="adminRefreshStatus" role="status">Loading workspace…</span><button type="button" class="btn btn-secondary" id="adminRefreshBtn">Refresh workspace</button></div>
+      <div id="adminBanner" class="banner banner-error" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span id="adminBannerText"></span>
+      </div>
+
+      <section class="admin-section is-active" data-admin-section="approvals">
+        <div class="admin-section-card glass-panel">
+          <div class="approval-header">
+            <div>
+              <h2 class="approval-title">Advisor approval requests</h2>
+              <p class="approval-subtitle">Approve an advisor once to give them access. Reject requests that should not be activated.</p>
+            </div>
+            <span class="approval-count" id="approvalPendingCount">0</span>
+          </div>
+          <div class="admin-filters"><label class="admin-search-label" for="approvalSearch">Search requests<input type="search" id="approvalSearch" placeholder="Name or username" /></label><label for="approvalFilter">Request status<select id="approvalFilter"><option value="pending">Pending review</option><option value="all">All requests</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></label></div><div id="approvalLoadError" class="admin-load-error" hidden role="alert"></div>
+          <div id="advisorApprovalLoading" class="approval-empty">Loading advisor requests…</div>
+          <div id="advisorApprovalList" class="approval-list" style="display:none;"></div>
+          <div id="advisorApprovalEmpty" class="approval-empty" style="display:none;">No requests match this view.</div>
+        </div>
+      </section>
+
+      <section class="admin-section" data-admin-section="users">
+        <div class="admin-section-card glass-panel">
+          <div class="approval-header">
+            <div>
+              <h2 class="approval-title">Advisor user management</h2>
+              <p class="approval-subtitle">Manage advisor access without deleting customer or quotation history.</p>
+            </div>
+            <span class="approval-count" id="userCount">0</span>
+          </div>
+          <div class="user-toolbar">
+            <div class="user-security-note">Existing passwords stay private. Reset a password when an advisor needs access restored.</div>
+            <button class="btn btn-primary add-user-btn" type="button" id="addUserBtn">+ Add User</button>
+          </div>
+          <div class="admin-filters"><label class="admin-search-label" for="userSearch">Search advisors<input type="search" id="userSearch" placeholder="Name or username" /></label><label for="userFilter">Account status<select id="userFilter"><option value="all">All advisors</option><option value="active">Active</option><option value="inactive">Inactive</option><option value="pending">Pending</option><option value="rejected">Rejected</option></select></label></div><div id="userLoadError" class="admin-load-error" hidden role="alert"></div>
+          <div id="advisorUserLoading" class="approval-empty">Loading advisor users…</div>
+          <div id="advisorUserList" class="user-list" style="display:none;"></div>
+          <div id="advisorUserEmpty" class="approval-empty" style="display:none;">No advisors match this view.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="access-dialog" id="adminActionDialog" aria-labelledby="adminActionTitle">
+    <form id="adminActionForm"><div class="admin-eyebrow">ADVISOR ACCESS</div><h2 id="adminActionTitle">Confirm action</h2><p id="adminActionDescription"></p>
+    <div class="field" id="resetPasswordField" hidden><label for="resetPasswordInput">New password</label><input id="resetPasswordInput" type="password" minlength="10" maxlength="128" autocomplete="new-password" /><small>Use 10–128 characters. The advisor will need to sign in again.</small></div>
+    <div id="adminActionError" class="banner banner-error" role="alert"></div><div class="admin-modal-footer"><button type="button" class="btn btn-secondary" id="cancelAdminAction">Cancel</button><button type="submit" class="btn btn-primary" id="confirmAdminAction">Confirm</button></div></form>
+  </dialog>
+  <!-- Admin-created advisor modal -->
+  <div class="admin-modal" id="addUserModal" aria-hidden="true">
+    <div class="admin-modal-backdrop" id="addUserBackdrop"></div>
+    <div class="admin-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="addUserTitle">
+      <div class="admin-modal-head">
+        <div>
+          <div class="admin-eyebrow">USER MANAGEMENT</div>
+          <h2 id="addUserTitle">Add new advisor</h2>
+          <p>Create an advisor directly. Admin-created users are automatically approved.</p>
+        </div>
+        <button class="btn-icon-ghost" type="button" id="closeAddUser" aria-label="Close">×</button>
+      </div>
+      <div id="addUserError" class="banner banner-error" role="alert"><span id="addUserErrorText"></span></div>
+      <form id="addUserForm" class="admin-user-form">
+        <div class="admin-form-grid">
+          <div class="field"><label for="adminNewUserName">Full name <span class="req">*</span></label><input id="adminNewUserName" minlength="2" maxlength="100" autocomplete="name" required /></div>
+          <div class="field"><label for="adminNewUsername">Username <span class="req">*</span></label><input id="adminNewUsername" minlength="3" maxlength="40" pattern="[A-Za-z0-9._-]{3,40}" autocapitalize="none" autocomplete="off" required /></div>
+          <div class="field"><label for="adminNewUserPassword">Password <span class="req">*</span></label><div class="password-input-wrap"><input id="adminNewUserPassword" type="password" minlength="10" maxlength="128" autocomplete="new-password" required /><button type="button" class="password-toggle" id="toggleAdminNewPassword">Show</button></div></div>
+        </div>
+        <div class="admin-modal-footer">
+          <button class="btn btn-secondary" type="button" id="cancelAddUser">Cancel</button>
+          <button class="btn btn-primary" type="submit" id="createUserBtn">Create &amp; Approve User</button>
+        </div>
+      </form>
+      <div id="createdUserResult" class="created-user-result" style="display:none;">
+        <div class="created-user-success">✓ User created and approved</div>
+        <div class="created-user-grid">
+          <div><span>Username</span><strong id="createdUsername"></strong></div>
+          <div><span>Password</span><strong id="createdPassword"></strong></div>
+        </div>
+        <p>Share these credentials securely with the advisor. Closing this dialog clears the displayed password.</p>
+        <button class="btn btn-primary" type="button" id="doneAddUser">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/car-data.js"></script>
+<script src="js/test-vehicle-data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script src="js/router.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/vehicle-lookup.js"></script>
+<script src="js/vehicle-details.js"></script>
+<script src="js/idv.js"></script>
+<script src="js/insurer-data.js"></script>
+<script src="js/vehicle-rate-matrix.js"></script>
+<script src="js/policy-details.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/comparison.js"></script>
+<script src="js/reports.js"></script>
+<script src="js/motor-insurance-init.js"></script>
+</body>
+</html>

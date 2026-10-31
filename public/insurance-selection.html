@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AR Advisors — Insurance Selection</title>
+<link rel="icon" type="image/png" href="assets/ar-advisors-shield.png" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .insurance-selection-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;position:relative;z-index:1}
+  .insurance-selection-card{width:min(980px,100%);padding:42px;border-radius:24px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.75);box-shadow:0 24px 70px rgba(24,55,100,.14)}
+  .insurance-selection-brand{text-align:center;margin-bottom:30px}.insurance-selection-brand img{width:145px;max-height:58px;object-fit:contain}
+  .insurance-selection-heading{text-align:center}.insurance-selection-heading .eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;color:#1e5fbf}.insurance-selection-heading h1{margin:8px 0 8px;font-size:32px;color:#14213d}.insurance-selection-heading p{margin:0;color:#667085}
+  .insurance-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:32px}
+  .insurance-option{border:1px solid #dce5f2;background:#fff;border-radius:18px;padding:28px;text-align:left;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.insurance-option:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(30,95,191,.12);border-color:#8eb5ed}.insurance-option .option-icon{font-size:34px;margin-bottom:15px}.insurance-option h2{margin:0 0 8px;color:#14213d;font-size:22px}.insurance-option p{margin:0;color:#667085;line-height:1.55}.insurance-option .option-action{display:inline-flex;margin-top:20px;font-weight:800;color:#1e5fbf}.health-option{cursor:default}.health-option:hover{transform:none;box-shadow:none;border-color:#dce5f2}.two-wheeler-option{cursor:default}.two-wheeler-option:hover{transform:none;box-shadow:none;border-color:#dce5f2}.coming-soon{display:inline-flex;margin-top:18px;padding:7px 11px;border-radius:999px;background:#eef4ff;color:#1e5fbf;font-size:12px;font-weight:800}
+  .selection-footer{display:flex;justify-content:center;margin-top:28px}.selection-footer button{border:0;background:transparent;color:#667085;font-weight:700;cursor:pointer;padding:8px 14px}.selection-footer button:hover{color:#1e5fbf}
+  @media(max-width:900px){.insurance-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:700px){.insurance-options{grid-template-columns:1fr}.insurance-selection-card{padding:28px 20px}.insurance-selection-heading h1{font-size:27px}}
+</style>
+<link rel="stylesheet" href="css/workspace.css" />
+</head>
+<body>
+<div class="portal-background" aria-hidden="true"></div>
+<main class="insurance-selection-wrap">
+  <section class="insurance-selection-card" aria-labelledby="insuranceSelectionTitle">
+    <div class="insurance-selection-brand"><img src="assets/ar-advisors-logo-transparent.png" alt="AR Advisors" /></div>
+    <div class="insurance-selection-heading">
+      <div class="eyebrow">AR ADVISORS INSURANCE DESK</div>
+      <h1 id="insuranceSelectionTitle">Your insurance workspace</h1>
+      <p>Choose a desk and start your next comparison.</p>
+    </div>
+    <div class="insurance-options">
+      <button class="insurance-option" type="button" id="motorInsuranceBtn" disabled>
+        <div class="option-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 7 2-4h10l2 4M3 7h18v10H3zM6 17v3m12-3v3M6 11h2m8 0h2M3 7l-1-1m19 1 1-1"/></svg></div>
+        <h2>Private Car Insurance</h2>
+        <p>Compare insurer quotes for your customer’s vehicle, cover and preferred IDV.</p>
+        <span class="option-action">Open car insurance desk →</span>
+      </button>
+      <div class="insurance-option two-wheeler-option">
+        <div class="option-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="17" r="4"/><circle cx="19" cy="17" r="4"/><path d="m5 17 4-8h6l4 8M8 6h4m4-3h3l2 5M9 9l5 8H5"/></svg></div>
+        <h2>2 Wheeler Insurance</h2>
+        <p>The 2 wheeler insurance comparison desk is currently under development.</p>
+        <span class="coming-soon">Coming Soon...</span>
+      </div>
+      <div class="insurance-option health-option">
+        <div class="option-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V7h16v14M1 21h22M8 7V3h8v4M10 12h4m-2-2v4M9 21v-4h6v4"/></svg></div>
+        <h2>Health Insurance</h2>
+        <p>The health insurance comparison desk is currently under development.</p>
+        <span class="coming-soon">Coming Soon...</span>
+      </div>
+    </div>
+    <div class="selection-status" id="selectionStatus" role="status">Checking your access…</div><button class="btn btn-secondary" id="selectionRetry" type="button" hidden>Retry connection</button>
+    <div class="selection-footer"><button type="button" id="selectionSignOut">Sign out</button></div>
+  </section>
+</main>
+<script src="js/api.js"></script>
+<script src="js/insurance-selection.js"></script>
+</body>
+</html>
