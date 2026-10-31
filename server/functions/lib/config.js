@@ -13,7 +13,6 @@ function assertStartupConfig() {
   const appOrigin = new URL(process.env.APP_ORIGIN || 'invalid');
   if (appOrigin.protocol !== 'https:' || appOrigin.username || appOrigin.password || appOrigin.pathname !== '/' || appOrigin.search || appOrigin.hash) throw new Error('APP_ORIGIN must be the canonical HTTPS origin.');
   if (process.env.BOOTSTRAP_ADMIN_SECRET) throw new Error('Remove BOOTSTRAP_ADMIN_SECRET before starting production. Use the offline bootstrap command.');
-  if (process.env.REGISTRATION_INVITE_CODE && process.env.REGISTRATION_INVITE_CODE.length < 32) throw new Error('REGISTRATION_INVITE_CODE must contain at least 32 random characters.');
   if (process.env.TRUST_PROXY_HOPS !== undefined && !/^[0-5]$/.test(process.env.TRUST_PROXY_HOPS)) throw new Error('TRUST_PROXY_HOPS must be an integer from 0 to 5.');
   const redisUrl=process.env.UPSTASH_REDIS_REST_URL||process.env.REDIS_REST_URL;
   const redisToken=process.env.UPSTASH_REDIS_REST_TOKEN||process.env.REDIS_REST_TOKEN;

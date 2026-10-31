@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: insurance-testing-private-app
+    name: insurance-public-testing
     runtime: docker
     plan: starter
     healthCheckPath: /api/health
@@ -11,7 +11,9 @@ services:
         sync: false
       - key: APP_ORIGIN
         sync: false
-      - key: REGISTRATION_INVITE_CODE
+      - key: GOOGLE_AUTH_ENABLED
+        value: "false"
+      - key: SUPABASE_PUBLISHABLE_KEY
         sync: false
       - key: UPSTASH_REDIS_REST_URL
         sync: false

@@ -11,13 +11,8 @@ exports.handler = async event => {
   if (!sameOrigin(event)) return json(403, { error: 'Cross-origin request blocked.' });
   const rl = await rateLimit(`signup:${clientKey(event)}`, require('./lib/config').signupIpRateLimit, 900);
   if (!rl.allowed) return json(429, { error: 'Too many signup attempts. Please try again later.' });
-  if (!process.env.REGISTRATION_INVITE_CODE) return json(403, { error: 'Registration is closed. Contact your administrator.' });
   let b; try { b = JSON.parse(event.body || '{}'); } catch { return json(400, { error: 'Invalid JSON.' }); }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(400, { error: 'Invalid request.' });
-  if (typeof b.inviteCode !== 'string' || b.inviteCode.length>256) return json(403,{error:'A valid advisor invitation code is required.'});
-  const supplied = crypto.createHash('sha256').update(String(b.inviteCode || '')).digest();
-  const expected = crypto.createHash('sha256').update(process.env.REGISTRATION_INVITE_CODE).digest();
-  if (!crypto.timingSafeEqual(supplied, expected)) return json(403, { error: 'A valid advisor invitation code is required.' });
   if (typeof b.name !== 'string' || typeof b.username !== 'string' || typeof b.password !== 'string') return json(400,{error:'Account fields must be strings.'});
   const name = String(b.name || '').trim();
   const username = String(b.username || '').trim().toLowerCase();

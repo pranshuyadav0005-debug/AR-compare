@@ -10,7 +10,7 @@ exports.handler = async event => {
     try {
       const rows = await select('app_schema_migrations', 'select=version');
       const versions = new Set((rows || []).map(row => row.version));
-      if (!['001_backend_access_and_audit','002_quote_revisions','003_public_launch','004_transactional_security'].every(v => versions.has(v))) throw new Error();
+      if (!['001_backend_access_and_audit','002_quote_revisions','003_public_launch','004_transactional_security','005_public_google_auth'].every(v => versions.has(v))) throw new Error();
       if (process.env.APP_DEPLOYMENT_MODE === 'multiple') {
         if (!redis.enabled() || String(await redis.command(['ping'])).toUpperCase() !== 'PONG') throw new Error();
       }

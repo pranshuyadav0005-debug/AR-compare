@@ -20,6 +20,9 @@ const config = require('./server/functions/lib/config');
 config.assertStartupConfig();
 
 const handlers = {
+  '/api/auth/options': require('./server/functions/auth-google').options,
+  '/api/auth/google/start': require('./server/functions/auth-google').start,
+  '/api/auth/google/callback': require('./server/functions/auth-google').callback,
   '/api/auth/login': require('./server/functions/auth-login').handler,
   '/api/auth/logout': require('./server/functions/auth-logout').handler,
   '/api/auth/me': require('./server/functions/auth-me').handler,
@@ -152,7 +155,7 @@ function safeStaticPath(urlPath) {
   const relative = decoded === '/' ? 'index.html' : decoded.replace(/^\/+/, '');
   if (relative.split('/').some(part => part.startsWith('.') || part === '..')) return null;
   // Only public entry pages and known asset types are web-accessible.
-  if (!['index.html', 'motor-insurance.html', 'insurance-selection.html'].includes(relative) &&
+  if (!['index.html', 'motor-insurance.html', 'insurance-selection.html', 'privacy.html'].includes(relative) &&
       !/^(?:css|js|assets)\/[A-Za-z0-9_./-]+\.(?:css|js|png|jpg|jpeg|svg|ico|webp|woff2?)$/i.test(relative)) return null;
   const resolved = path.resolve(STATIC_ROOT, relative);
   try {

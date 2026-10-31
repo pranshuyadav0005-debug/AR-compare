@@ -72,7 +72,7 @@ function parseCookies(event) {
     const i = item.indexOf('=');
     if (i < 1) continue;
     const name=item.slice(0,i).trim();
-    if (Object.hasOwn(cookies,name) && [SESSION_COOKIE,CSRF_COOKIE].includes(name)) { cookies[name]=''; continue; }
+    if (Object.hasOwn(cookies,name)) { cookies[name]=''; continue; }
     try { cookies[name] = decodeURIComponent(item.slice(i + 1).trim()); } catch { /* ignore malformed cookies */ }
   }
   return cookies;
