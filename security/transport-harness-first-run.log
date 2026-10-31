@@ -1,0 +1,45 @@
+✖ production transport rejects wrong host and HTTP; trusted HTTPS adds HSTS (162.285828ms)
+✔ invitation is required and invalid signup performs no database writes (154.552887ms)
+✔ invited signup ignores injected administrator role and is immediately usable (135.352889ms)
+✔ duplicate registration cannot replace an existing password or grant admin (3.342069ms)
+✔ approval queue and mutation routes no longer exist (3.28649ms)
+✔ anonymous private data and administration are denied (3.462069ms)
+✔ origin spoofing cannot log in or register (1.55503ms)
+✔ JSON type, malformed JSON, body size and unsupported methods are rejected (6.167681ms)
+✔ security headers, request identifiers and private file protection (6.064005ms)
+✔ unknown user and wrong password give the same error (84.052483ms)
+✔ password reset and deactivation invalidate existing sessions (212.730938ms)
+✔ readiness fails closed without migration evidence (2.557098ms)
+✔ production configuration rejects unsafe origin, invite and web bootstrap (455.160517ms)
+✔ production cannot issue cookies over an insecure request or invoke web bootstrap (2.728145ms)
+✔ registration is closed without an invitation configured (0.77802ms)
+✔ approval controls removed from HTML and browser code (0.412921ms)
+✔ remote JSON responses are bounded before parsing, including chunked bodies (3.904435ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1308.00009
+
+✖ failing tests:
+
+test at scripts/test-production-transport.cjs:4:1
+✖ production transport rejects wrong host and HTTP; trusted HTTPS adds HSTS (162.285828ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 200
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/insurance-testing-portal/scripts/test-production-transport.cjs:11:91)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,34 @@
+{
+  "version": "3.9.0",
+  "date": "2026-10-31",
+  "productionSecurityApproval": "NOT_APPROVED",
+  "currentTests": {
+    "databaseAndIntegration": {
+      "passed": 24,
+      "failed": 0
+    },
+    "security": {
+      "passed": 21,
+      "failed": 0
+    },
+    "coordination": {
+      "passed": 7,
+      "failed": 0
+    },
+    "comparisonBrowser": "PASSED"
+  },
+  "preservedOriginalTests": {
+    "foundation": {
+      "passed": 16,
+      "failed": 1
+    },
+    "adminBrowser": "FAILED_OLD_SIGNUP_CONTRACT",
+    "editedOriginalTests": false
+  },
+  "embeddedPostgresqlInstaller": "EXECUTED_AND_VERIFIED",
+  "hostedSupabase": "NOT_RUN",
+  "productionDeployment": "NOT_RUN",
+  "runtimeImageScan": "NOT_RUN",
+  "dependencyAdvisories": 0,
+  "report": "SECURITY-REVIEW.md"
+}

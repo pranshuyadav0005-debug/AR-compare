@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ar-advisors-private-app
+    name: insurance-testing-private-app
     runtime: docker
     plan: starter
     healthCheckPath: /api/health

@@ -1,5 +1,5 @@
 -- ===========================================================
--- AR Advisors — Insurance Comparison Tool
+-- Test Portal — Insurance Comparison Tool
 -- Initial schema + Row Level Security (RLS)
 -- Run this in Supabase Dashboard -> SQL Editor
 -- ===========================================================

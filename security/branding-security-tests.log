@@ -1,0 +1,34 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.9.1 test:security
+> node --test scripts/test-public-security.cjs scripts/test-production-transport.cjs scripts/test-v39-security.cjs
+
+✔ production transport rejects wrong host and HTTP; trusted HTTPS adds HSTS (447.112546ms)
+✔ invitation is required and invalid signup performs no database writes (421.417141ms)
+✔ invited signup ignores injected administrator role and is immediately usable (474.102391ms)
+✔ duplicate registration cannot replace an existing password or grant admin (3.400298ms)
+✔ approval queue and mutation routes no longer exist (3.420048ms)
+✔ anonymous private data and administration are denied (3.453519ms)
+✔ origin spoofing cannot log in or register (1.607219ms)
+✔ JSON type, malformed JSON, body size and unsupported methods are rejected (6.336237ms)
+✔ security headers, request identifiers and private file protection (5.161589ms)
+✔ unknown user and wrong password give the same error (391.207658ms)
+✔ password reset and deactivation invalidate existing sessions (761.880113ms)
+✔ readiness fails closed without migration evidence (2.46584ms)
+✔ production configuration rejects unsafe origin, invite and web bootstrap (510.223335ms)
+✔ production cannot issue cookies over an insecure request or invoke web bootstrap (1.504123ms)
+✔ registration is closed without an invitation configured (1.761401ms)
+✔ approval controls removed from HTML and browser code (0.629988ms)
+✔ remote JSON responses are bounded before parsing, including chunked bodies (3.706117ms)
+✔ new credentials use stronger scrypt parameters while legacy verification remains compatible (1079.196163ms)
+✔ production session cookies use host-only names and required secure attributes (363.927794ms)
+✔ duplicate security cookies are rejected and prototype cookie keys cannot mutate objects (0.333781ms)
+✔ vehicle verification rejects non-HTTPS and non-allowlisted destinations without a network call (2.271518ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3083.25547

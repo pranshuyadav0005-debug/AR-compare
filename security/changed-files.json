@@ -1,0 +1,170 @@
+[
+  {
+    "path": ".env.example",
+    "change": "modified"
+  },
+  {
+    "path": ".github/workflows/security.yml",
+    "change": "added"
+  },
+  {
+    "path": "Dockerfile",
+    "change": "modified"
+  },
+  {
+    "path": "PUBLIC-LAUNCH.md",
+    "change": "added"
+  },
+  {
+    "path": "README.md",
+    "change": "modified"
+  },
+  {
+    "path": "SECURITY-REVIEW.md",
+    "change": "added"
+  },
+  {
+    "path": "deployment/Caddyfile",
+    "change": "added"
+  },
+  {
+    "path": "deployment/compose.yaml",
+    "change": "added"
+  },
+  {
+    "path": "migrations/003_public_launch.sql",
+    "change": "added"
+  },
+  {
+    "path": "package.json",
+    "change": "modified"
+  },
+  {
+    "path": "public/index.html",
+    "change": "modified"
+  },
+  {
+    "path": "public/js/admin.js",
+    "change": "modified"
+  },
+  {
+    "path": "public/js/auth.js",
+    "change": "modified"
+  },
+  {
+    "path": "render.yaml",
+    "change": "modified"
+  },
+  {
+    "path": "scripts/bootstrap-admin-offline.js",
+    "change": "added"
+  },
+  {
+    "path": "scripts/check-live-security.js",
+    "change": "added"
+  },
+  {
+    "path": "scripts/test-production-transport.cjs",
+    "change": "added"
+  },
+  {
+    "path": "scripts/test-public-security.cjs",
+    "change": "added"
+  },
+  {
+    "path": "security/browser-tests.log",
+    "change": "added"
+  },
+  {
+    "path": "security/coordination-tests.log",
+    "change": "added"
+  },
+  {
+    "path": "security/historical/README.md",
+    "change": "added"
+  },
+  {
+    "path": "security/historical/capacity-report.json",
+    "change": "added"
+  },
+  {
+    "path": "security/historical/interface-verification.json",
+    "change": "added"
+  },
+  {
+    "path": "security/local-security-tests.log",
+    "change": "added"
+  },
+  {
+    "path": "security/regression-tests.log",
+    "change": "added"
+  },
+  {
+    "path": "security/release-status.json",
+    "change": "added"
+  },
+  {
+    "path": "security/source-integrity.json",
+    "change": "added"
+  },
+  {
+    "path": "security/transport-harness-first-run.log",
+    "change": "added"
+  },
+  {
+    "path": "security/verify-database.sql",
+    "change": "added"
+  },
+  {
+    "path": "server/functions/admin-reset-password.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/admin-users.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/auth-login.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/auth-logout.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/auth-register.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/bootstrap-admin.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/lib/app-auth.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/lib/config.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/lib/http.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/lib/response-body.js",
+    "change": "added"
+  },
+  {
+    "path": "server/functions/lib/supabase.js",
+    "change": "modified"
+  },
+  {
+    "path": "server/functions/readiness.js",
+    "change": "added"
+  },
+  {
+    "path": "server.js",
+    "change": "modified"
+  }
+]

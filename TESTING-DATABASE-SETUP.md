@@ -2,7 +2,7 @@
 
 Use a NEW, SEPARATE Supabase project. Do not point these steps at your production project. No production connection was used while preparing this package.
 
-1. Open the new project's SQL Editor and run the entire `sql/AR-Advisors-Testing-Database.sql` file once. It creates all 12 tables, indexes, constraints, RLS, restricted grants, transactional account RPCs, session-security triggers, append-only audit protection, and migration markers 001–004. It also adds five synthetic sample insurer rate cards and the `test.admin` admin record. No password or API key is embedded. The installer refuses to run when app tables already exist and rolls back the whole transaction.
+1. Open the new project's SQL Editor and run the entire `sql/Testing-Database.sql` file once. It creates all 12 tables, indexes, constraints, RLS, restricted grants, transactional account RPCs, session-security triggers, append-only audit protection, and migration markers 001–004. It also adds five synthetic sample insurer rate cards and the `test.admin` admin record. No password or API key is embedded. The installer refuses to run when app tables already exist and rolls back the whole transaction.
 2. Copy `.env.example` to `.env` in a local checkout. Set your TEST project's `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. Keep this file private and outside `public/`. For local testing set `NODE_ENV=development`, `HOST=127.0.0.1`, `TRUST_PROXY_HOPS=0`, `APP_ATOMIC_ACCOUNTS=true`. Production always uses transactional account operations and cannot disable them.
 3. Initialize the test admin's password from your secured local terminal. In Bash, run the following; enter a unique passphrase of 15–128 characters. The shell reads it silently and pipes it through stdin, rather than putting it in command history or command arguments:
 
@@ -20,7 +20,7 @@ The initializer refuses to reset an existing password. If you use PowerShell, us
 
 For an existing app database, use migrations 001–004 IN ORDER after a tested backup and staging review; do NOT run the fresh installer. Migration 004 revokes existing sessions only on its first successful application, adds credential generations, installs transactional security operations and tightens backend grants. It does not delete accounts, passwords, quotations or audit history. Existing legacy password hashes remain readable for compatibility; reset imported accounts to the stronger current hash configuration before high-assurance deployment.
 
-`schema.sql` and `sql/testing_database_schema.sql` are the same schema-only fresh installer without sample rates or an admin row. The downloadable `AR-Advisors-Testing-Database.sql` is the combined, atomic setup recommended above. Do not run both installers in the same project.
+`schema.sql` and `sql/testing_database_schema.sql` are the same schema-only fresh installer without sample rates or an admin row. The downloadable `Testing-Database.sql` is the combined, atomic setup recommended above. Do not run both installers in the same project.
 
 To reproduce isolated checks without a hosted database:
 

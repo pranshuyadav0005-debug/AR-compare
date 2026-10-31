@@ -1,0 +1,322 @@
+{
+  "testedAt": "2026-10-22T06:46:51.928Z",
+  "environment": "Real browser -> real Node API -> isolated HTTP database stand-in. No API responses intercepted. No live Supabase or provider connection.",
+  "checks": [
+    "Login error",
+    "Signup persisted as pending and success visible",
+    "Pending login blocked",
+    "Admin session restored on reload",
+    "Approval persisted",
+    "Repeated approval rejected",
+    "Search empty state",
+    "Database failure and retry",
+    "Create advisor persisted",
+    "Modal keyboard and password cleanup",
+    "Password reset then real advisor login",
+    "Advisor admin access forbidden",
+    "Deactivate invalidates session",
+    "Activate persisted",
+    "Logout revokes session",
+    "Desktop and mobile layout",
+    "Duplicate signup/create submissions suppressed",
+    "Session outage returns 503",
+    "Logout failure stays visible",
+    "Reactivation does not revive old sessions",
+    "Admin comparison navigation retains return to admin",
+    "Advisor login to selection and car desk with real backend",
+    "Advisor logout from car desk"
+  ],
+  "traffic": [
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/register",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/advisors/fe12aff1-0d3b-4a57-be2d-01e8b0f32428/approval",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 503
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 503
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/users",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/users/fe12aff1-0d3b-4a57-be2d-01e8b0f32428/reset-password",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/users/fe12aff1-0d3b-4a57-be2d-01e8b0f32428/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/users/fe12aff1-0d3b-4a57-be2d-01e8b0f32428/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/quotes/search",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/quotes/search",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/advisors/requests",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/users",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "status": 503
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/auth/me",
+      "status": 401
+    }
+  ],
+  "writes": [
+    {
+      "table": "advisors",
+      "method": "POST"
+    },
+    {
+      "table": "app_passwords",
+      "method": "POST"
+    },
+    {
+      "table": "app_sessions",
+      "method": "POST"
+    },
+    {
+      "table": "advisors",
+      "method": "PATCH"
+    },
+    {
+      "table": "audit_logs",
+      "method": "POST"
+    },
+    {
+      "table": "advisors",
+      "method": "PATCH"
+    },
+    {
+      "table": "advisors",
+      "method": "POST"
+    },
+    {
+      "table": "app_passwords",
+      "method": "POST"
+    },
+    {
+      "table": "audit_logs",
+      "method": "POST"
+    },
+    {
+      "table": "app_passwords",
+      "method": "PATCH"
+    },
+    {
+      "table": "app_sessions",
+      "method": "PATCH"
+    },
+    {
+      "table": "audit_logs",
+      "method": "POST"
+    },
+    {
+      "table": "app_sessions",
+      "method": "POST"
+    },
+    {
+      "table": "advisors",
+      "method": "PATCH"
+    },
+    {
+      "table": "app_sessions",
+      "method": "PATCH"
+    },
+    {
+      "table": "audit_logs",
+      "method": "POST"
+    },
+    {
+      "table": "advisors",
+      "method": "PATCH"
+    },
+    {
+      "table": "audit_logs",
+      "method": "POST"
+    },
+    {
+      "table": "app_sessions",
+      "method": "PATCH"
+    },
+    {
+      "table": "app_sessions",
+      "method": "POST"
+    },
+    {
+      "table": "app_sessions",
+      "method": "PATCH"
+    }
+  ]
+}

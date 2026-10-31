@@ -1,0 +1,44 @@
+✔ complete schema installs all 12 application tables and four migration markers (2566.379707ms)
+✔ fresh installer refuses existing tables without changing records (9.383902ms)
+✔ all tables have RLS enabled and no browser-facing policies (4.621611ms)
+✔ anon and authenticated roles cannot read any application table (35.336638ms)
+✔ browser roles cannot execute account RPCs or private trigger functions (8.487164ms)
+✔ backend cannot edit provider configuration, audit history or migration markers (6.030968ms)
+✔ audit tables reject even owner UPDATE, DELETE and TRUNCATE (3.35533ms)
+✔ duplicate usernames, invalid roles, malformed hashes and negative IDV are rejected (4.311689ms)
+✔ account creation rolls back fully when its audit insert fails (5.974011ms)
+✖ password reset atomically increments credential version and revokes sessions (225.455247ms)
+✔ failed reset rolls back password, credential version and session revocation (8.554936ms)
+✔ deactivation invalidates generation; reactivation cannot revive the old session (8.498742ms)
+✔ advisor actor cannot invoke administrator reset or status actions (2.21243ms)
+✔ composite foreign keys prevent cross-advisor CRM links (1.868091ms)
+✔ no legacy Supabase Auth functions or public security-definer RPCs exist (2.077897ms)
+✔ real SQL via HTTP: invitation signup, advisor access, admin create/reset and readiness (1271.670895ms)
+✔ real browser uses invitation signup, immediate advisor login and admin team management (2646.640113ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7224.179478
+
+✖ failing tests:
+
+test at scripts/test-database-security.cjs:20:1
+✖ password reset atomically increments credential version and revokes sessions (225.455247ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 2
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/insurance-testing-portal/scripts/test-database-security.cjs:20:579)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,5 +1,5 @@
 /* ===========================================================
-   AR Advisors — Insurance Comparison Tool
+   Test Portal — Insurance Comparison Tool
    Shared stylesheet: light corporate theme (navy / blue / teal)
    =========================================================== */
 
@@ -639,7 +639,7 @@ input[type="range"] { width: 100%; accent-color: var(--blue-accent); margin: 10p
 .user-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}.user-toolbar .user-security-note{margin:0;flex:1}.add-user-btn{width:auto;white-space:nowrap;padding:10px 15px}.admin-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:22px}.admin-modal.is-open{display:flex}.admin-modal-backdrop{position:absolute;inset:0;background:rgba(10,27,54,.42);backdrop-filter:blur(4px)}.admin-modal-dialog{position:relative;width:min(620px,100%);max-height:calc(100vh - 44px);overflow:auto;background:#fff;border:1px solid var(--border-color);border-radius:20px;box-shadow:0 30px 80px rgba(12,35,75,.24);padding:24px}.admin-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}.admin-modal-head h2{margin:0;font-size:22px}.admin-modal-head p{margin:6px 0 0;color:var(--text-muted);font-size:12.5px}.admin-user-form{margin-top:8px}.admin-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-form-grid .field{margin-bottom:0}.password-input-wrap{position:relative}.password-input-wrap input{padding-right:66px}.password-toggle{position:absolute;right:7px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#1e5fbf;font-weight:750;font-size:11px;cursor:pointer}.admin-modal-footer{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}.created-user-result{margin-top:10px;padding:16px;border-radius:14px;border:1px solid #bfe6cf;background:#f1fbf5}.created-user-success{font-weight:850;color:#197047;margin-bottom:14px}.created-user-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.created-user-grid>div{background:#fff;border:1px solid #dbe8df;border-radius:10px;padding:11px}.created-user-grid span{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);font-weight:800}.created-user-grid strong{display:block;margin-top:5px;font-family:monospace;font-size:13px;word-break:break-all}.created-user-result p{font-size:11px;color:var(--text-muted);margin:12px 0 14px}.admin-modal .banner{display:none;margin-bottom:12px}.admin-modal .banner.is-visible{display:flex}@media(max-width:650px){.user-toolbar{flex-direction:column}.add-user-btn{width:100%}.admin-form-grid,.created-user-grid{grid-template-columns:1fr}.admin-modal{padding:12px}.admin-modal-dialog{padding:18px}}
 
 /* ===========================================================
-   AR ADVISORS BRAND THEME — aligned with Employee Portal
+   TEST PORTAL BRAND THEME — aligned with Employee Portal
    UI-only overrides. Application behavior and data logic untouched.
    =========================================================== */
 :root {

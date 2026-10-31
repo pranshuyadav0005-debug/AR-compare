@@ -1,0 +1,15 @@
+✔ bounded queue cancels waiting requests and never starts expired work (2.235824ms)
+✔ provider global and per-host caps hold across independent comparisons (35.639751ms)
+✔ request budgets abort in-flight work and isolate concurrent requests (25.077386ms)
+✔ Redis uses POST JSON and never puts command payloads in URLs (22.167627ms)
+✔ shared idempotency rejects pending and conflicting submissions, then replays completion (13.30617ms)
+✔ configured coordination errors fail closed for duplicate, provider and multiple-instance rate admission (9.810771ms)
+✔ Redis transport inherits the comparison deadline (22.803538ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 166.395649

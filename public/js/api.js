@@ -1,5 +1,5 @@
 // Same-origin cookie sessions. All state changes carry the session-bound CSRF token.
-function getCsrfToken(){const cookies=document.cookie.split(';').map(x=>x.trim());const item=cookies.find(x=>x.startsWith('__Host-ar_csrf='))||cookies.find(x=>x.startsWith('ar_csrf='));if(!item)return '';try{return decodeURIComponent(item.slice(item.indexOf('=')+1));}catch{return '';}}
+function getCsrfToken(){const cookies=document.cookie.split(';').map(x=>x.trim());const item=cookies.find(x=>x.startsWith('__Host-test_csrf='))||cookies.find(x=>x.startsWith('test_csrf='));if(!item)return '';try{return decodeURIComponent(item.slice(item.indexOf('=')+1));}catch{return '';}}
 async function apiFetch(path,options={}){
  const opts={...options,credentials:'same-origin',signal:options.signal||AbortSignal.timeout(10000),headers:{...(options.headers||{})}};
  if(!['GET','HEAD','OPTIONS'].includes((opts.method||'GET').toUpperCase()))opts.headers['x-csrf-token']=getCsrfToken();

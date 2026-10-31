@@ -1,0 +1,32 @@
+✔ complete schema installs all 12 application tables and four migration markers (2317.700705ms)
+✔ fresh installer refuses existing tables without changing records (4.831471ms)
+✔ all tables have RLS enabled and no browser-facing policies (3.313717ms)
+✔ anon and authenticated roles cannot read any application table (26.607891ms)
+✔ browser roles cannot execute account RPCs or private trigger functions (6.899193ms)
+✔ backend cannot edit provider configuration, audit history or migration markers (4.45855ms)
+✔ audit tables reject even owner UPDATE, DELETE and TRUNCATE (3.102229ms)
+✔ duplicate usernames, invalid roles, malformed hashes and negative IDV are rejected (3.191933ms)
+✔ account creation rolls back fully when its audit insert fails (5.149269ms)
+✔ password reset atomically increments credential version and revokes sessions (211.857734ms)
+✔ failed reset rolls back password, credential version and session revocation (5.944706ms)
+✔ deactivation invalidates generation; reactivation cannot revive the old session (8.069554ms)
+✔ advisor actor cannot invoke administrator reset or status actions (2.050767ms)
+✔ composite foreign keys prevent cross-advisor CRM links (1.652467ms)
+✔ no legacy Supabase Auth functions or public security-definer RPCs exist (1.569612ms)
+✔ real SQL via HTTP: invitation signup, advisor access, admin create/reset and readiness (1139.999264ms)
+✔ real browser uses invitation signup, immediate advisor login and admin team management (2351.573137ms)
+✔ read-only deployment verification SQL succeeds against the installed schema (18.159366ms)
+✔ future owner-created tables/functions do not inherit browser access (4.496046ms)
+✔ real SQL quote persistence, immutable audit and cross-advisor isolation (505.120969ms)
+✔ complete downloadable installer supplies sample rates and an admin without a password (1352.305981ms)
+✔ existing database upgrade preserves accounts and quotations and revokes only pre-upgrade sessions once (1333.969354ms)
+✔ expired or administratively revoked sessions can clear browser cookies through logout (240.374039ms)
+✔ short and non-string credentials are rejected without creating accounts (3.247076ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9903.659158

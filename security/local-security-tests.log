@@ -1,0 +1,30 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-insurance-comparison@3.8.0 test:security
+> node --test scripts/test-public-security.cjs scripts/test-production-transport.cjs
+
+✔ production transport rejects wrong host and HTTP; trusted HTTPS adds HSTS (154.127088ms)
+✔ invitation is required and invalid signup performs no database writes (146.524893ms)
+✔ invited signup ignores injected administrator role and is immediately usable (131.358786ms)
+✔ duplicate registration cannot replace an existing password or grant admin (3.404944ms)
+✔ approval queue and mutation routes no longer exist (3.471704ms)
+✔ anonymous private data and administration are denied (3.98012ms)
+✔ origin spoofing cannot log in or register (1.520348ms)
+✔ JSON type, malformed JSON, body size and unsupported methods are rejected (6.821216ms)
+✔ security headers, request identifiers and private file protection (6.425628ms)
+✔ unknown user and wrong password give the same error (85.485623ms)
+✔ password reset and deactivation invalidate existing sessions (247.22461ms)
+✔ readiness fails closed without migration evidence (3.221338ms)
+✔ production configuration rejects unsafe origin, invite and web bootstrap (469.81168ms)
+✔ production cannot issue cookies over an insecure request or invoke web bootstrap (2.129625ms)
+✔ registration is closed without an invitation configured (1.273416ms)
+✔ approval controls removed from HTML and browser code (0.277958ms)
+✔ remote JSON responses are bounded before parsing, including chunked bodies (4.002113ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1349.804021

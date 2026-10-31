@@ -1,4 +1,4 @@
--- AR Advisors V39: COMPLETE schema for a NEW, EMPTY testing Supabase project.
+-- Test Portal V39: COMPLETE schema for a NEW, EMPTY testing Supabase project.
 -- Run as the database owner in SQL Editor. Do not run on your production database.
 -- No sample passwords, service keys, Supabase Auth users, or legacy auth RPCs are created.
 -- Existing app tables cause this transaction to abort without changing anything.

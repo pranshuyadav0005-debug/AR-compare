@@ -1,8 +1,8 @@
 {
-  "name": "ar-advisors-insurance-comparison",
+  "name": "insurance-testing-portal",
   "private": true,
-  "version": "3.9.0",
-  "description": "Private AR Advisors insurance comparison application with server-side Node.js API.",
+  "version": "3.9.1",
+  "description": "Organization-neutral insurance comparison testing portal.",
   "engines": {
     "node": ">=24"
   },

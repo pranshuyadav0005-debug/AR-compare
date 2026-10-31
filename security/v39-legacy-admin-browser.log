@@ -1,0 +1,10 @@
+page.waitForSelector: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#screen-login.is-active #loginInfoBanner.is-visible') to be visible[22m
+
+    at /workspace/scratch/32efd9aeeb41/work/insurance-testing-portal/scripts/test-admin-ui.cjs:17:14 {
+  log: [
+    "  - waiting for locator('#screen-login.is-active #loginInfoBanner.is-visible') to be visible"
+  ],
+  name: 'TimeoutError'
+}

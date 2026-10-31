@@ -3,7 +3,7 @@ const {setTimeout:sleep}=require('node:timers/promises');
 const {BoundedPool}=require('./bounded-pool');
 const redis=require('../functions/lib/redis');
 const config=require('../functions/lib/config');
-const namespace=process.env.APP_COORDINATION_NAMESPACE||`ar-advisors:${process.env.NODE_ENV||'development'}`;
+const namespace=process.env.APP_COORDINATION_NAMESPACE||`insurance-testing:${process.env.NODE_ENV||'development'}`;
 const local=new BoundedPool(config.providerConcurrency,config.providerQueueLimit);
 const providers=new Map();
 // Redis time supplies the lease clock for all application instances.

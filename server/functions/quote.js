@@ -105,7 +105,7 @@ async function saveQuote(advisorId,input,comparisonResult){
   saved=(await update('quotes',`id=eq.${encodeURIComponent(quotationId)}&advisor_id=eq.${encodeURIComponent(advisorId)}&revision=eq.${expectedRevision}`,{...fields,revision:expectedRevision+1}))?.[0];
   if(!saved)throw Object.assign(new Error('This quotation changed while this comparison was processing. Reopen it before updating.'),{status:409,code:'revision_conflict'});
  }else{
-  const number=`ARQ-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${crypto.randomBytes(6).toString('hex').toUpperCase()}`;
+  const number=`TESTQ-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${crypto.randomBytes(6).toString('hex').toUpperCase()}`;
   saved=(await insert('quotes',{advisor_id:advisorId,quotation_number:number,revision:1,...fields}))?.[0];
  }
  if(!saved)throw new Error('Quotation was not saved.');

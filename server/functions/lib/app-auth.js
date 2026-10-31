@@ -1,8 +1,8 @@
 const crypto = require('crypto');
 const { select, insert, update, remove, eq } = require('./supabase');
 
-const SESSION_COOKIE = process.env.NODE_ENV==='production'?'__Host-ar_session':'ar_session';
-const CSRF_COOKIE = process.env.NODE_ENV==='production'?'__Host-ar_csrf':'ar_csrf';
+const SESSION_COOKIE = process.env.NODE_ENV==='production'?'__Host-test_session':'test_session';
+const CSRF_COOKIE = process.env.NODE_ENV==='production'?'__Host-test_csrf':'test_csrf';
 const SESSION_DAYS = 7;
 
 function hashToken(token) { return crypto.createHash('sha256').update(token).digest('hex'); }

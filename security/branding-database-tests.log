@@ -1,0 +1,32 @@
+✔ complete schema installs all 12 application tables and four migration markers (2646.50244ms)
+✔ fresh installer refuses existing tables without changing records (5.482612ms)
+✔ all tables have RLS enabled and no browser-facing policies (4.294163ms)
+✔ anon and authenticated roles cannot read any application table (31.311099ms)
+✔ browser roles cannot execute account RPCs or private trigger functions (8.395567ms)
+✔ backend cannot edit provider configuration, audit history or migration markers (5.490043ms)
+✔ audit tables reject even owner UPDATE, DELETE and TRUNCATE (3.293557ms)
+✔ duplicate usernames, invalid roles, malformed hashes and negative IDV are rejected (3.875604ms)
+✔ account creation rolls back fully when its audit insert fails (6.527075ms)
+✔ password reset atomically increments credential version and revokes sessions (225.136927ms)
+✔ failed reset rolls back password, credential version and session revocation (5.143672ms)
+✔ deactivation invalidates generation; reactivation cannot revive the old session (8.373182ms)
+✔ advisor actor cannot invoke administrator reset or status actions (2.126521ms)
+✔ composite foreign keys prevent cross-advisor CRM links (1.872158ms)
+✔ no legacy Supabase Auth functions or public security-definer RPCs exist (1.989645ms)
+✔ real SQL via HTTP: invitation signup, advisor access, admin create/reset and readiness (1185.88272ms)
+✔ real browser uses invitation signup, immediate advisor login and admin team management (2160.944321ms)
+✔ read-only deployment verification SQL succeeds against the installed schema (23.085222ms)
+✔ future owner-created tables/functions do not inherit browser access (5.99262ms)
+✔ real SQL quote persistence, immutable audit and cross-advisor isolation (513.973146ms)
+✔ complete downloadable installer supplies sample rates and an admin without a password (1156.511916ms)
+✔ existing database upgrade preserves accounts and quotations and revokes only pre-upgrade sessions once (1186.341547ms)
+✔ expired or administratively revoked sessions can clear browser cookies through logout (234.074043ms)
+✔ short and non-string credentials are rejected without creating accounts (4.055214ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9807.230309

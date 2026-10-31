@@ -217,7 +217,7 @@ server.maxRequestsPerSocket = 1000;
 server.maxConnections = 512;
 server.requestTimeout = 30000;
 server.headersTimeout = 10000;
-server.listen(PORT, HOST, () => console.log(`AR Advisors private server listening on ${HOST}:${server.address().port}`));
+server.listen(PORT, HOST, () => console.log(`Test Portal private server listening on ${HOST}:${server.address().port}`));
 
 function shutdown() {
   if (draining) return;

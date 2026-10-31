@@ -1,0 +1,82 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-insurance-comparison@3.8.0 test
+> npm run test:backend && npm run test:pricing && npm run test:stage4 && npm run test:foundation && node --test scripts/test-capacity.js scripts/test-redis.js
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-insurance-comparison@3.8.0 test:backend
+> node scripts/test-backend.js
+
+Backend security structure checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-insurance-comparison@3.8.0 test:pricing
+> node scripts/test-pricing.js
+
+Pricing / discount tests passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-insurance-comparison@3.8.0 test:stage4
+> node scripts/test-stage4.js
+
+Stage 4 smoke tests passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-insurance-comparison@3.8.0 test:foundation
+> node --test scripts/test-foundation.js
+
+✔ only public files can be served, including encoded and symlink probes (325.134647ms)
+✔ session binding and role permissions reject forged CSRF and advisor administration (14.388448ms)
+✔ invalid vehicle, dates, NCB, discount, addons and IDV are rejected before provider calls (36.881324ms)
+✔ configured estimates are saved and owner-scoped; another advisor cannot update them (21.468244ms)
+✔ catalogue vehicles without prices retain manual IDV and exact adjustment bounds (25.334404ms)
+✔ valid live quotes preserve provider totals and audit redacts credentials (25.446853ms)
+✔ provider failures and incomplete responses remain unavailable, never estimates or zero-priced plans (30.119998ms)
+✔ save and configuration failures are explicit; there is no fallback insurer registry (9.011094ms)
+✔ normalization rejects empty money and retries respect non-retryable errors (4.742769ms)
+✔ production requires database configuration and configured provider hosts/credentials (73.392381ms)
+✔ password reset revokes sessions and login rate limits work without Redis or trusted forwarding headers (343.204356ms)
+✔ request keys coalesce duplicate submissions, reject changed input, and replay an update (190.312218ms)
+✔ concurrent quotation updates use an atomic revision condition (101.088346ms)
+{"scenario":"30 advisors, three insurers each, provider delay 150ms, database delay 5ms","requests":30,"offered":"All requests launched together (within a five-second window)","ok":30,"busy":0,"liveQuotes":90,"timedOutQuotes":0,"p50Ms":871,"p95Ms":1478,"p99Ms":1480,"maxMs":1480,"providerPeak":10,"dbPeak":20}
+✔ 200 seeded advisors; 30 simultaneous comparisons with three 150ms insurers (1488.68804ms)
+{"scenario":"30 advisors, insurer delay 8000ms exceeds response window","requests":30,"offered":"All requests launched together (within a five-second window)","ok":30,"busy":0,"liveQuotes":0,"timedOutQuotes":30,"p50Ms":3979,"p95Ms":3986,"p99Ms":3986,"maxMs":3986,"providerPeak":10,"dbPeak":1}
+✔ deadline retains fast results and cancels queued provider work (7997.947741ms)
+{"scenario":"65 simultaneous advisors exceed admission limit of 60","requests":65,"offered":"All requests launched together (within a five-second window)","ok":60,"busy":5,"liveQuotes":0,"timedOutQuotes":60,"p50Ms":4069,"p95Ms":4091,"p99Ms":4091,"maxMs":4091,"providerPeak":10,"dbPeak":1}
+✔ overload is rejected promptly instead of growing the comparison queue (4098.634593ms)
+✖ admin advisor lists exclude administrators and approval races cannot overwrite a review (11.689177ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15077.245994
+
+✖ failing tests:
+
+test at scripts/test-foundation.js:203:1
+✖ admin advisor lists exclude administrators and approval races cannot overwrite a review (11.689177ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   404,
+  +   404
+  -   200,
+  -   409
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/insurance-testing-portal/scripts/test-foundation.js:207:118)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 404, 404 ],
+    expected: [ 200, 409 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

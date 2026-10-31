@@ -1,7 +1,7 @@
 const crypto=require('node:crypto');
 const redis=require('../functions/lib/redis');
 const {context,remaining}=require('./request-budget');
-const namespace=process.env.APP_COORDINATION_NAMESPACE||`ar-advisors:${process.env.NODE_ENV||'development'}`;
+const namespace=process.env.APP_COORDINATION_NAMESPACE||`insurance-testing:${process.env.NODE_ENV||'development'}`;
 const records=new Map();
 const COMPLETE_TTL=600000;
 const BEGIN=`local existing=redis.call('GET',KEYS[1]);if existing then return existing;end;local pending=cjson.encode({hash=ARGV[1],owner=ARGV[2],phase='pending'});redis.call('SET',KEYS[1],pending,'PX',ARGV[3]);return 'acquired';`;
