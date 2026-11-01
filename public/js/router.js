@@ -54,6 +54,11 @@ function showScreen(id) {
   }
 
   updateAdminFlowShell();
+  document.querySelectorAll('.topbar-nav [data-nav-dashboard], .topbar-nav [data-nav-reports]').forEach(button => {
+    const active = button.hasAttribute('data-nav-dashboard') ? id === 'screen-dashboard' : id === 'screen-reports';
+    button.classList.toggle('is-active', active);
+    if (active) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
+  });
   window.scrollTo(0, 0);
 }
 

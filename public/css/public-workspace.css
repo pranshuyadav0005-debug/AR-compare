@@ -1,0 +1,108 @@
+#screen-login,#screen-signup,#screen-dashboard,.advisor-topbar{--font-body:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--font-display:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.auth-brand{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.auth-split .field label,.auth-split button{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#screen-dashboard .field label,.advisor-topbar button,.workspace-card button{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+/* CoverScope public workspace: navy, warm gold and white. */
+#screen-login,#screen-signup{min-height:100svh;padding:36px 24px;background:#f5f7fb;justify-content:center;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#screen-login .auth-split,#screen-signup .auth-split{flex:none;display:grid;grid-template-columns:minmax(0, .92fr) minmax(0,1.08fr);width:min(1060px,100%);margin:auto;min-height:620px;padding:0;gap:0;border:1px solid #dce3ed;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 14px 44px #10284908}
+#screen-signup .auth-split{min-height:720px}
+.auth-split .auth-illustration{display:flex;flex-direction:column;min-width:0;flex:auto;padding:38px;border-radius:0;background:#102849;color:#fff;overflow:visible;isolation:auto}
+.auth-split .auth-illustration:after{display:none}
+.auth-brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none;align-self:flex-start}
+.auth-brand img{display:block;flex:none}
+.auth-brand>span{font-size:22px;letter-spacing:-.6px;font-weight:600;line-height:1.2}
+.auth-brand small{display:block;color:#b5c4d7;font-size:9px;letter-spacing:1.8px;font-weight:500;margin-top:7px}
+.auth-purpose{margin:auto 0;padding:46px 0}
+.auth-rule{height:3px;width:34px;background:#edbd70;margin-bottom:24px}
+.auth-purpose h1{font:500 clamp(27px,3vw,36px)/1.18 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-1px;color:#fff;margin:0 0 18px}
+.auth-purpose p{color:#bfcddf;font-size:14px;line-height:1.75;margin:0;max-width:320px}
+.auth-process{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:22px}
+.auth-process li{display:flex;gap:16px;align-items:start;color:#f5f7fb;font-size:13px;line-height:1.5}
+.auth-process li>span{color:#edbd70;font-size:11px;padding-top:2px;font-variant-numeric:tabular-nums}
+.auth-process small{display:block;font-size:11px;color:#aabdd3;margin-top:3px}
+.auth-privacy-link{color:#c1ccdc;font-size:12px;text-decoration:none;display:flex;justify-content:space-between;padding-top:18px;border-top:1px solid #ffffff20}
+.auth-privacy-link:hover{color:#fff;text-decoration:underline}
+.auth-split .auth-form-panel{display:flex;align-items:center;padding:38px 54px;min-width:0;background:#fff}
+.auth-split .auth-form-inner{max-width:380px;margin:auto}
+.auth-split .auth-eyebrow{font-size:10px;letter-spacing:1.6px;color:#63748a;margin-bottom:12px}
+.auth-split .auth-heading{font:600 30px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#102849;letter-spacing:-.8px;margin:0 0 10px;text-transform:none}
+.auth-split .auth-description{font-size:13px;line-height:1.65;color:#627188;margin:0 0 25px}
+.auth-split .auth-description a,.auth-split .text-link{color:#173963}
+.auth-split .google-auth-btn{border-radius:6px;min-height:46px;font-size:13px;box-shadow:none;transform:none}
+.auth-split .google-auth-note{font-size:11px;line-height:1.5;margin:8px 0 18px;color:#65748a;min-height:17px}
+.auth-split .auth-method-divider{font-size:11px;margin-bottom:21px;white-space:normal}
+.auth-split .field{margin-bottom:18px}
+.auth-split label{font-size:12px;font-weight:600;margin-bottom:7px}
+.auth-split input{min-height:46px;font:14px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border-radius:6px;padding:12px 13px;background:#fff;border-color:#ccd5e2}
+.auth-split .password-field-wrapper input{padding-right:46px}
+.auth-split .password-toggle-btn{width:40px;min-height:40px;right:3px}
+.auth-split .btn-primary{border-radius:6px;background:#173963;box-shadow:none;min-height:46px;font-size:13px}
+.auth-split .btn-primary:hover{background:#102849;box-shadow:none}
+.auth-split .banner{font-size:12px;line-height:1.5;border-radius:6px;margin-bottom:18px}
+.auth-split .field-hint{font-size:11px;line-height:1.5}
+.auth-split .req{color:#9e4741}
+.auth-split :focus-visible{outline:3px solid #87a4c8;outline-offset:3px}
+
+/* A responsive header keeps navigation and search available on every screen. */
+.advisor-topbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;padding:14px 28px;background:#fff;backdrop-filter:none;border-bottom:1px solid #dce3ed;min-width:0}
+.advisor-topbar .topbar-center{display:flex;min-width:0;gap:16px;justify-content:center}
+.advisor-topbar .topbar-left,.advisor-topbar .topbar-right{min-width:0}
+.advisor-topbar .topbar-nav{background:transparent;border:0;border-radius:0;padding:0;flex:none;gap:5px}
+.advisor-topbar .topbar-nav-link{font-size:12px;border-radius:5px;padding:9px 12px;min-height:38px}
+.advisor-topbar .topbar-nav-link.is-active{background:#eef2f8;color:#173963;box-shadow:none}
+.advisor-topbar .topbar-search-form{border-radius:6px;min-width:0;max-width:260px;min-height:38px;flex:1 1 200px;background:#f7f8fb}
+.advisor-topbar .topbar-search-input{min-width:0;font-size:12px}
+.advisor-topbar .topbar-brand-name{font:600 17px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.5px;text-transform:none;color:#102849}
+.advisor-topbar .topbar-brand-subtitle{font-size:8px;letter-spacing:.9px;font-weight:500}
+.advisor-account{display:flex;align-items:center;gap:9px;min-width:0;padding:0;cursor:default}
+.advisor-account .advisor-avatar{background:#eef2f8;color:#173963}
+.advisor-account .advisor-hello{display:none}
+.advisor-account .advisor-name{display:block;max-width:120px;font:500 12px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0}
+.advisor-topbar .btn-icon-ghost{min-width:38px;min-height:38px;border-radius:6px}
+.advisor-topbar :focus-visible,#screen-dashboard :focus-visible{outline:3px solid #87a4c8;outline-offset:3px}
+
+#screen-dashboard{background:#f5f7fb}
+#screen-dashboard .content-wrap{max-width:1160px;padding:36px 28px 48px}
+#screen-dashboard .dashboard-welcome{display:block;margin:0 0 28px}
+#screen-dashboard .greeting-eyebrow{font-size:10px;color:#60738b;letter-spacing:1.3px;margin:0 0 10px}
+#screen-dashboard #greeting{font:600 clamp(23px,2.7vw,30px)/1.3 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-transform:none;letter-spacing:-.7px;margin:0 0 8px;overflow-wrap:anywhere;color:#102849}
+#screen-dashboard #greetingMessage{font-size:13px;line-height:1.6;color:#627188;margin:0}
+.dashboard-workspace{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start;gap:24px}
+#screen-dashboard .lookup-card{min-width:0;background:#fff;border:1px solid #dce3ed;border-radius:9px;box-shadow:none;padding:26px}
+#screen-dashboard .lookup-card-head{margin-bottom:24px;display:block}
+#screen-dashboard .section-kicker{font-size:10px;letter-spacing:1.3px;font-weight:600;color:#60738b}
+#screen-dashboard .lookup-card-title{font:600 23px/1.3 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.5px;margin:9px 0;color:#102849}
+#screen-dashboard .lookup-card-subtitle{font-size:13px;line-height:1.65;max-width:470px;color:#627188;margin:0}
+#screen-dashboard .field{margin-bottom:22px}
+#screen-dashboard .field label{font-size:12px;font-weight:600;margin-bottom:9px}
+#screen-dashboard .choice-grid{gap:12px}
+#screen-dashboard .choice-card{min-width:0;background:#fff;padding:16px;border:1px solid #d4dce7;border-radius:7px;box-shadow:none;text-align:left;transform:none}
+#screen-dashboard .choice-card.is-selected{background:#f3f6fb;border-color:#173963;box-shadow:0 0 0 1px #173963}
+#screen-dashboard .choice-card-top{margin-bottom:12px}
+#screen-dashboard .choice-icon{background:#f0f3f8;color:#173963;border-radius:6px}
+#screen-dashboard .choice-title{font:600 13px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#173963;display:block}
+#screen-dashboard .choice-desc{display:block;font-size:11px;line-height:1.5;margin-top:4px;color:#66758a}
+#screen-dashboard #regNumber{font:500 16px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:1.2px;min-width:0;min-height:48px;border-radius:6px;box-shadow:none}
+#screen-dashboard #regNumber::placeholder{font-size:14px;letter-spacing:1px;font-weight:400;color:#8995a6}
+#screen-dashboard .field-hint{font-size:11px;line-height:1.5;margin-top:8px;color:#66758a}
+#screen-dashboard .lookup-cta{background:#173963;box-shadow:none;border-radius:6px;min-height:47px;font-size:13px;justify-content:center;gap:10px;transform:none}
+#screen-dashboard .lookup-cta:hover{background:#102849}
+#screen-dashboard .lookup-cta .btn-arrow{margin-left:auto}
+.dashboard-side{display:grid;gap:20px;min-width:0}
+.workspace-card{background:#fff;padding:25px;border:1px solid #dce3ed;border-radius:9px;min-width:0}
+.workspace-card h2{font:600 18px/1.4 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.3px;margin:8px 0 10px;color:#102849}
+.workspace-card p{font-size:13px;line-height:1.7;color:#627188;margin:0 0 20px}
+.workspace-card .btn-secondary{background:#fff;border:1px solid #c9d3e1;border-radius:6px;font-size:12px;min-height:43px;color:#173963;box-shadow:none;justify-content:space-between}
+.workspace-card .btn-secondary:hover{background:#f3f6fb}
+.workspace-guide h2{margin-top:0;font-size:16px}
+.workspace-guide ol{padding-left:18px;margin:16px 0 20px;display:grid;gap:13px;font-size:12px;line-height:1.7;color:#627188}
+.workspace-guide li::marker{color:#9a6c29;font-weight:600}
+.workspace-guide .workspace-demo-note{border-top:1px solid #e4e9f0;padding-top:17px;font-size:11px;margin:0 0 14px}
+.workspace-guide a{font-size:12px;color:#173963;text-underline-offset:3px}
+@media(max-width:1150px){.advisor-account .advisor-info{display:none}.advisor-topbar{gap:16px;padding:14px 22px}}
+@media(max-width:850px){.advisor-topbar{grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:14px 20px}.advisor-topbar .topbar-center{grid-column:1/-1;grid-row:2;display:flex;justify-content:space-between;gap:12px}.advisor-topbar .topbar-right{grid-column:2;grid-row:1}.advisor-topbar .topbar-search-form{max-width:none;flex:1}.advisor-topbar .topbar-brand-subtitle{display:none}.dashboard-workspace{grid-template-columns:minmax(0,1fr)}.dashboard-side{grid-template-columns:1fr 1fr;gap:18px}.workspace-card{padding:22px}.auth-split .auth-form-panel{padding:34px}.auth-split .auth-illustration{padding:30px}}
+@media(max-width:700px){#screen-login,#screen-signup{padding:18px 14px;justify-content:flex-start}.auth-split .auth-purpose{display:none}.auth-split .auth-illustration{padding:22px 25px;flex-direction:row;justify-content:space-between;align-items:center;gap:20px}.auth-split .auth-privacy-link{border:0;padding:0;font-size:11px;gap:8px}.auth-brand>span{font-size:20px}.auth-brand small{font-size:8px}.auth-brand img{width:34px;height:34px}#screen-login .auth-split,#screen-signup .auth-split{grid-template-columns:minmax(0,1fr);min-height:0}.auth-split .auth-form-panel{padding:32px 26px}.auth-split .auth-form-inner{max-width:420px}.auth-split .auth-heading{font-size:28px}}
+@media(max-width:520px){.advisor-topbar{padding:12px 16px;gap:10px}.advisor-topbar .topbar-center{flex-wrap:wrap;gap:10px}.advisor-topbar .topbar-nav{width:100%}.advisor-topbar .topbar-nav-link{flex:1;text-align:center;padding:9px 12px}.advisor-topbar .topbar-search-form{flex-basis:100%;min-height:40px}.advisor-topbar .topbar-brand-name{font-size:17px}.advisor-topbar .topbar-right{gap:8px}.advisor-account .advisor-avatar{width:28px;height:28px}#screen-dashboard .content-wrap{padding:26px 16px 36px}#screen-dashboard .dashboard-welcome{margin-bottom:22px}.dashboard-workspace{gap:18px}#screen-dashboard .lookup-card{padding:22px 18px}#screen-dashboard .choice-card{padding:13px 11px}#screen-dashboard .choice-desc{font-size:10px}.dashboard-side{grid-template-columns:minmax(0,1fr)}.workspace-card{padding:22px 20px}#screen-dashboard .lookup-card-title{font-size:21px}#screen-dashboard .lookup-cta{font-size:12px}.auth-split .auth-form-panel{padding:28px 22px}.auth-split .auth-illustration{padding:20px 22px}}
+@media(prefers-reduced-motion:reduce){.auth-split *,#screen-dashboard *{animation:none!important;transition:none!important}}
+
+#screen-dashboard .field-label{display:block;font-size:12px;font-weight:600;margin-bottom:9px;color:#14213d}

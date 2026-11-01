@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/styles.css" />
 <link rel="stylesheet" href="css/comparison-premium.css" />
 <link rel="stylesheet" href="css/workspace.css" />
+<link rel="stylesheet" href="css/public-workspace.css" />
 </head>
 <body>
 
@@ -17,58 +18,17 @@
 <!-- ===================== LOGIN SCREEN ===================== -->
 <div class="screen is-active" id="screen-login">
   <div class="auth-split">
-    <div class="auth-illustration">
-      <div class="auth-logo-block">
-        <img class="auth-brand-logo" src="assets/coverscope-wordmark.svg" alt="CoverScope" />
-        <div class="auth-logo-divider"></div>
-        <div class="auth-tagline">COVERSCOPE<br /><span>INSURANCE DESK</span></div>
-      </div>
-      <h1 class="auth-headline">One desk.<br /><span>More confidence.</span></h1>
-      <p class="auth-intro">Bring every car insurance comparison into focus. A dedicated workspace for your advisory team.</p><div class="auth-journey"><span>01 · Vehicle</span><span>02 · IDV</span><span>03 · Compare</span></div>
-      <div class="auth-illustration-art">
-        <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="90" cy="46" rx="34" ry="14" fill="#FFFFFF" opacity="0.7" />
-          <ellipse cx="430" cy="30" rx="26" ry="10" fill="#FFFFFF" opacity="0.6" />
-          <rect x="20" y="110" width="46" height="90" rx="4" fill="#C9D9F5" />
-          <rect x="72" y="80" width="54" height="120" rx="4" fill="#B7CBF0" />
-          <rect x="132" y="130" width="40" height="70" rx="4" fill="#D3E0F7" />
-          <rect x="380" y="100" width="48" height="100" rx="4" fill="#C9D9F5" />
-          <rect x="434" y="70" width="56" height="130" rx="4" fill="#B7CBF0" />
-          <g fill="#8FB3EC">
-            <rect x="30" y="122" width="8" height="8" rx="1.5" /><rect x="46" y="122" width="8" height="8" rx="1.5" />
-            <rect x="30" y="140" width="8" height="8" rx="1.5" /><rect x="46" y="140" width="8" height="8" rx="1.5" />
-            <rect x="84" y="94" width="8" height="8" rx="1.5" /><rect x="102" y="94" width="8" height="8" rx="1.5" />
-            <rect x="84" y="112" width="8" height="8" rx="1.5" /><rect x="102" y="112" width="8" height="8" rx="1.5" />
-            <rect x="84" y="130" width="8" height="8" rx="1.5" /><rect x="102" y="130" width="8" height="8" rx="1.5" />
-            <rect x="392" y="114" width="8" height="8" rx="1.5" /><rect x="408" y="114" width="8" height="8" rx="1.5" />
-            <rect x="446" y="84" width="8" height="8" rx="1.5" /><rect x="464" y="84" width="8" height="8" rx="1.5" />
-            <rect x="446" y="102" width="8" height="8" rx="1.5" /><rect x="464" y="102" width="8" height="8" rx="1.5" />
-          </g>
-          <circle cx="245" cy="150" r="16" fill="#9BCFA9" />
-          <rect x="242" y="163" width="6" height="16" fill="#B98554" />
-          <rect x="0" y="200" width="520" height="40" fill="#D7DEEA" />
-          <rect x="10" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <rect x="56" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <rect x="102" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <rect x="148" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <g>
-            <rect x="290" y="182" width="86" height="26" rx="8" fill="#1E5FBF" />
-            <rect x="300" y="170" width="52" height="20" rx="6" fill="#17AEC4" />
-            <rect x="306" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
-            <rect x="326" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
-            <circle cx="308" cy="210" r="9" fill="#14213D" />
-            <circle cx="358" cy="210" r="9" fill="#14213D" />
-            <circle cx="308" cy="210" r="3.5" fill="#C9D9F5" />
-            <circle cx="358" cy="210" r="3.5" fill="#C9D9F5" />
-          </g>
-        </svg>
-      </div>
-    </div>
+    <aside class="auth-illustration" aria-label="About CoverScope">
+      <a class="auth-brand" href="index.html" aria-label="CoverScope home"><img src="assets/coverscope-icon.svg" alt="" width="38" height="38"><span>CoverScope<small>MOTOR INSURANCE</small></span></a>
+      <div class="auth-purpose"><div class="auth-rule"></div><h1>Your motor insurance<br>workspace.</h1><p>Vehicle details, cover options and saved comparisons. All in one place.</p>
+      <ol class="auth-process"><li><span>01</span><div>Enter vehicle details<small>Registration, model and policy information</small></div></li><li><span>02</span><div>Set your cover<small>Choose an IDV and the add-ons you need</small></div></li><li><span>03</span><div>Compare quotations<small>Review premiums and save your comparison</small></div></li></ol></div>
+      <a class="auth-privacy-link" href="privacy.html" target="_blank" rel="noopener">Privacy notice <span aria-hidden="true">↗</span></a>
+    </aside>
 
     <div class="auth-form-panel">
       <div class="auth-form-inner">
-        <div class="auth-eyebrow">MOTOR INSURANCE COMPARISON</div><h2 class="auth-heading">Welcome back</h2>
-        <p class="auth-description">Sign in to your insurance desk.</p><div id="loginInfoBanner" class="banner banner-info" role="status"><span id="loginInfoText"></span></div>
+        <div class="auth-eyebrow">WELCOME TO COVERSCOPE</div><h2 class="auth-heading">Sign in</h2>
+        <p class="auth-description">Continue to your saved comparisons and vehicle workspace.</p><div id="loginInfoBanner" class="banner banner-info" role="status"><span id="loginInfoText"></span></div>
 
         <div id="errorBanner" class="banner banner-error" role="alert">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
@@ -85,7 +45,7 @@
           <div class="field" id="passwordField">
             <label for="loginPassword">Password <span class="req">*</span></label>
             <div class="password-field-wrapper">
-              <input type="password" id="loginPassword" name="password" maxlength="128" placeholder="••••••••" autocomplete="current-password" />
+              <input type="password" id="loginPassword" name="password" maxlength="128" placeholder="Enter your password" autocomplete="current-password" />
               <button type="button" class="password-toggle-btn" data-target="loginPassword" aria-label="Show password">
                 <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a18.6 18.6 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
@@ -110,57 +70,16 @@
 <!-- ===================== SIGN UP SCREEN ===================== -->
 <div class="screen" id="screen-signup">
   <div class="auth-split">
-    <div class="auth-illustration">
-      <div class="auth-logo-block">
-        <img class="auth-brand-logo" src="assets/coverscope-wordmark.svg" alt="CoverScope" />
-        <div class="auth-logo-divider"></div>
-        <div class="auth-tagline">COVERSCOPE<br /><span>INSURANCE DESK</span></div>
-      </div>
-      <h1 class="auth-headline">Your next chapter.<br /><span>Starts here.</span></h1>
-      <p class="auth-intro">Bring every car insurance comparison into focus. A dedicated workspace for your advisory team.</p><div class="auth-journey"><span>01 · Vehicle</span><span>02 · IDV</span><span>03 · Compare</span></div>
-      <div class="auth-illustration-art">
-        <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="90" cy="46" rx="34" ry="14" fill="#FFFFFF" opacity="0.7" />
-          <ellipse cx="430" cy="30" rx="26" ry="10" fill="#FFFFFF" opacity="0.6" />
-          <rect x="20" y="110" width="46" height="90" rx="4" fill="#C9D9F5" />
-          <rect x="72" y="80" width="54" height="120" rx="4" fill="#B7CBF0" />
-          <rect x="132" y="130" width="40" height="70" rx="4" fill="#D3E0F7" />
-          <rect x="380" y="100" width="48" height="100" rx="4" fill="#C9D9F5" />
-          <rect x="434" y="70" width="56" height="130" rx="4" fill="#B7CBF0" />
-          <g fill="#8FB3EC">
-            <rect x="30" y="122" width="8" height="8" rx="1.5" /><rect x="46" y="122" width="8" height="8" rx="1.5" />
-            <rect x="30" y="140" width="8" height="8" rx="1.5" /><rect x="46" y="140" width="8" height="8" rx="1.5" />
-            <rect x="84" y="94" width="8" height="8" rx="1.5" /><rect x="102" y="94" width="8" height="8" rx="1.5" />
-            <rect x="84" y="112" width="8" height="8" rx="1.5" /><rect x="102" y="112" width="8" height="8" rx="1.5" />
-            <rect x="84" y="130" width="8" height="8" rx="1.5" /><rect x="102" y="130" width="8" height="8" rx="1.5" />
-            <rect x="392" y="114" width="8" height="8" rx="1.5" /><rect x="408" y="114" width="8" height="8" rx="1.5" />
-            <rect x="446" y="84" width="8" height="8" rx="1.5" /><rect x="464" y="84" width="8" height="8" rx="1.5" />
-            <rect x="446" y="102" width="8" height="8" rx="1.5" /><rect x="464" y="102" width="8" height="8" rx="1.5" />
-          </g>
-          <circle cx="245" cy="150" r="16" fill="#9BCFA9" />
-          <rect x="242" y="163" width="6" height="16" fill="#B98554" />
-          <rect x="0" y="200" width="520" height="40" fill="#D7DEEA" />
-          <rect x="10" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <rect x="56" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <rect x="102" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <rect x="148" y="218" width="26" height="4" rx="2" fill="#FFFFFF" opacity="0.8" />
-          <g>
-            <rect x="290" y="182" width="86" height="26" rx="8" fill="#1E5FBF" />
-            <rect x="300" y="170" width="52" height="20" rx="6" fill="#17AEC4" />
-            <rect x="306" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
-            <rect x="326" y="174" width="16" height="12" rx="2" fill="#EAF2FF" opacity="0.85" />
-            <circle cx="308" cy="210" r="9" fill="#14213D" />
-            <circle cx="358" cy="210" r="9" fill="#14213D" />
-            <circle cx="308" cy="210" r="3.5" fill="#C9D9F5" />
-            <circle cx="358" cy="210" r="3.5" fill="#C9D9F5" />
-          </g>
-        </svg>
-      </div>
-    </div>
+    <aside class="auth-illustration" aria-label="About CoverScope">
+      <a class="auth-brand" href="index.html" aria-label="CoverScope home"><img src="assets/coverscope-icon.svg" alt="" width="38" height="38"><span>CoverScope<small>MOTOR INSURANCE</small></span></a>
+      <div class="auth-purpose"><div class="auth-rule"></div><h1>Your motor insurance<br>workspace.</h1><p>Vehicle details, cover options and saved comparisons. All in one place.</p>
+      <ol class="auth-process"><li><span>01</span><div>Enter vehicle details<small>Registration, model and policy information</small></div></li><li><span>02</span><div>Set your cover<small>Choose an IDV and the add-ons you need</small></div></li><li><span>03</span><div>Compare quotations<small>Review premiums and save your comparison</small></div></li></ol></div>
+      <a class="auth-privacy-link" href="privacy.html" target="_blank" rel="noopener">Privacy notice <span aria-hidden="true">↗</span></a>
+    </aside>
 
     <div class="auth-form-panel">
       <div class="auth-form-inner">
-        <div class="auth-eyebrow">COMPARE WITH CONFIDENCE</div><h2 class="auth-heading">Create account</h2><p class="auth-description">Create your CoverScope account. Use fictional vehicle and customer details. <a href="privacy.html" target="_blank" rel="noopener">Privacy notice</a>.</p>
+        <div class="auth-eyebrow">GET STARTED</div><h2 class="auth-heading">Create account</h2><p class="auth-description">Create your CoverScope account. For this public demo, use fictional customer and vehicle details. <a href="privacy.html" target="_blank" rel="noopener">Privacy notice</a>.</p>
 
         <div id="signupErrorBanner" class="banner banner-error" role="alert">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
@@ -187,13 +106,13 @@
           <div class="field" id="signupPasswordField">
             <label for="signupPassword">Password <span class="req">*</span></label>
             <div class="password-field-wrapper">
-              <input type="password" id="signupPassword" maxlength="128" placeholder="••••••••" autocomplete="new-password" />
+              <input type="password" id="signupPassword" minlength="15" maxlength="128" aria-describedby="signupPasswordHint" placeholder="At least 15 characters" autocomplete="new-password" />
               <button type="button" class="password-toggle-btn" data-target="signupPassword" aria-label="Show password">
                 <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a18.6 18.6 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
               </button>
             </div>
-            <div class="field-error">Use at least 15 characters.</div>
+            <div class="field-hint" id="signupPasswordHint">Use 15–128 characters. A memorable phrase works well.</div><div class="field-error">Use at least 15 characters.</div>
           </div>
           <button type="submit" class="btn btn-primary" id="signupBtn" style="margin-top: 6px;">
             <span class="spinner"></span>
@@ -211,13 +130,18 @@
 
 <!-- ===================== DASHBOARD SCREEN ===================== -->
 <div class="screen" id="screen-dashboard">
-  <div class="topbar advisor-topbar">
+  <div class="topbar advisor-topbar dashboard-topbar">
     <div class="topbar-left">
       <img class="header-brand-logo" src="assets/coverscope-icon.svg" alt="CoverScope" />
+      <div class="topbar-brand-text">
+        <span class="topbar-brand-name">COVERSCOPE</span>
+        <span class="topbar-brand-subtitle">INSURANCE COMPARISON PORTAL</span>
+      </div>
     </div>
     <div class="topbar-center">
       <nav class="topbar-nav" aria-label="Primary">
-        <button type="button" class="topbar-nav-link" data-nav-dashboard>Dashboard</button>
+        <button type="button" class="topbar-nav-link is-active" data-nav-dashboard>Dashboard</button>
+        <button type="button" class="topbar-nav-link" data-nav-reports>Saved quotes</button>
       </nav>
       <form class="topbar-search-form" role="search" aria-label="Search all quotes">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
@@ -226,120 +150,102 @@
     </div>
     <div class="topbar-right">
       <button class="btn admin-flow-back advisor-flow-back-admin" id="adminRegistrationBack" type="button" style="display:none; width:auto; padding:8px 12px;">Back to Admin</button>
-      <span class="advisor-name" data-advisor-name>Advisor</span>
+      
+      <div class="advisor-account" aria-label="Signed-in account">
+        <span class="advisor-avatar" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <span class="advisor-info">
+          <span class="advisor-hello">Welcome back</span>
+          <span class="advisor-name" data-advisor-name>Advisor</span>
+        </span>
+        
+      </div>
       <button class="btn-icon-ghost" id="signOutBtn1" title="Sign out" aria-label="Sign out">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
       </button>
     </div>
   </div>
 
-  <div class="content-wrap dash-content">
+  <div class="content-wrap">
     <div class="dashboard-welcome">
       <div class="page-heading dashboard-heading">
-        <div class="greeting-eyebrow">YOUR COVERSCOPE DASHBOARD</div>
-        <h1 id="greeting">GOOD MORNING</h1>
-        <p id="greetingMessage">Every great comparison starts with a great decision. Let's make today count.</p>
+        <div class="greeting-eyebrow">MOTOR INSURANCE</div>
+        <h1 id="greeting">Your workspace</h1>
+        <p id="greetingMessage">Start a comparison or reopen a saved quotation.</p>
       </div>
-      <div class="daily-quote-card" aria-live="polite">
-        <blockquote id="dailyQuote">Small steps every day create remarkable results.</blockquote>
-        <div class="daily-quote-mark">“</div>
-      </div>
+      
     </div>
 
-    <!-- Summary stat cards, populated from the advisor's real saved-quotes
-         data (js/dashboard.js -> /api/quotes/search). No placeholder numbers. -->
-    <div class="dash-stats-row" id="dashStatsRow" aria-live="polite">
-      <div class="dash-stat-card">
-        <div class="dash-stat-icon dash-stat-icon-blue">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+    <div class="dashboard-workspace"><section class="glass-panel lookup-card" aria-labelledby="dashboardLookupTitle">
+      <div class="lookup-card-head">
+        <div class="lookup-card-head-text">
+          <div class="section-kicker">NEW COMPARISON</div>
+          <h2 class="lookup-card-title" id="dashboardLookupTitle">Start with your vehicle</h2>
+          <p class="lookup-card-subtitle">Enter a registration number. We’ll check your saved records, then let you review or enter the vehicle details.</p>
         </div>
-        <div class="dash-stat-body">
-          <span class="dash-stat-label">Quotes this month</span>
-          <strong class="dash-stat-value" id="statQuotesMonth">—</strong>
-          <span class="dash-stat-sub" id="statQuotesMonthSub">Loading…</span>
-        </div>
+        
       </div>
-      <div class="dash-stat-card">
-        <div class="dash-stat-icon dash-stat-icon-teal">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <div class="dash-stat-body">
-          <span class="dash-stat-label">Quotes this week</span>
-          <strong class="dash-stat-value" id="statQuotesWeek">—</strong>
-          <span class="dash-stat-sub" id="statQuotesWeekSub">Loading…</span>
-        </div>
+
+      
+
+      <div id="lookupError" class="banner banner-error" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span id="lookupErrorText">Couldn't find that registration number.</span>
       </div>
-      <div class="dash-stat-card">
-        <div class="dash-stat-icon dash-stat-icon-gold">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+
+      <form id="regForm" novalidate>
+        <div class="field" id="regTypeField">
+          <span class="field-label" id="registrationTypeLabel">Registration type</span>
+          <input type="hidden" id="regType" value="">
+          <div class="choice-grid" id="regTypeChoices" role="group" aria-labelledby="registrationTypeLabel">
+            <button type="button" class="choice-card" data-value="normal" aria-pressed="false">
+              <span class="choice-card-top">
+                <span class="choice-icon" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 7l2 6"/><path d="M2 13h20v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></svg>
+                </span>
+                <span class="choice-radio" aria-hidden="true"></span>
+              </span>
+              <span class="choice-title">Normal Registration</span>
+              <span class="choice-desc">Regular state registration</span>
+            </button>
+            <button type="button" class="choice-card" data-value="bh" aria-pressed="false">
+              <span class="choice-card-top">
+                <span class="choice-icon" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 7l2 6"/><path d="M2 13h20v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></svg>
+                </span>
+                <span class="choice-radio" aria-hidden="true"></span>
+              </span>
+              <span class="choice-title">BH Registration</span>
+              <span class="choice-desc">Bharat Series registration</span>
+            </button>
+          </div>
+          <div class="field-error">Select the registration type.</div>
         </div>
-        <div class="dash-stat-body">
-          <span class="dash-stat-label">Most recent quote</span>
-          <strong class="dash-stat-value dash-stat-value-sm" id="statLastQuote">—</strong>
-          <span class="dash-stat-sub" id="statLastQuoteSub">Loading…</span>
+        <div class="field" id="regField">
+          <label for="regNumber">Registration Number</label>
+          <div class="input-icon-wrap">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="14" x2="10" y2="14"/><line x1="13" y1="14" x2="18" y2="14"/></svg>
+            <input type="text" id="regNumber" class="plate-input" maxlength="13" autocomplete="off" placeholder="MH12AB1234" aria-describedby="registrationHint" autocapitalize="characters" spellcheck="false" />
+          </div>
+          <div class="field-hint" id="registrationHint">Enter the number without spaces, for example MH12AB1234.</div>
+          <div class="field-error">Enter a valid registration number, e.g. MH12AB1234.</div>
         </div>
-      </div>
+        <button type="submit" class="btn btn-primary lookup-cta" id="lookupBtn">
+          <span class="spinner"></span>
+          <svg class="btn-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span class="btn-label">Continue with vehicle</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+    </section>
+    <aside class="dashboard-side" aria-label="Comparison tools">
+      <section class="workspace-card saved-quotes-card"><div class="section-kicker">YOUR WORK</div><h2>Saved quotations</h2><p>Find earlier comparisons by registration number, customer name or quotation number.</p><button type="button" class="btn btn-secondary" data-nav-reports>Open saved quotes <span aria-hidden="true">→</span></button></section>
+      <section class="workspace-card workspace-guide"><h2>Before you compare</h2><ol><li>Keep the vehicle registration and previous policy details ready.</li><li>Confirm the IDV, no-claim bonus and selected add-ons.</li><li>Review the cover as well as the premium before making a decision.</li></ol><p class="workspace-demo-note">Public demo: use fictional details. Sample-rate estimates need insurer confirmation.</p><a href="privacy.html" target="_blank" rel="noopener">Read the privacy notice <span aria-hidden="true">↗</span></a></section>
+    </aside>
     </div>
 
-    <div class="dash-main-grid">
-      <!-- Primary action: registration lookup, styled as a hero action card -->
-      <div class="glass-panel dash-action-card">
-        <div class="dash-action-card-head">
-          <div class="dash-action-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
-          </div>
-          <div class="dash-action-copy">
-            <h2>New registration lookup</h2>
-            <p>Pull vehicle details and compare insurers for a customer in seconds.</p>
-          </div>
-        </div>
-
-        <div id="lookupError" class="banner banner-error" role="alert">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span id="lookupErrorText">Couldn't find that registration number.</span>
-        </div>
-
-        <form id="regForm" novalidate>
-          <div class="field" id="regTypeField">
-            <label for="regType">Registration type</label>
-            <input type="hidden" id="regType" value="">
-            <div class="choice-grid" id="regTypeChoices" role="radiogroup" aria-label="Registration type">
-              <button type="button" class="choice-card" data-value="normal" aria-pressed="false">
-                <span class="choice-title">Normal Registration</span>
-                <span class="choice-desc">Regular state registration</span>
-              </button>
-              <button type="button" class="choice-card" data-value="bh" aria-pressed="false">
-                <span class="choice-title">BH Registration</span>
-                <span class="choice-desc">Bharat Series registration</span>
-              </button>
-            </div>
-            <div class="field-error">Select the registration type.</div>
-          </div>
-          <div class="field" id="regField">
-            <label for="regNumber">Registration number</label>
-            <input type="text" id="regNumber" class="plate-input" maxlength="13" autocomplete="off" />
-            <div class="field-error">Enter a valid registration number, e.g. MH12AB1234.</div>
-          </div>
-          <button type="submit" class="btn btn-primary dash-action-submit" id="lookupBtn">
-            <span class="spinner"></span>
-            <span class="btn-label">Look up vehicle</span>
-          </button>
-        </form>
-      </div>
-
-      <!-- Recent activity: real quotes pulled from the same quotes-search
-           endpoint the Reports screen uses (js/dashboard.js). -->
-      <div class="glass-panel dash-side-card" id="dashActivityCard">
-        <div class="dash-side-card-head">
-          <h3>Recent activity</h3>
-          <button type="button" class="dash-link-btn" id="dashViewAllBtn">View all</button>
-        </div>
-        <div class="dash-recent-list" id="dashRecentList">
-          <div class="dash-recent-empty">Loading recent quotes…</div>
-        </div>
-      </div>
-    </div>
-
+    
   </div>
 </div>
 

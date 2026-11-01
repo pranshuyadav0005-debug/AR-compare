@@ -1,7 +1,7 @@
 {
   "name": "coverscope",
   "private": true,
-  "version": "3.10.1",
+  "version": "3.11.0",
   "description": "CoverScope motor insurance comparison with public signup and Google sign-in.",
   "engines": {
     "node": ">=24"
@@ -22,7 +22,8 @@
     "security:live": "node scripts/check-live-security.js",
     "bootstrap:admin": "node scripts/bootstrap-admin-offline.js",
     "test:database": "node --test scripts/test-database-security.cjs",
-    "test:public-auth": "node --test --test-concurrency=1 scripts/test-public-google.cjs scripts/test-public-google-upgrade.cjs"
+    "test:public-auth": "node --test --test-concurrency=1 scripts/test-public-google.cjs scripts/test-public-google-upgrade.cjs",
+    "test:workspace": "node --test scripts/test-public-workspace.cjs"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.13",
