@@ -1,34 +1,54 @@
 {
-  "version": "3.9.0",
-  "date": "2026-10-31",
-  "productionSecurityApproval": "NOT_APPROVED",
-  "currentTests": {
-    "databaseAndIntegration": {
-      "passed": 24,
-      "failed": 0
-    },
-    "security": {
-      "passed": 21,
-      "failed": 0
-    },
-    "coordination": {
+  "version": "3.10.1",
+  "date": "2026-11-01",
+  "publicRegistration": true,
+  "invitationRequired": false,
+  "googleSignInImplemented": true,
+  "newPublicAuthTests": {
+    "passed": 21,
+    "failed": 0
+  },
+  "coordinationTests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "comparisonBrowser": "PASSED",
+  "foundation": {
+    "passed": 16,
+    "failed": 1
+  },
+  "legacySecurity": {
+    "passed": 17,
+    "failed": 4
+  },
+  "legacyDatabase": {
+    "passed": 20,
+    "failed": 4
+  },
+  "legacyTestsModified": "Navigation destination assertions only; security/approval/invitation assertions preserved",
+  "googleLiveProviderConfiguration": "NOT_CONFIGURED_OR_TESTED_HERE",
+  "liveDeployment": "NOT_CHANGED",
+  "productionApproval": "NOT_APPROVED",
+  "report": "BRANDING-UPDATE.md",
+  "previousVersionEvidence": {
+    "coordinationTests": {
       "passed": 7,
       "failed": 0
     },
-    "comparisonBrowser": "PASSED"
-  },
-  "preservedOriginalTests": {
     "foundation": {
       "passed": 16,
       "failed": 1
     },
-    "adminBrowser": "FAILED_OLD_SIGNUP_CONTRACT",
-    "editedOriginalTests": false
+    "legacySecurity": {
+      "passed": 17,
+      "failed": 4
+    },
+    "legacyDatabase": {
+      "passed": 20,
+      "failed": 4
+    }
   },
-  "embeddedPostgresqlInstaller": "EXECUTED_AND_VERIFIED",
-  "hostedSupabase": "NOT_RUN",
-  "productionDeployment": "NOT_RUN",
-  "runtimeImageScan": "NOT_RUN",
-  "dependencyAdvisories": 0,
-  "report": "SECURITY-REVIEW.md"
+  "brand": "CoverScope",
+  "insuranceChooserRemoved": true,
+  "syntaxFilesPassed": 79
 }

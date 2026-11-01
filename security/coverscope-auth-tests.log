@@ -1,0 +1,34 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> coverscope@3.10.1 test:public-auth
+> node --test --test-concurrency=1 scripts/test-public-google.cjs scripts/test-public-google-upgrade.cjs
+
+✔ 005 upgrades the prior testing schema without deleting credentials, quotes or sessions (1710.296639ms)
+✔ public signup requires no invitation and cannot select administrator privileges (2625.852406ms)
+✔ public signup still enforces password, field types, duplicates and same-origin requests (7.154081ms)
+✔ Google options expose only feature flags; OAuth start uses PKCE and signed HttpOnly cookie (4.845094ms)
+✔ verified Google callback creates only a regular user and an application session (28.946057ms)
+✔ returning Google user reuses one account; metadata cannot claim an administrator role (17.93611ms)
+✔ Google callback without flow cookie, with tampered cookie or reused code is rejected (20.616145ms)
+✔ a different browser PKCE verifier cannot exchange the intercepted code (5.320141ms)
+✔ unverified email or a non-Google identity cannot create an app session (10.012703ms)
+✔ deactivated Google users cannot sign in or create a replacement account (14.540159ms)
+✔ Google RPC is inaccessible to browser database roles and has no administrator role parameter (4.21139ms)
+✔ migration is non-destructive, idempotent and includes required identity constraints (6.909998ms)
+✔ failed Google identity audit insert rolls back new account creation (4.238602ms)
+✔ Google sign-in never links to an existing administrator by name or username (1.865617ms)
+✔ browser can register publicly without an invitation, sign in and complete mocked Google OAuth (2078.677382ms)
+✔ privacy notice is public and the new migration passes database permission checks (24.245839ms)
+✔ Google flow cookies expire and reject modified or duplicate values (2.539285ms)
+✔ Google feature cannot use a server service-role key as its publishable key (0.48444ms)
+✔ cross-origin Google start and failed provider consent cannot mint application cookies (2.62421ms)
+✔ both auth entry pages contain Google buttons and no invitation/approval gate (3.005547ms)
+✔ old chooser bookmarks redirect directly and removed chooser assets are unavailable (5.358666ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7217.488703

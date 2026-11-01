@@ -35,12 +35,12 @@ begin
   if not exists(select 1 from pg_trigger where tgrelid='public.quote_submissions'::regclass and tgname='quote_submissions_append_only' and tgenabled <> 'D') then
     raise exception 'Append-only audit trigger missing';
   end if;
-  if not exists(select 1 from public.app_schema_migrations where version='004_transactional_security') then raise exception 'Launch migration missing'; end if;
+  if not exists(select 1 from public.app_schema_migrations where version='005_public_google_auth') then raise exception 'Launch migration missing'; end if;
 end $$;
 do $$ declare r record; role_name text; begin
  if not exists(select 1 from information_schema.columns where table_schema='public' and table_name='app_sessions' and column_name='auth_version' and is_nullable='NO') then raise exception 'Session generation column missing'; end if;
  foreach role_name in array array['anon','authenticated'] loop
-  for r in select p.oid,p.proname from pg_proc p join pg_namespace n on n.oid=p.pronamespace where (n.nspname='app_private' or (n.nspname='public' and p.proname in ('app_provision_advisor','app_reset_advisor_password','app_set_advisor_active'))) loop
+  for r in select p.oid,p.proname from pg_proc p join pg_namespace n on n.oid=p.pronamespace where (n.nspname='app_private' or (n.nspname='public' and p.proname in ('app_provision_advisor','app_reset_advisor_password','app_set_advisor_active','app_sign_in_google'))) loop
    if has_function_privilege(role_name,r.oid,'EXECUTE') then raise exception 'Unexpected function grant: % to %',r.proname,role_name; end if;
   end loop;
  end loop;

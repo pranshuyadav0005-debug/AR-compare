@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Test Portal — Insurance Comparison Tool</title>
-<link rel="icon" type="image/svg+xml" href="assets/test-icon.svg" />
+<title>CoverScope — Insurance Comparison Tool</title>
+<link rel="icon" type="image/svg+xml" href="assets/coverscope-icon.svg" />
 <link rel="stylesheet" href="css/styles.css" />
 <link rel="stylesheet" href="css/comparison-premium.css" />
 <link rel="stylesheet" href="css/workspace.css" />
@@ -19,9 +19,9 @@
   <div class="auth-split">
     <div class="auth-illustration">
       <div class="auth-logo-block">
-        <img class="auth-brand-logo" src="assets/test-wordmark.svg" alt="Test Portal" />
+        <img class="auth-brand-logo" src="assets/coverscope-wordmark.svg" alt="CoverScope" />
         <div class="auth-logo-divider"></div>
-        <div class="auth-tagline">TEST PORTAL<br /><span>INSURANCE DESK</span></div>
+        <div class="auth-tagline">COVERSCOPE<br /><span>INSURANCE DESK</span></div>
       </div>
       <h1 class="auth-headline">One desk.<br /><span>More confidence.</span></h1>
       <p class="auth-intro">Bring every car insurance comparison into focus. A dedicated workspace for your advisory team.</p><div class="auth-journey"><span>01 · Vehicle</span><span>02 · IDV</span><span>03 · Compare</span></div>
@@ -67,7 +67,7 @@
 
     <div class="auth-form-panel">
       <div class="auth-form-inner">
-        <div class="auth-eyebrow">THE ADVISOR WORKSPACE</div><h2 class="auth-heading">Welcome back</h2>
+        <div class="auth-eyebrow">MOTOR INSURANCE COMPARISON</div><h2 class="auth-heading">Welcome back</h2>
         <p class="auth-description">Sign in to your insurance desk.</p><div id="loginInfoBanner" class="banner banner-info" role="status"><span id="loginInfoText"></span></div>
 
         <div id="errorBanner" class="banner banner-error" role="alert">
@@ -75,6 +75,7 @@
           <span id="errorBannerText">Something went wrong.</span>
         </div>
 
+        <button type="button" class="google-auth-btn btn btn-secondary" id="loginGoogleBtn" disabled><span class="google-mark" aria-hidden="true">G</span> Continue with Google</button><p class="google-auth-note" id="loginGoogleNote" role="status">Checking Google sign-in…</p><div class="auth-method-divider">or use a username and password</div>
         <form id="loginForm" novalidate>
           <div class="field" id="usernameField">
             <label for="loginUsername">Username <span class="req">*</span></label>
@@ -111,9 +112,9 @@
   <div class="auth-split">
     <div class="auth-illustration">
       <div class="auth-logo-block">
-        <img class="auth-brand-logo" src="assets/test-wordmark.svg" alt="Test Portal" />
+        <img class="auth-brand-logo" src="assets/coverscope-wordmark.svg" alt="CoverScope" />
         <div class="auth-logo-divider"></div>
-        <div class="auth-tagline">TEST PORTAL<br /><span>INSURANCE DESK</span></div>
+        <div class="auth-tagline">COVERSCOPE<br /><span>INSURANCE DESK</span></div>
       </div>
       <h1 class="auth-headline">Your next chapter.<br /><span>Starts here.</span></h1>
       <p class="auth-intro">Bring every car insurance comparison into focus. A dedicated workspace for your advisory team.</p><div class="auth-journey"><span>01 · Vehicle</span><span>02 · IDV</span><span>03 · Compare</span></div>
@@ -159,7 +160,7 @@
 
     <div class="auth-form-panel">
       <div class="auth-form-inner">
-        <div class="auth-eyebrow">JOIN THE TEAM</div><h2 class="auth-heading">Create account</h2><p class="auth-description">Create your advisor account using a testing invitation code.</p>
+        <div class="auth-eyebrow">COMPARE WITH CONFIDENCE</div><h2 class="auth-heading">Create account</h2><p class="auth-description">Create your CoverScope account. Use fictional vehicle and customer details. <a href="privacy.html" target="_blank" rel="noopener">Privacy notice</a>.</p>
 
         <div id="signupErrorBanner" class="banner banner-error" role="alert">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
@@ -171,6 +172,7 @@
           <span id="signupInfoBannerText">Account created. You can sign in now.</span>
         </div>
 
+        <button type="button" class="google-auth-btn btn btn-secondary" id="signupGoogleBtn" disabled><span class="google-mark" aria-hidden="true">G</span> Continue with Google</button><p class="google-auth-note" id="signupGoogleNote" role="status">Checking Google sign-in…</p><div class="auth-method-divider">or use a username and password</div>
         <form id="signupForm" novalidate>
           <div class="field" id="signupNameField">
             <label for="signupName">Full name <span class="req">*</span></label>
@@ -193,7 +195,6 @@
             </div>
             <div class="field-error">Use at least 15 characters.</div>
           </div>
-          <div class="field" id="signupInviteField"><label for="signupInvite">Advisor invitation code</label><input id="signupInvite" type="password" maxlength="256" autocomplete="off" /><small>Get this code from the test administrator. Registration may be closed.</small></div>
           <button type="submit" class="btn btn-primary" id="signupBtn" style="margin-top: 6px;">
             <span class="spinner"></span>
             <span class="btn-label">Create account</span>
@@ -212,7 +213,7 @@
 <div class="screen" id="screen-dashboard">
   <div class="topbar advisor-topbar">
     <div class="topbar-left">
-      <img class="header-brand-logo" src="assets/test-icon.svg" alt="Test Portal" />
+      <img class="header-brand-logo" src="assets/coverscope-icon.svg" alt="CoverScope" />
     </div>
     <div class="topbar-center">
       <nav class="topbar-nav" aria-label="Primary">
@@ -235,7 +236,7 @@
   <div class="content-wrap dash-content">
     <div class="dashboard-welcome">
       <div class="page-heading dashboard-heading">
-        <div class="greeting-eyebrow">YOUR TEST PORTAL DASHBOARD</div>
+        <div class="greeting-eyebrow">YOUR COVERSCOPE DASHBOARD</div>
         <h1 id="greeting">GOOD MORNING</h1>
         <p id="greetingMessage">Every great comparison starts with a great decision. Let's make today count.</p>
       </div>
@@ -346,7 +347,7 @@
 <div class="screen" id="screen-vehicle-details">
   <div class="topbar advisor-topbar">
     <div class="topbar-left">
-      <img class="header-brand-logo" src="assets/test-icon.svg" alt="Test Portal" />
+      <img class="header-brand-logo" src="assets/coverscope-icon.svg" alt="CoverScope" />
     </div>
     <div class="topbar-center">
       <nav class="topbar-nav" aria-label="Primary">
@@ -465,7 +466,7 @@
 <div class="screen" id="screen-policy-details">
   <div class="topbar advisor-topbar">
     <div class="topbar-left">
-      <img class="header-brand-logo" src="assets/test-icon.svg" alt="Test Portal" />
+      <img class="header-brand-logo" src="assets/coverscope-icon.svg" alt="CoverScope" />
     </div>
     <div class="topbar-center">
       <nav class="topbar-nav" aria-label="Primary">
@@ -588,7 +589,7 @@
 <div class="screen" id="screen-comparison">
   <div class="topbar advisor-topbar">
     <div class="topbar-left">
-      <img class="header-brand-logo" src="assets/test-icon.svg" alt="Test Portal" />
+      <img class="header-brand-logo" src="assets/coverscope-icon.svg" alt="CoverScope" />
     </div>
     <div class="topbar-center"><nav class="topbar-nav" aria-label="Primary"><button type="button" class="topbar-nav-link" data-nav-dashboard>Dashboard</button></nav><form class="topbar-search-form" role="search" aria-label="Search all quotes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg><input type="search" class="topbar-search-input" placeholder="Search saved quotations..." aria-label="Search all quotes" autocomplete="off" /></form></div>
     <div class="topbar-right">
@@ -795,7 +796,7 @@
 <div class="screen" id="screen-reports">
   <div class="topbar advisor-topbar">
     <div class="topbar-left">
-      <img class="header-brand-logo" src="assets/test-icon.svg" alt="Test Portal" />
+      <img class="header-brand-logo" src="assets/coverscope-icon.svg" alt="CoverScope" />
     </div>
     <div class="topbar-center">
       <nav class="topbar-nav" aria-label="Primary">
@@ -864,8 +865,8 @@
 <div class="screen" id="screen-admin">
   <div class="topbar">
     <div class="brand-row" style="margin-bottom: 0;">
-      <img class="header-brand-logo" src="assets/test-icon.svg" alt="Test Portal" />
-      <div class="brand-name">Test Portal — Admin</div>
+      <img class="header-brand-logo" src="assets/coverscope-icon.svg" alt="CoverScope" />
+      <div class="brand-name">CoverScope — Admin</div>
     </div>
     <form class="topbar-search-form" role="search" aria-label="Search all quotes">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
@@ -925,7 +926,7 @@
             <div class="user-security-note">Existing passwords stay private. Reset a password when an advisor needs access restored.</div>
             <button class="btn btn-primary add-user-btn" type="button" id="addUserBtn">+ Add User</button>
           </div>
-          <div class="admin-filters"><label class="admin-search-label" for="userSearch">Search advisors<input type="search" id="userSearch" placeholder="Name or username" /></label><label for="userFilter">Account status<select id="userFilter"><option value="all">All advisors</option><option value="active">Active</option><option value="inactive">Inactive</option><option value="pending">Pending</option><option value="rejected">Rejected</option></select></label></div><div id="userLoadError" class="admin-load-error" hidden role="alert"></div>
+          <div class="admin-filters"><label class="admin-search-label" for="userSearch">Search advisors<input type="search" id="userSearch" placeholder="Name or username" /></label><label for="userFilter">Account status<select id="userFilter"><option value="all">All advisors</option><option value="active">Active</option><option value="inactive">Inactive</option></select></label></div><div id="userLoadError" class="admin-load-error" hidden role="alert"></div>
           <div id="advisorUserLoading" class="approval-empty">Loading advisor users…</div>
           <div id="advisorUserList" class="user-list" style="display:none;"></div>
           <div id="advisorUserEmpty" class="approval-empty" style="display:none;">No advisors match this view.</div>

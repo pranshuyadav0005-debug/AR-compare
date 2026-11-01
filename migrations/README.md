@@ -1,16 +1,11 @@
 # Database installation and upgrades
 
-For a fresh TEST project, run `sql/Testing-Database.sql` once; do not run these incremental migrations as well. That installer already includes the final 001–004 state.
+For the existing V39 testing database with migrations 001–004, apply ONLY 005_public_google_auth.sql. No rows are deleted and the update is safe to rerun.
 
-For an EXISTING app database, back up and test restoring it, then review and apply:
+Earlier installations must apply 001_backend_access_and_audit.sql, 002_quote_revisions.sql, 003_public_launch.sql, 004_transactional_security.sql and 005_public_google_auth.sql in that order after backup/staging review.
 
-1. 001_backend_access_and_audit.sql
-2. 002_quote_revisions.sql
-3. 003_public_launch.sql
-4. 004_transactional_security.sql
+For a fresh empty project, sql/Testing-Database.sql already contains the final 001–005 schema, sample rates and an admin row without a preset password. Do not run a fresh installer over an existing database.
 
-001 restricts browser grants and protects quotation submission history. 002 adds quote revision checks. 003 normalizes old pending/rejected advisors to inactive, disables legacy Supabase Auth signup provisioning and removes an old RPC grant. 004 introduces credential generations, transaction-based account creation/reset/status changes, database-enforced session revocation, immutable security audit history and tighter backend table privileges. Its first application revokes existing sessions; reapplying it does not revoke new sessions.
+005 adds a nullable unique hashed-Google-subject column and a restricted transactional Google-account RPC. It does not delete or revoke existing username/password accounts, sessions, quotes or audit history. The current upgrade test installs the prior schema, preserves these records, applies 005 twice and verifies the new Google mapping/permissions. Hosted Supabase configuration still needs verification.
 
-No migration deletes stored rows. Existing foreign keys and weaker old constraints are not destructively rebuilt by 004. The fresh testing schema adds stronger input and same-advisor CRM relationship constraints directly. Review production data before planning any further constraint changes.
-
-After upgrading, run `security/verify-database.sql`. Existing databases were exercised locally from the archived original schema using embedded PostgreSQL; your actual Supabase project's grants, Auth configuration and schema still need validation. Never rerun `sql/legacy_schema_reference.sql`: it is an historical reference used by upgrade tests and contains obsolete browser-facing Auth objects.
+Run security/verify-database.sql after migration. Leave the old Supabase Auth signup trigger disabled and old browser table grants revoked. Google login uses verified provider identities through the new server-only flow, not legacy Auth provisioning functions.

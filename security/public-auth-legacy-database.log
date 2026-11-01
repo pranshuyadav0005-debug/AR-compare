@@ -1,0 +1,115 @@
+✖ complete schema installs all 12 application tables and four migration markers (2126.125462ms)
+✔ fresh installer refuses existing tables without changing records (5.980136ms)
+✔ all tables have RLS enabled and no browser-facing policies (3.271927ms)
+✔ anon and authenticated roles cannot read any application table (30.783952ms)
+✔ browser roles cannot execute account RPCs or private trigger functions (9.446527ms)
+✔ backend cannot edit provider configuration, audit history or migration markers (5.60444ms)
+✔ audit tables reject even owner UPDATE, DELETE and TRUNCATE (3.405308ms)
+✔ duplicate usernames, invalid roles, malformed hashes and negative IDV are rejected (3.401833ms)
+✔ account creation rolls back fully when its audit insert fails (5.462877ms)
+✔ password reset atomically increments credential version and revokes sessions (212.730402ms)
+✔ failed reset rolls back password, credential version and session revocation (5.349427ms)
+✔ deactivation invalidates generation; reactivation cannot revive the old session (8.169775ms)
+✔ advisor actor cannot invoke administrator reset or status actions (1.964338ms)
+✔ composite foreign keys prevent cross-advisor CRM links (1.751027ms)
+✔ no legacy Supabase Auth functions or public security-definer RPCs exist (1.613831ms)
+✔ real SQL via HTTP: invitation signup, advisor access, admin create/reset and readiness (1175.188621ms)
+✖ real browser uses invitation signup, immediate advisor login and admin team management (30537.14325ms)
+✔ read-only deployment verification SQL succeeds against the installed schema (17.296329ms)
+✔ future owner-created tables/functions do not inherit browser access (5.708784ms)
+✖ real SQL quote persistence, immutable audit and cross-advisor isolation (462.815606ms)
+✔ complete downloadable installer supplies sample rates and an admin without a password (1265.489786ms)
+✖ existing database upgrade preserves accounts and quotations and revokes only pre-upgrade sessions once (1146.708089ms)
+✔ expired or administratively revoked sessions can clear browser cookies through logout (217.553795ms)
+✔ short and non-string credentials are rejected without creating accounts (3.708037ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 20
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37593.388366
+
+✖ failing tests:
+
+test at scripts/test-database-security.cjs:11:1
+✖ complete schema installs all 12 application tables and four migration markers (2126.125462ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  5 !== 4
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-database-security.cjs:11:230)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 5,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-database-security.cjs:27:1
+✖ real browser uses invitation signup, immediate advisor login and admin team management (30537.14325ms)
+  locator.fill: Timeout 30000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('#signupInvite')[22m
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-database-security.cjs:30:414) {
+    name: 'TimeoutError',
+    log: [ "  - waiting for locator('#signupInvite')" ]
+  }
+
+test at scripts/test-database-security.cjs:34:1
+✖ real SQL quote persistence, immutable audit and cross-advisor isolation (462.815606ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  401 !== 200
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-database-security.cjs:38:202)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 401,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-database-security.cjs:47:1
+✖ existing database upgrade preserves accounts and quotations and revokes only pre-upgrade sessions once (1146.708089ms)
+  error: Launch migration missing
+      at qe.An (/workspace/scratch/32efd9aeeb41/testing-tools/node_modules/@electric-sql/pglite/dist/index.cjs:4:30959)
+      at qe.Fi (/workspace/scratch/32efd9aeeb41/testing-tools/node_modules/@electric-sql/pglite/dist/index.cjs:4:28328)
+      at qe.parse (/workspace/scratch/32efd9aeeb41/testing-tools/node_modules/@electric-sql/pglite/dist/index.cjs:4:26983)
+      at ae.ni (/workspace/scratch/32efd9aeeb41/testing-tools/node_modules/@electric-sql/pglite/dist/index.cjs:15:1789)
+      at /workspace/scratch/32efd9aeeb41/testing-tools/node_modules/@electric-sql/pglite/dist/index.cjs:15:1161
+      at wasm://wasm/022aac12:wasm-function[10953]:0x52a5d7
+      at wasm://wasm/022aac12:wasm-function[3598]:0x2159d1
+      at wasm://wasm/022aac12:wasm-function[3640]:0x21ce4a
+      at wasm://wasm/022aac12:wasm-function[3650]:0x21d07f
+      at wasm://wasm/022aac12:wasm-function[9935]:0x4d6fbb {
+    length: 140,
+    severity: 'ERROR',
+    code: 'P0001',
+    detail: undefined,
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: 'PL/pgSQL function inline_code_block line 35 at RAISE',
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'pl_exec.c',
+    line: '3923',
+    routine: 'exec_stmt_raise',
+    query: "-- READ ONLY assertions. Run as database owner in the dedicated app project.\n-- A successful result proves only the checks listed here, not overall security.\nbegin read only;\ndo $$\ndeclare tbl text; role_name text; privilege_name text; function_oid oid; function_name text;\nbegin\n  foreach tbl in array array['advisors','app_passwords','app_sessions','insurers','rate_cards','quotes','quote_submissions','audit_logs','customers','vehicles','policies','app_schema_migrations'] loop\n    if not exists(select 1 from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relname=tbl and c.relrowsecurity) then\n      raise exception 'RLS missing on %',tbl;\n    end if;\n    foreach role_name in array array['anon','authenticated'] loop\n      foreach privilege_name in array array['SELECT','INSERT','UPDATE','DELETE','TRUNCATE','REFERENCES','TRIGGER'] loop\n        if has_table_privilege(role_name,format('public.%I',tbl),privilege_name) then\n          raise exception 'Unexpected % privilege for % on %',privilege_name,role_name,tbl;\n        end if;\n      end loop;\n    end loop;\n  end loop;\n  if exists(select 1 from public.advisors where approval_status <> 'approved') then\n    raise exception 'Legacy account access migration incomplete';\n  end if;\n  foreach function_name in array array['get_email_for_username','get_advisor_requests','set_advisor_approval','get_advisor_users','set_advisor_active','is_current_user_admin','handle_new_advisor_signup'] loop\n    for function_oid in select p.oid from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname=function_name loop\n      foreach role_name in array array['anon','authenticated'] loop\n        if has_function_privilege(role_name,function_oid,'EXECUTE') then raise exception 'Legacy RPC exposed: % to %',function_name,role_name; end if;\n      end loop;\n    end loop;\n  end loop;\n  if exists(select 1 from pg_trigger where tgrelid=to_regclass('auth.users') and tgname='on_auth_user_created' and not tgisinternal) then\n    raise exception 'Legacy Auth provisioning is still enabled';\n  end if;\n  if has_table_privilege('service_role','public.quote_submissions','UPDATE') or has_table_privilege('service_role','public.quote_submissions','DELETE') or has_table_privilege('service_role','public.quote_submissions','TRUNCATE') then\n    raise exception 'Submission audit log is mutable';\n  end if;\n  if not exists(select 1 from pg_trigger where tgrelid='public.quote_submissions'::regclass and tgname='quote_submissions_append_only' and tgenabled <> 'D') then\n    raise exception 'Append-only audit trigger missing';\n  end if;\n  if not exists(select 1 from public.app_schema_migrations where version='005_public_google_auth') then raise exception 'Launch migration missing'; end if;\nend $$;\ndo $$ declare r record; role_name text; begin\n if not exists(select 1 from information_schema.columns where table_schema='public' and table_name='app_sessions' and column_name='auth_version' and is_nullable='NO') then raise exception 'Session generation column missing'; end if;\n foreach role_name in array array['anon','authenticated'] loop\n  for r in select p.oid,p.proname from pg_proc p join pg_namespace n on n.oid=p.pronamespace where (n.nspname='app_private' or (n.nspname='public' and p.proname in ('app_provision_advisor','app_reset_advisor_password','app_set_advisor_active','app_sign_in_google'))) loop\n   if has_function_privilege(role_name,r.oid,'EXECUTE') then raise exception 'Unexpected function grant: % to %',r.proname,role_name; end if;\n  end loop;\n end loop;\n if has_table_privilege('service_role','public.audit_logs','UPDATE') or has_table_privilege('service_role','public.audit_logs','DELETE') or has_table_privilege('service_role','public.audit_logs','TRUNCATE') then raise exception 'Security audit log is mutable'; end if;\n for r in select * from (values('advisors','account_security_change'),('app_passwords','password_security_change'),('app_sessions','session_generation_check'),('audit_logs','audit_logs_append_only')) as expected(tbl,trig) loop\n  if not exists(select 1 from pg_trigger where tgrelid=format('public.%I',r.tbl)::regclass and tgname=r.trig and tgenabled<>'D') then raise exception 'Security trigger missing: %',r.trig; end if;\n end loop;\nend $$;\nselect 'LISTED DATABASE ASSERTIONS PASSED; NOT AN OVERALL SECURITY APPROVAL' as result;\nrollback;\n",
+    params: undefined,
+    queryOptions: undefined
+  }

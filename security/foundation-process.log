@@ -1,0 +1,54 @@
+✔ only public files can be served, including encoded and symlink probes (548.958958ms)
+✔ session binding and role permissions reject forged CSRF and advisor administration (15.593719ms)
+✔ invalid vehicle, dates, NCB, discount, addons and IDV are rejected before provider calls (46.364614ms)
+✔ configured estimates are saved and owner-scoped; another advisor cannot update them (24.267566ms)
+✔ catalogue vehicles without prices retain manual IDV and exact adjustment bounds (25.292003ms)
+✔ valid live quotes preserve provider totals and audit redacts credentials (31.672398ms)
+✔ provider failures and incomplete responses remain unavailable, never estimates or zero-priced plans (35.393159ms)
+✔ save and configuration failures are explicit; there is no fallback insurer registry (8.059732ms)
+✔ normalization rejects empty money and retries respect non-retryable errors (4.080954ms)
+✔ production requires database configuration and configured provider hosts/credentials (81.320195ms)
+✔ password reset revokes sessions and login rate limits work without Redis or trusted forwarding headers (2072.934395ms)
+✔ request keys coalesce duplicate submissions, reject changed input, and replay an update (205.280999ms)
+✔ concurrent quotation updates use an atomic revision condition (101.071222ms)
+{"scenario":"30 advisors, three insurers each, provider delay 150ms, database delay 5ms","requests":30,"offered":"All requests launched together (within a five-second window)","ok":30,"busy":0,"liveQuotes":90,"timedOutQuotes":0,"p50Ms":883,"p95Ms":1486,"p99Ms":1488,"maxMs":1488,"providerPeak":10,"dbPeak":20}
+✔ 200 seeded advisors; 30 simultaneous comparisons with three 150ms insurers (1497.317332ms)
+{"scenario":"30 advisors, insurer delay 8000ms exceeds response window","requests":30,"offered":"All requests launched together (within a five-second window)","ok":30,"busy":0,"liveQuotes":0,"timedOutQuotes":30,"p50Ms":3980,"p95Ms":3984,"p99Ms":3985,"maxMs":3985,"providerPeak":10,"dbPeak":1}
+✔ deadline retains fast results and cancels queued provider work (8008.268978ms)
+{"scenario":"65 simultaneous advisors exceed admission limit of 60","requests":65,"offered":"All requests launched together (within a five-second window)","ok":60,"busy":5,"liveQuotes":0,"timedOutQuotes":60,"p50Ms":4052,"p95Ms":4080,"p99Ms":4080,"maxMs":4080,"providerPeak":10,"dbPeak":1}
+✔ overload is rejected promptly instead of growing the comparison queue (4084.636197ms)
+✖ admin advisor lists exclude administrators and approval races cannot overwrite a review (8.707048ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17264.519319
+
+✖ failing tests:
+
+test at scripts/test-foundation.js:203:1
+✖ admin advisor lists exclude administrators and approval races cannot overwrite a review (8.707048ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   404,
+  +   404
+  -   200,
+  -   409
+    ]
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-foundation.js:207:118)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 404, 404 ],
+    expected: [ 200, 409 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

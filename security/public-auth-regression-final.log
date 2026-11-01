@@ -1,0 +1,30 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.10.0 test
+> npm run test:backend && npm run test:pricing && npm run test:stage4 && npm run test:foundation && node --test scripts/test-capacity.js scripts/test-redis.js
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.10.0 test:backend
+> node scripts/test-backend.js
+
+Backend security structure checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.10.0 test:pricing
+> node scripts/test-pricing.js
+
+Pricing / discount tests passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.10.0 test:stage4
+> node scripts/test-stage4.js
+
+Stage 4 smoke tests passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.10.0 test:foundation
+> node --test scripts/test-foundation.js
+
+✔ only public files can be served, including encoded and symlink probes (470.107943ms)
+✔ session binding and role permissions reject forged CSRF and advisor administration (18.233251ms)

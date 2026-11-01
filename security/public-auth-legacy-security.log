@@ -1,0 +1,107 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.9.1 test:security
+> node --test scripts/test-public-security.cjs scripts/test-production-transport.cjs scripts/test-v39-security.cjs
+
+✔ production transport rejects wrong host and HTTP; trusted HTTPS adds HSTS (384.366023ms)
+✖ invitation is required and invalid signup performs no database writes (688.974987ms)
+✔ invited signup ignores injected administrator role and is immediately usable (501.680489ms)
+✔ duplicate registration cannot replace an existing password or grant admin (3.37542ms)
+✔ approval queue and mutation routes no longer exist (2.875337ms)
+✔ anonymous private data and administration are denied (7.154909ms)
+✔ origin spoofing cannot log in or register (9.32137ms)
+✔ JSON type, malformed JSON, body size and unsupported methods are rejected (19.8401ms)
+✔ security headers, request identifiers and private file protection (5.705668ms)
+✔ unknown user and wrong password give the same error (269.085865ms)
+✔ password reset and deactivation invalidate existing sessions (764.225213ms)
+✔ readiness fails closed without migration evidence (2.951372ms)
+✖ production configuration rejects unsafe origin, invite and web bootstrap (215.450687ms)
+✔ production cannot issue cookies over an insecure request or invoke web bootstrap (4.570338ms)
+✖ registration is closed without an invitation configured (1.806048ms)
+✖ approval controls removed from HTML and browser code (4.869589ms)
+✔ remote JSON responses are bounded before parsing, including chunked bodies (3.427419ms)
+✔ new credentials use stronger scrypt parameters while legacy verification remains compatible (865.061347ms)
+✔ production session cookies use host-only names and required secure attributes (288.304995ms)
+✔ duplicate security cookies are rejected and prototype cookie keys cannot mutate objects (0.270808ms)
+✔ vehicle verification rejects non-HTTPS and non-allowlisted destinations without a network call (2.680675ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 17
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2935.811623
+
+✖ failing tests:
+
+test at scripts/test-public-security.cjs:19:1
+✖ invitation is required and invalid signup performs no database writes (688.974987ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  201 !== 403
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-public-security.cjs:21:47)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 201,
+    expected: 403,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-public-security.cjs:74:1
+✖ production configuration rejects unsafe origin, invite and web bootstrap (215.450687ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-public-security.cjs:77:164)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-public-security.cjs:89:1
+✖ registration is closed without an invitation configured (1.806048ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 403
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-public-security.cjs:91:146)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 403,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-public-security.cjs:93:1
+✖ approval controls removed from HTML and browser code (4.869589ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(html.includes('id="signupInvite"'))
+  
+      at TestContext.<anonymous> (/workspace/scratch/32efd9aeeb41/work/public-insurance-test/scripts/test-public-security.cjs:94:263)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

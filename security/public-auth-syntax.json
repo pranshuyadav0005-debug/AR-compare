@@ -1,0 +1,11 @@
+{
+  "syntaxFiles": 80,
+  "syntaxFailures": [],
+  "modifiedExistingTests": [],
+  "publicAuthTests": {
+    "passed": 20,
+    "failed": 0
+  },
+  "realGoogleOAuth": "NOT_CONFIGURED_OR_TESTED",
+  "liveDeployment": "NOT_CHANGED"
+}

@@ -6,7 +6,7 @@
   if(!data.session||!['admin','advisor'].includes(data.session.role))throw new Error('Could not restore your session. Please sign in.');
   session=data.session;updateRoleChips();
   if(session.role==='admin'){showScreen('screen-admin');await loadAdminPanel();}
-  else location.replace('insurance-selection.html');
+  else location.replace('motor-insurance.html');
  }catch(error){if(error.status!==401)showLoginError(error.message||'Unable to check your session. Please retry.');}
  finally{setLoginLoading(false);}
 })();

@@ -1,0 +1,33 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> insurance-testing-portal@3.10.0 test:public-auth
+> node --test --test-concurrency=1 scripts/test-public-google.cjs scripts/test-public-google-upgrade.cjs
+
+✔ 005 upgrades the prior testing schema without deleting credentials, quotes or sessions (1830.763627ms)
+✔ public signup requires no invitation and cannot select administrator privileges (2557.348366ms)
+✔ public signup still enforces password, field types, duplicates and same-origin requests (8.231749ms)
+✔ Google options expose only feature flags; OAuth start uses PKCE and signed HttpOnly cookie (4.580374ms)
+✔ verified Google callback creates only a regular user and an application session (36.318876ms)
+✔ returning Google user reuses one account; metadata cannot claim an administrator role (34.571194ms)
+✔ Google callback without flow cookie, with tampered cookie or reused code is rejected (26.162921ms)
+✔ a different browser PKCE verifier cannot exchange the intercepted code (6.883629ms)
+✔ unverified email or a non-Google identity cannot create an app session (26.983641ms)
+✔ deactivated Google users cannot sign in or create a replacement account (18.659723ms)
+✔ Google RPC is inaccessible to browser database roles and has no administrator role parameter (4.185099ms)
+✔ migration is non-destructive, idempotent and includes required identity constraints (9.614985ms)
+✔ failed Google identity audit insert rolls back new account creation (5.372555ms)
+✔ Google sign-in never links to an existing administrator by name or username (2.460883ms)
+✔ browser can register publicly without an invitation, sign in and complete mocked Google OAuth (1062.566878ms)
+✔ privacy notice is public and the new migration passes database permission checks (20.101673ms)
+✔ Google flow cookies expire and reject modified or duplicate values (2.134562ms)
+✔ Google feature cannot use a server service-role key as its publishable key (0.579882ms)
+✔ cross-origin Google start and failed provider consent cannot mint application cookies (3.112615ms)
+✔ both auth entry pages contain Google buttons and no invitation/approval gate (4.344388ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6360.685729

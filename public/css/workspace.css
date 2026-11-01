@@ -22,9 +22,9 @@
 @media(prefers-reduced-motion:reduce){.auth-split *,#screen-admin *{scroll-behavior:auto;transition:none!important}}
 
 #screen-admin [hidden]{display:none!important}
-.insurance-selection-card{background:#fff;box-shadow:0 12px 45px #10284908;border:1px solid #e0e6ee;border-radius:18px}.insurance-selection-heading h1{color:#173963;font-size:34px;letter-spacing:-.04em}.insurance-selection-heading p{font-size:15px}.insurance-options{gap:16px}.insurance-option{border-radius:12px;padding:24px}.insurance-option h2{font-size:20px;letter-spacing:-.025em}.insurance-option p{font-size:14px}.insurance-option:disabled{opacity:.6;cursor:wait}.insurance-option:first-child{background:#102849;border-color:#102849}.insurance-option:first-child h2{color:#fff}.insurance-option:first-child p{color:#c0ccdc}.insurance-option:first-child .option-action{color:#edbd70;font-size:13px}.selection-status{text-align:center;font-size:12px;color:#657991;margin-top:24px}.insurance-selection-card [hidden]{display:none!important}.insurance-selection-card #selectionRetry{width:auto;margin:16px auto 0}.insurance-selection-card #selectionRetry:not([hidden]){display:block}
-@media(max-width:700px){.insurance-selection-wrap{padding:20px 14px}.insurance-selection-heading h1{font-size:28px}.insurance-selection-card{padding:28px 20px}.insurance-option{padding:22px}}
 
-.auth-form-inner button,#screen-admin button,#screen-admin input,#screen-admin select,.access-dialog button,.insurance-selection-card button{font-family:var(--font-body)}
+.auth-form-inner button,#screen-admin button,#screen-admin input,#screen-admin select,.access-dialog button{font-family:var(--font-body)}
 
 .insurance-option .option-icon{color:#426180;display:flex;align-items:center;height:38px}.insurance-option:first-child .option-icon{color:#edbd70}
+
+.google-auth-btn{width:100%;display:flex;justify-content:center;align-items:center;gap:12px;min-height:48px;background:#fff!important;color:#163557!important;border:1px solid #cbd5e1!important}.google-auth-btn:disabled{opacity:.6;cursor:not-allowed}.google-mark{font:700 20px Arial,sans-serif;color:#4285f4}.google-auth-note{text-align:center;font-size:12px;color:#64748b;margin:9px 0 16px}.auth-method-divider{display:flex;align-items:center;gap:12px;color:#64748b;font-size:12px;margin-bottom:20px}.auth-method-divider:before,.auth-method-divider:after{content:'';height:1px;background:#dce3ec;flex:1}
