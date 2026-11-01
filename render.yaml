@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: insurance-public-testing
+    name: coverscope
     runtime: docker
     plan: starter
     healthCheckPath: /api/health

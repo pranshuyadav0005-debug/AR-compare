@@ -155,7 +155,7 @@ function safeStaticPath(urlPath) {
   const relative = decoded === '/' ? 'index.html' : decoded.replace(/^\/+/, '');
   if (relative.split('/').some(part => part.startsWith('.') || part === '..')) return null;
   // Only public entry pages and known asset types are web-accessible.
-  if (!['index.html', 'motor-insurance.html', 'insurance-selection.html', 'privacy.html'].includes(relative) &&
+  if (!['index.html', 'motor-insurance.html', 'privacy.html'].includes(relative) &&
       !/^(?:css|js|assets)\/[A-Za-z0-9_./-]+\.(?:css|js|png|jpg|jpeg|svg|ico|webp|woff2?)$/i.test(relative)) return null;
   const resolved = path.resolve(STATIC_ROOT, relative);
   try {
@@ -168,6 +168,10 @@ function safeStaticPath(urlPath) {
 const mime = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
 
 function staticFile(req, res) {
+  // Keep existing bookmarks working after removing the insurance chooser.
+  if (new URL(req.url || '/', 'http://localhost').pathname === '/insurance-selection.html') {
+    return send(res, 302, '', { location: '/motor-insurance.html', 'cache-control': 'no-store' });
+  }
   const file = safeStaticPath(req.url || '/');
   if (!file || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
     return send(res, 404, 'Not found', { 'content-type': 'text/plain; charset=utf-8' });
@@ -220,7 +224,7 @@ server.maxRequestsPerSocket = 1000;
 server.maxConnections = 512;
 server.requestTimeout = 30000;
 server.headersTimeout = 10000;
-server.listen(PORT, HOST, () => console.log(`Test Portal private server listening on ${HOST}:${server.address().port}`));
+server.listen(PORT, HOST, () => console.log(`CoverScope server listening on ${HOST}:${server.address().port}`));
 
 function shutdown() {
   if (draining) return;

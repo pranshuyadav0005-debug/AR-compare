@@ -35,7 +35,7 @@ exports.callback=async event=>{
   const account=rows?.[0];
   if(!account||account.role!=='advisor'||!account.is_active||account.approval_status!=='approved')throw new Error();
   stage='session';const session=await createSession(account);
-  return redirect('/insurance-selection.html',[clear,...authCookies(session,event)]);
+  return redirect('/motor-insurance.html',[clear,...authCookies(session,event)]);
  }catch(error){
   console.warn(JSON.stringify({event:'google_sign_in_failed',stage,requestId:event.headers?.['x-request-id'],remoteStatus:Number.isInteger(error.status)?error.status:undefined}));
   return redirect('/index.html?auth_error=google_failed',[clear]);

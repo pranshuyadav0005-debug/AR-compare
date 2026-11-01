@@ -1,3 +1,5 @@
+> Prior review for version 3.10.0. For the current 3.10.1 branding/navigation changes and new verification, see BRANDING-UPDATE.md. The statement below that original tests were unchanged describes 3.10.0; 3.10.1 updates navigation assertions and strengthens browser coverage.
+
 # Public signup and Google auth review — 3.10.0
 
 Review date: 31 October 2026. This is a code/database update for public testers. No repository push, live database migration, Google Cloud/Supabase provider configuration or production deployment was performed in this task.

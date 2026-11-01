@@ -12,7 +12,7 @@ Deploy this build once with GOOGLE_AUTH_ENABLED=false before publishing the Goog
 
 ## 2. Configure Google OAuth
 
-In Google Cloud / Google Auth Platform, create or choose a project and configure the app name as a neutral test portal. Choose an External audience for public testers. Request only the basic openid, email and profile scopes; do not add Gmail/Drive scopes.
+In Google Cloud / Google Auth Platform, create or choose a project and configure the app name as CoverScope. Choose an External audience for public testers. Request only the basic openid, email and profile scopes; do not add Gmail/Drive scopes.
 
 Create an OAuth Client ID of type Web application:
 

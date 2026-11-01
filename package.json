@@ -1,8 +1,8 @@
 {
-  "name": "insurance-testing-portal",
+  "name": "coverscope",
   "private": true,
-  "version": "3.10.0",
-  "description": "Public insurance testing portal with username signup and Google sign-in.",
+  "version": "3.10.1",
+  "description": "CoverScope motor insurance comparison with public signup and Google sign-in.",
   "engines": {
     "node": ">=24"
   },
